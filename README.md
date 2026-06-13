@@ -1,7 +1,7 @@
 
-  # Create app introduction website
+  # NativeWebsite
 
-  This is a code bundle for Create app introduction website. The original project is available at https://www.figma.com/design/QgasVIGb6aNbN2URd46ppu/Create-app-introduction-website.
+  This is a code bundle for NativeWebsite. The original project is available at https://www.figma.com/design/QgasVIGb6aNbN2URd46ppu/NativeWebsite.
 
   ## Running the code
 
