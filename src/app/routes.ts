@@ -5,6 +5,9 @@ import { AboutPage } from "./pages/AboutPage";
 import { FeaturesPage } from "./pages/FeaturesPage";
 import { HowItWorksPage } from "./pages/HowItWorksPage";
 import { ValuesPage } from "./pages/ValuesPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
+import { TermsPage } from "./pages/TermsPage";
+import { CookiePage } from "./pages/CookiePage";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +19,9 @@ export const router = createBrowserRouter([
       { path: "features", Component: FeaturesPage },
       { path: "how-it-works", Component: HowItWorksPage },
       { path: "values", Component: ValuesPage },
+      { path: "privacy", Component: PrivacyPage },
+      { path: "terms", Component: TermsPage },
+      { path: "cookies", Component: CookiePage },
     ],
   },
 ]);
