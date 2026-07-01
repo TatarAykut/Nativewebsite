@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useTheme } from "../theme/ThemeContext";
 import logoImg from "../../imports/natfr.png";
 
 const WHITE_REMOVE_FILTER = `
@@ -25,6 +26,7 @@ export function Navbar() {
   const langRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { t, language, setLanguage, languages } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -43,6 +45,7 @@ export function Navbar() {
   }, []);
 
   const links = [
+    { label: t.nav.home, href: "/" },
     { label: t.nav.about, href: "/about" },
     { label: t.nav.features, href: "/features" },
     { label: t.nav.howItWorks, href: "/how-it-works" },
@@ -54,7 +57,9 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0b1829]/95 backdrop-blur-md border-b border-white/8 shadow-xl" : "bg-transparent"
+        scrolled
+          ? "bg-[var(--nw-bg)]/95 backdrop-blur-md border-b border-[var(--nw-border)] shadow-xl"
+          : "bg-transparent"
       }`}
     >
       <div dangerouslySetInnerHTML={{ __html: WHITE_REMOVE_FILTER }} />
@@ -76,7 +81,7 @@ export function Navbar() {
                 className={`text-sm transition-colors duration-200 tracking-wide ${
                   location.pathname === l.href
                     ? "text-[#f07b22]"
-                    : "text-[#8da3b8] hover:text-[#f0ece4]"
+                    : "text-[var(--nw-muted)] hover:text-[var(--nw-text)]"
                 }`}
               >
                 {l.label}
@@ -86,11 +91,20 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:flex items-center gap-3">
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/40 transition-all duration-200"
+          >
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+
           {/* Language switcher */}
           <div ref={langRef} className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-2 border border-white/15 text-[#8da3b8] hover:text-[#f0ece4] hover:border-white/30 px-3 py-2 rounded-full text-sm transition-all duration-200"
+              className="flex items-center gap-2 border border-[var(--nw-border)] text-[var(--nw-muted)] hover:text-[var(--nw-text)] hover:border-[var(--nw-border)] px-3 py-2 rounded-full text-sm transition-all duration-200"
             >
               <span>{currentLang.flag}</span>
               <span className="hidden lg:inline">{currentLang.nativeName}</span>
@@ -98,13 +112,13 @@ export function Navbar() {
             </button>
 
             {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-[#122035] border border-white/10 rounded-xl overflow-hidden shadow-2xl w-44 z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-xl overflow-hidden shadow-2xl w-44 z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
-                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-white/5 transition-colors ${
-                      language === lang.code ? "text-[#f07b22] bg-[#f07b22]/5" : "text-[#8da3b8]"
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-[var(--nw-border-subtle)] transition-colors ${
+                      language === lang.code ? "text-[#f07b22] bg-[#f07b22]/5" : "text-[var(--nw-muted)]"
                     }`}
                   >
                     <span className="text-base">{lang.flag}</span>
@@ -118,30 +132,40 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
-            className="inline-flex items-center gap-2 bg-[#f07b22] text-[#0b1829] px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-[#ffa04a] hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-[var(--nw-accent-hover)] hover:scale-105 active:scale-95"
             style={{ fontWeight: 600 }}
           >
             {t.nav.cta}
           </Link>
         </div>
 
-        <button
-          className="md:hidden text-[#f0ece4] p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          {/* Mobile theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)]"
+          >
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+          <button
+            className="text-[var(--nw-text)] p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-[#0b1829]/98 backdrop-blur-md border-t border-white/8 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[var(--nw-bg)]/98 backdrop-blur-md border-t border-[var(--nw-border)] px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link
               key={l.href}
               to={l.href}
-              className={`py-2 border-b border-white/8 last:border-0 ${
-                location.pathname === l.href ? "text-[#f07b22]" : "text-[#f0ece4]"
+              className={`py-2 border-b border-[var(--nw-border)] last:border-0 ${
+                location.pathname === l.href ? "text-[#f07b22]" : "text-[var(--nw-text)]"
               }`}
               onClick={() => setMenuOpen(false)}
             >
@@ -149,7 +173,6 @@ export function Navbar() {
             </Link>
           ))}
 
-          {/* Mobile language selector */}
           <div className="flex gap-2 flex-wrap pt-1">
             {languages.map((lang) => (
               <button
@@ -158,7 +181,7 @@ export function Navbar() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all ${
                   language === lang.code
                     ? "border-[#f07b22] text-[#f07b22] bg-[#f07b22]/10"
-                    : "border-white/15 text-[#8da3b8]"
+                    : "border-[var(--nw-border)] text-[var(--nw-muted)]"
                 }`}
               >
                 <span>{lang.flag}</span>
@@ -169,7 +192,7 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
-            className="bg-[#f07b22] text-[#0b1829] px-5 py-3 rounded-full text-center mt-1"
+            className="bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-3 rounded-full text-center mt-1"
             style={{ fontWeight: 600 }}
             onClick={() => setMenuOpen(false)}
           >

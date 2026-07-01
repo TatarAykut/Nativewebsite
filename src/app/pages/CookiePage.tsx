@@ -1,13 +1,13 @@
 export function CookiePage() {
   return (
-    <div className="pt-24 pb-20 bg-[#0b1829] min-h-screen">
+    <div className="pt-24 pb-20 bg-[var(--nw-bg)] min-h-screen">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="py-16 border-b border-white/8 mb-12">
+        <div className="py-16 border-b border-[var(--nw-border)] mb-12">
           <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">Legal</span>
-          <h1 className="text-4xl md:text-5xl text-[#f0ece4] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
+          <h1 className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             Cookie Policy
           </h1>
-          <p className="text-[#8da3b8]">Last updated: 1 June 2026</p>
+          <p className="text-[var(--nw-muted)]">Last updated: 1 June 2026</p>
         </div>
 
         <div className="prose-nw">
@@ -23,13 +23,13 @@ export function CookiePage() {
           <Section title="3. Cookies We Use">
             <p>We use three categories of cookies:</p>
 
-            <div className="mt-4 mb-6 rounded-xl overflow-hidden border border-white/8">
+            <div className="mt-4 mb-6 rounded-xl overflow-hidden border border-[var(--nw-border)]">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-[#122035]">
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>Category</th>
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>Purpose</th>
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>Duration</th>
+                  <tr className="bg-[var(--nw-bg-card)]">
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>Category</th>
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>Purpose</th>
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>Duration</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,10 +38,10 @@ export function CookiePage() {
                     ["Functional", "Remembering your language preference, theme, and saved cities. Stored in localStorage, not sent to our servers.", "1 year"],
                     ["Performance", "Anonymised error reports sent to Sentry to help us fix bugs. No personally identifiable information is included.", "Session"],
                   ].map(([cat, purpose, duration], i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-[#0d1829]" : "bg-[#0b1829]"}>
-                      <td className="px-5 py-3 text-[#f0ece4] align-top whitespace-nowrap" style={{ fontWeight: 500 }}>{cat}</td>
-                      <td className="px-5 py-3 text-[#8da3b8] align-top">{purpose}</td>
-                      <td className="px-5 py-3 text-[#8da3b8] align-top whitespace-nowrap">{duration}</td>
+                    <tr key={i} className={i % 2 === 0 ? "bg-[var(--nw-bg-surface)]" : "bg-[var(--nw-bg)]"}>
+                      <td className="px-5 py-3 text-[var(--nw-text)] align-top whitespace-nowrap" style={{ fontWeight: 500 }}>{cat}</td>
+                      <td className="px-5 py-3 text-[var(--nw-muted)] align-top">{purpose}</td>
+                      <td className="px-5 py-3 text-[var(--nw-muted)] align-top whitespace-nowrap">{duration}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -60,13 +60,13 @@ export function CookiePage() {
           <Section title="4. Specific Cookies and Storage Items">
             <p>The following are the specific items we store:</p>
 
-            <div className="mt-4 mb-6 rounded-xl overflow-hidden border border-white/8">
+            <div className="mt-4 mb-6 rounded-xl overflow-hidden border border-[var(--nw-border)]">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-[#122035]">
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>Name</th>
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>Type</th>
-                    <th className="text-left px-5 py-3 text-[#f0ece4]" style={{ fontWeight: 600 }}>What it stores</th>
+                  <tr className="bg-[var(--nw-bg-card)]">
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>Name</th>
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>Type</th>
+                    <th className="text-left px-5 py-3 text-[var(--nw-text)]" style={{ fontWeight: 600 }}>What it stores</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -77,12 +77,12 @@ export function CookiePage() {
                     ["nw_city_cache", "localStorage", "Cities you've downloaded for offline use"],
                     ["nw_onboarding", "localStorage", "Whether you've completed the first-run tutorial"],
                   ].map(([name, type, what], i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-[#0d1829]" : "bg-[#0b1829]"}>
+                    <tr key={i} className={i % 2 === 0 ? "bg-[var(--nw-bg-surface)]" : "bg-[var(--nw-bg)]"}>
                       <td className="px-5 py-3 align-top">
                         <code className="text-[#f07b22] text-xs bg-[#f07b22]/10 px-2 py-0.5 rounded">{name}</code>
                       </td>
-                      <td className="px-5 py-3 text-[#8da3b8] align-top whitespace-nowrap">{type}</td>
-                      <td className="px-5 py-3 text-[#8da3b8] align-top">{what}</td>
+                      <td className="px-5 py-3 text-[var(--nw-muted)] align-top whitespace-nowrap">{type}</td>
+                      <td className="px-5 py-3 text-[var(--nw-muted)] align-top">{what}</td>
                     </tr>
                   ))}
                 </tbody>

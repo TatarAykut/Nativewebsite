@@ -8,12 +8,12 @@ export function Values() {
   const v = t.values;
 
   return (
-    <section id="values" className="bg-[#0d1e32] py-28">
+    <section id="values" className="bg-[var(--nw-bg-surface)] py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{v.badge}</span>
           <h2
-            className="text-4xl md:text-5xl text-[#f0ece4] max-w-xl mx-auto leading-tight"
+            className="text-4xl md:text-5xl text-[var(--nw-text)] max-w-xl mx-auto leading-tight"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
           >
             {v.heading}
@@ -26,18 +26,18 @@ export function Values() {
             return (
               <div
                 key={item.title}
-                className="bg-[#122035] border border-white/8 rounded-2xl p-7 hover:border-[#f07b22]/30 hover:bg-[#142540] transition-all duration-300 group"
+                className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-7 hover:border-[#f07b22]/30 hover:bg-[var(--nw-bg-surface)] transition-all duration-300 group"
               >
                 <div className="w-11 h-11 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5 group-hover:bg-[#f07b22]/20 transition-colors">
                   <Icon size={20} className="text-[#f07b22]" />
                 </div>
                 <h3
-                  className="text-[#f0ece4] mb-3 text-lg"
+                  className="text-[var(--nw-text)] mb-3 text-lg"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-[#8da3b8] text-sm leading-relaxed">{item.description}</p>
+                <p className="text-[var(--nw-muted)] text-sm leading-relaxed">{item.description}</p>
               </div>
             );
           })}

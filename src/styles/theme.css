@@ -1,5 +1,40 @@
 @custom-variant dark (&:is(.dark *));
 
+/* ── NativeWay semantic tokens (dark default) ── */
+:root {
+  --nw-bg:           #0b1829;
+  --nw-bg-card:      #122035;
+  --nw-bg-surface:   #0d1e32;
+  --nw-bg-deep:      #080f1a;
+  --nw-bg-alt:       #0f2240;
+  --nw-bg-input:     #1a2f47;
+  --nw-text:         #f0ece4;
+  --nw-muted:        #8da3b8;
+  --nw-accent:       #f07b22;
+  --nw-accent-hover: #ffa04a;
+  --nw-accent-fg:    #0b1829;
+  --nw-border:       rgba(255, 255, 255, 0.08);
+  --nw-border-subtle:rgba(255, 255, 255, 0.05);
+  --nw-glow:         rgba(240, 123, 34, 0.05);
+}
+
+html.light {
+  --nw-bg:           #f4efe6;
+  --nw-bg-card:      #ffffff;
+  --nw-bg-surface:   #ebe5da;
+  --nw-bg-deep:      #ddd6c9;
+  --nw-bg-alt:       #e6dfd5;
+  --nw-bg-input:     #ebe5da;
+  --nw-text:         #0d1829;
+  --nw-muted:        #4d6373;
+  --nw-accent:       #f07b22;
+  --nw-accent-hover: #d96a15;
+  --nw-accent-fg:    #ffffff;
+  --nw-border:       rgba(13, 24, 41, 0.12);
+  --nw-border-subtle:rgba(13, 24, 41, 0.06);
+  --nw-glow:         rgba(240, 123, 34, 0.08);
+}
+
 :root {
   --font-size: 16px;
   --background: #0b1829;
@@ -126,6 +161,8 @@
 
   body {
     @apply bg-background text-foreground;
+    background-color: var(--nw-bg);
+    color: var(--nw-text);
   }
 
   /**

@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 import { type Language, type Translations, translations, LANGUAGES } from "./translations";
+import { pageTranslations, type PageTranslations } from "./pageTranslations";
 
 function detectLanguage(): Language {
   const saved = localStorage.getItem("nativeway-lang") as Language | null;
   if (saved && translations[saved]) return saved;
-
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith("zh")) return "zh";
   if (browserLang.startsWith("tr")) return "tr";
@@ -16,6 +16,7 @@ interface LanguageContextValue {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: Translations;
+  pt: PageTranslations;
   languages: typeof LANGUAGES;
 }
 
@@ -34,7 +35,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [language]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t: translations[language], languages: LANGUAGES }}>
+    <LanguageContext.Provider value={{
+      language,
+      setLanguage,
+      t: translations[language],
+      pt: pageTranslations[language],
+      languages: LANGUAGES,
+    }}>
       {children}
     </LanguageContext.Provider>
   );

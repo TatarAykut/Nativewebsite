@@ -11,7 +11,7 @@ export function Root() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0b1829] overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--nw-bg)] overflow-x-hidden">
       <Navbar />
       <Outlet />
       <Footer />

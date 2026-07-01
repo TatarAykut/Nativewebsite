@@ -10,6 +10,7 @@ export const LANGUAGES: { code: Language; label: string; flag: string; nativeNam
 export const translations = {
   en: {
     nav: {
+      home: "Home",
       about: "About",
       features: "Features",
       howItWorks: "How It Works",
@@ -114,6 +115,7 @@ export const translations = {
 
   zh: {
     nav: {
+      home: "首页",
       about: "关于我们",
       features: "功能介绍",
       howItWorks: "使用方式",
@@ -218,6 +220,7 @@ export const translations = {
 
   tr: {
     nav: {
+      home: "Ana Sayfa",
       about: "Hakkımızda",
       features: "Özellikler",
       howItWorks: "Nasıl Çalışır",
@@ -322,6 +325,7 @@ export const translations = {
 
   no: {
     nav: {
+      home: "Hjem",
       about: "Om oss",
       features: "Funksjoner",
       howItWorks: "Slik fungerer det",

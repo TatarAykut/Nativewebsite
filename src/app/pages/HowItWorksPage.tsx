@@ -1,146 +1,148 @@
-import { Link } from "react-router";
-import { ArrowRight, Search, Map, MessageCircle, Bookmark, Navigation, Star } from "lucide-react";
+import {
+  ArrowRight, CalendarDays, Sparkles, MapPin, Users,
+  CreditCard, Pen, Lock, Search, Bookmark, Navigation, Star, Route, Vote
+} from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
-const travelerSteps = [
-  {
-    number: "01",
-    icon: Search,
-    title: "Search your destination",
-    description: "Type any city we support and instantly see a live map populated entirely by local contributors. Filter by vibe — late night, family-friendly, budget, off-the-beaten-path — and watch the map respond.",
-    tip: "Tip: Save your destination before you fly so everything downloads for offline use.",
-  },
-  {
-    number: "02",
-    icon: Map,
-    title: "Explore local maps & collections",
-    description: "Browse curated neighbourhood maps, themed collections ('best Sunday mornings in Lisbon', 'Tokyo spots only salarymen know'), and route suggestions built by people who live there.",
-    tip: "Tip: Collections are updated seasonally — check back if you're visiting months apart.",
-  },
-  {
-    number: "03",
-    icon: MessageCircle,
-    title: "Ask a local anything",
-    description: "Have a specific question? Use Ask a Local to message a verified resident directly. They know where the crowds are, which days to avoid, and what's worth the detour.",
-    tip: "Tip: Be specific — 'best ramen near Shinjuku station on a Tuesday night' gets better answers than 'best ramen'.",
-  },
-  {
-    number: "04",
-    icon: Bookmark,
-    title: "Build your trip board",
-    description: "Save places, routes, and recommendations to your personal trip board. Organise by day, area, or category. Share the board with travel companions so everyone's on the same page.",
-    tip: "Tip: Trip boards can be exported as a PDF for tech-free backup.",
-  },
-  {
-    number: "05",
-    icon: Navigation,
-    title: "Navigate and explore",
-    description: "Head out with NativeWay open. Follow a Native Route step-by-step, or free-explore with the local map as your guide. Mark places as visited and leave your own honest reaction.",
-    tip: "Tip: The app works fully offline once your city is downloaded.",
-  },
-  {
-    number: "06",
-    icon: Star,
-    title: "Share your experience",
-    description: "After your trip, add your traveller perspective on top of the local reviews. Your experience helps future visitors — and earns you reputation points in the community.",
-    tip: "Tip: The most helpful traveller notes mention what surprised you — good or bad.",
-  },
-];
-
-const localSteps = [
-  {
-    number: "01",
-    title: "Verify your residency",
-    description: "Quick and private — we verify you live in the city without storing sensitive documents. A utility bill or local ID is all it takes.",
-  },
-  {
-    number: "02",
-    title: "Pin your favourite spots",
-    description: "Add the places you genuinely love. Your neighbourhood café, the park bench with the best view, the market stall that's been there since your grandparents' time.",
-  },
-  {
-    number: "03",
-    title: "Write honest reviews",
-    description: "Tell it like it is. Best dish, worst time to visit, what the tourist photos don't show. Locals are the truth-tellers on NativeWay.",
-  },
-  {
-    number: "04",
-    title: "Build a Native Route",
-    description: "Chain your favourite places into a day itinerary. Describe the journey between spots, the context, the history. Make it something you'd give to a friend.",
-  },
+const stepIcons = [CalendarDays, MapPin, Users, Navigation, Pen];
+const stepColors = ["#f07b22", "#3a8fd9", "#9b59b6", "#4caf7d", "#e84393"];
+const stepFeatureIcons = [
+  [Sparkles, Route, CreditCard],
+  [MapPin, Lock, Search],
+  [Vote, Users, Bookmark],
+  [Navigation, Route, Sparkles],
+  [Pen, Star, Bookmark],
 ];
 
 export function HowItWorksPage() {
+  const { pt } = useLanguage();
+  const p = pt.howItWorksPage;
+
   return (
     <div className="pt-24">
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f2240] to-[#0b1829]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">How It Works</span>
+          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
           <h1
-            className="text-5xl md:text-6xl text-[#f0ece4] leading-tight mb-6"
+            className="text-5xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
           >
-            Simple steps to a <span className="text-[#f07b22]">better trip</span>
+            {p.hero.heading}
           </h1>
-          <p className="text-xl text-[#8da3b8] leading-relaxed max-w-2xl mx-auto">
-            Whether you're a traveller looking for the real city, or a local wanting to share yours —
-            NativeWay makes it effortless.
+          <p className="text-xl text-[var(--nw-muted)] leading-relaxed max-w-2xl mx-auto">
+            {p.hero.sub}
           </p>
         </div>
       </section>
 
-      {/* Toggle label */}
-      <section className="bg-[#0b1829] pb-4">
+      {/* Phase timeline nav */}
+      <section className="bg-[var(--nw-bg)] border-b border-[var(--nw-border)] sticky top-20 z-40">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex gap-3 items-center">
-            <div className="h-px flex-1 bg-white/8" />
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase px-4">For Travellers</span>
-            <div className="h-px flex-1 bg-white/8" />
+          <div className="flex gap-1 overflow-x-auto py-3 no-scrollbar">
+            {p.phases.map((label, i) => (
+              <a
+                key={label}
+                href={`#step-${i + 1}`}
+                className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm text-[var(--nw-muted)] hover:text-[var(--nw-text)] hover:bg-[var(--nw-border-subtle)] transition-all"
+              >
+                <span className="text-[#f07b22] text-xs" style={{ fontWeight: 700 }}>0{i + 1}</span>
+                {label}
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Traveler steps */}
-      <section className="bg-[#0b1829] py-16">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col gap-12">
-          {travelerSteps.map((step) => (
-            <div key={step.number} className="flex gap-8 items-start">
-              <div className="shrink-0 flex flex-col items-center gap-2">
-                <div className="w-14 h-14 rounded-full bg-[#122035] border border-[#f07b22]/30 flex items-center justify-center">
-                  <step.icon size={20} className="text-[#f07b22]" />
+      {/* Traveller steps */}
+      <section className="bg-[var(--nw-bg)] py-16">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col gap-6">
+          {p.steps.map((step, i) => {
+            const StepIcon = stepIcons[i];
+            const color = stepColors[i];
+            const featureIcons = stepFeatureIcons[i];
+            return (
+              <div key={i} id={`step-${i + 1}`} className="flex gap-6 items-start">
+                {/* Left: number + line */}
+                <div className="hidden md:flex flex-col items-center gap-2 pt-1 shrink-0">
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center border shrink-0"
+                    style={{ borderColor: `${color}40`, backgroundColor: `${color}10` }}
+                  >
+                    <StepIcon size={20} style={{ color }} />
+                  </div>
+                  {i < p.steps.length - 1 && (
+                    <div className="w-px flex-1 min-h-12 bg-white/6" />
+                  )}
                 </div>
-                <span className="text-[#f07b22]/40 text-xs" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{step.number}</span>
-              </div>
-              <div className="bg-[#122035] border border-white/8 rounded-2xl p-7 flex-1">
-                <h3
-                  className="text-[#f0ece4] mb-3 text-xl"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
-                >
-                  {step.title}
-                </h3>
-                <p className="text-[#8da3b8] leading-relaxed mb-4">{step.description}</p>
-                <div className="flex items-start gap-2 bg-[#0b1829]/50 rounded-xl px-4 py-3">
-                  <span className="text-[#f07b22] text-xs mt-0.5 shrink-0">★</span>
-                  <p className="text-[#8da3b8] text-xs leading-relaxed">{step.tip}</p>
+
+                {/* Right: content */}
+                <div className="flex-1 pb-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span
+                      className="text-xs tracking-[0.15em] uppercase px-2.5 py-1 rounded-full"
+                      style={{ color, backgroundColor: `${color}12` }}
+                    >
+                      {step.phase}
+                    </span>
+                  </div>
+                  <h2
+                    className="text-2xl md:text-3xl text-[var(--nw-text)] mb-3"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+                  >
+                    {step.title}
+                  </h2>
+                  <p className="text-[var(--nw-muted)] leading-relaxed mb-6 max-w-2xl">{step.description}</p>
+
+                  {/* Feature pills */}
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    {step.features.map((f, j) => {
+                      const FeatureIcon = featureIcons[j];
+                      return (
+                        <div
+                          key={f.label}
+                          className="flex items-center gap-2.5 bg-[var(--nw-bg-card)] border rounded-xl px-4 py-3"
+                          style={{ borderColor: `${color}20` }}
+                        >
+                          <div
+                            className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                            style={{ backgroundColor: `${color}15` }}
+                          >
+                            <FeatureIcon size={13} style={{ color }} />
+                          </div>
+                          <div>
+                            <p className="text-[var(--nw-text)] text-xs" style={{ fontWeight: 600 }}>{f.label}</p>
+                            <p className="text-[var(--nw-muted)] text-xs">{f.note}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Tip */}
+                  <div className="flex items-start gap-2 bg-[var(--nw-bg-surface)] border border-white/6 rounded-xl px-4 py-3 max-w-xl">
+                    <span style={{ color }} className="text-xs mt-0.5 shrink-0">★</span>
+                    <p className="text-[var(--nw-muted)] text-xs leading-relaxed">{step.tip}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
       {/* For locals */}
-      <section className="bg-[#0d1e32] py-20">
+      <section className="bg-[var(--nw-bg-surface)] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex gap-3 items-center mb-12">
             <div className="h-px flex-1 bg-white/8" />
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase px-4">For Locals</span>
+            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase px-4">{p.locals.heading}</span>
             <div className="h-px flex-1 bg-white/8" />
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
-            {localSteps.map((step) => (
-              <div key={step.number} className="bg-[#122035] border border-white/8 rounded-2xl p-8">
+            {p.locals.steps.map((step) => (
+              <div key={step.number} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-8">
                 <span
                   className="text-5xl text-[#f07b22]/15 block mb-3 leading-none"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
@@ -148,37 +150,39 @@ export function HowItWorksPage() {
                   {step.number}
                 </span>
                 <h3
-                  className="text-[#f0ece4] mb-3"
+                  className="text-[var(--nw-text)] mb-3"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem" }}
                 >
                   {step.title}
                 </h3>
-                <p className="text-[#8da3b8] text-sm leading-relaxed">{step.description}</p>
+                <p className="text-[var(--nw-muted)] text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
-          <p className="text-center text-[#8da3b8] text-sm mt-8">
-            Locals earn reputation, recognition, and (coming soon) tips from grateful travellers.
+          <p className="text-center text-[var(--nw-muted)] text-sm mt-8">
+            {p.locals.note}
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0b1829] text-center">
+      <section className="py-20 bg-[var(--nw-bg)] text-center">
         <div className="max-w-xl mx-auto px-6">
-          <h2 className="text-3xl text-[#f0ece4] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
-            Ready to try it yourself?
+          <h2 className="text-3xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
+            {p.cta.heading}
           </h2>
-          <p className="text-[#8da3b8] mb-8">Sign up for early access and be among the first to explore.</p>
-          <Link
-            to="/#get-app"
-            className="inline-flex items-center gap-2 bg-[#f07b22] text-[#0b1829] px-7 py-4 rounded-full hover:bg-[#ffa04a] transition-all duration-200 group"
+          <p className="text-[var(--nw-muted)] mb-8">{p.cta.sub}</p>
+          <a
+            href="/#get-app"
+            className="inline-flex items-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full hover:bg-[var(--nw-accent-hover)] transition-all duration-200 group"
             style={{ fontWeight: 600 }}
           >
-            Get Early Access <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+            {p.cta.button} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
       </section>
+
+      <style>{`.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}`}</style>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 export function TermsPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#0b1829] min-h-screen">
+    <div className="pt-24 pb-20 bg-[var(--nw-bg)] min-h-screen">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="py-16 border-b border-white/8 mb-12">
+        <div className="py-16 border-b border-[var(--nw-border)] mb-12">
           <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">Legal</span>
-          <h1 className="text-4xl md:text-5xl text-[#f0ece4] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
+          <h1 className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             Terms of Service
           </h1>
-          <p className="text-[#8da3b8]">Last updated: 1 June 2026</p>
+          <p className="text-[var(--nw-muted)]">Last updated: 1 June 2026</p>
         </div>
 
         <div className="prose-nw">

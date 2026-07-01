@@ -13,8 +13,8 @@ export function Hero() {
           alt="Traveler standing by the sea with local village"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1829]/95 via-[#0b1829]/75 to-[#0b1829]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1829] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--nw-bg)]/95 via-[var(--nw-bg)]/75 to-[var(--nw-bg)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--nw-bg)] via-transparent to-transparent" />
       </div>
 
       <div className="absolute top-1/4 right-1/3 w-3 h-3 rounded-full bg-[#f07b22] animate-pulse opacity-70" />
@@ -29,7 +29,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="text-5xl md:text-7xl text-[#f0ece4] mb-6 leading-[1.05]"
+            className="text-5xl md:text-7xl text-[var(--nw-text)] mb-6 leading-[1.05]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
           >
             {h.headline1}
@@ -39,14 +39,14 @@ export function Hero() {
             {h.headline3}
           </h1>
 
-          <p className="text-lg text-[#8da3b8] mb-10 leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-lg text-[var(--nw-muted)] mb-10 leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-body)" }}>
             {h.sub}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#get-app"
-              className="inline-flex items-center justify-center gap-2 bg-[#f07b22] text-[#0b1829] px-7 py-4 rounded-full transition-all duration-200 hover:bg-[#ffa04a] hover:scale-105 active:scale-95 group"
+              className="inline-flex items-center justify-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full transition-all duration-200 hover:bg-[#ffa04a] hover:scale-105 active:scale-95 group"
               style={{ fontWeight: 600 }}
             >
               {h.ctaPrimary}
@@ -54,7 +54,7 @@ export function Hero() {
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center gap-2 border border-white/20 text-[#f0ece4] px-7 py-4 rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 border border-[var(--nw-border)] text-[var(--nw-text)] px-7 py-4 rounded-full hover:border-[var(--nw-border)] hover:bg-[var(--nw-border-subtle)] transition-all duration-200"
             >
               {h.ctaSecondary}
             </a>
@@ -62,26 +62,26 @@ export function Hero() {
 
           <div className="mt-16 flex items-center gap-8">
             <div>
-              <p className="text-2xl text-[#f0ece4]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>50+</p>
-              <p className="text-xs text-[#8da3b8] tracking-wide mt-0.5">{h.stat1Label}</p>
+              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>50+</p>
+              <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat1Label}</p>
             </div>
-            <div className="w-px h-10 bg-white/10" />
+            <div className="w-px h-10 bg-[var(--nw-border)]" />
             <div>
-              <p className="text-2xl text-[#f0ece4]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>1,200+</p>
-              <p className="text-xs text-[#8da3b8] tracking-wide mt-0.5">{h.stat2Label}</p>
+              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>1,200+</p>
+              <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat2Label}</p>
             </div>
-            <div className="w-px h-10 bg-white/10" />
+            <div className="w-px h-10 bg-[var(--nw-border)]" />
             <div>
-              <p className="text-2xl text-[#f0ece4]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>100%</p>
-              <p className="text-xs text-[#8da3b8] tracking-wide mt-0.5">{h.stat3Label}</p>
+              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>100%</p>
+              <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat3Label}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <div className="w-px h-10 bg-[#f0ece4] animate-pulse" />
-        <span className="text-[10px] text-[#f0ece4] tracking-[0.2em] uppercase">{h.scroll}</span>
+        <div className="w-px h-10 bg-[var(--nw-text)] animate-pulse" />
+        <span className="text-[10px] text-[var(--nw-text)] tracking-[0.2em] uppercase">{h.scroll}</span>
       </div>
     </section>
   );
