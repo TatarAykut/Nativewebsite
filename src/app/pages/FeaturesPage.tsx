@@ -1,19 +1,21 @@
 import {
-  ArrowRight, MapPin, Star, MessageCircle, Route, Coffee,
-  Bell, Shield, Globe, Download, CalendarDays, Sparkles, Users,
-  Vote, CreditCard, FileText, BookOpen, Pen, Wifi, Lock
+  ArrowRight, Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle,
+  CalendarDays, Route, Star, Coffee, Vote, Globe, Shield, Stamp,
+  Pen, Bookmark, Bell, Download
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const pillarColors = ["#f07b22", "#3a8fd9", "#9b59b6", "#4caf7d", "#e84393", "#f5c842"];
-const pillarIcons = [CalendarDays, MapPin, Users, CreditCard, Pen, Sparkles];
+// 7 pillars: AI Planner, Local Discovery, Party Mode, Tourist Guide, Passport, Community, Messaging
+const pillarColors = ["#f07b22", "#3a8fd9", "#9b59b6", "#4caf7d", "#e84393", "#f5c842", "#3ab5c7"];
+const pillarIcons = [Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle];
 const pillarItemIcons = [
-  [CalendarDays, Sparkles, Route],
-  [MapPin, Coffee, Globe],
-  [Users, Vote, MessageCircle],
-  [CreditCard, FileText, BookOpen],
-  [Pen, MessageCircle, Star],
-  [Sparkles, Wifi, Lock],
+  [CalendarDays, Route, Sparkles],   // AI Planner: itineraries, routing, adjustments
+  [MapPin, Coffee, Star],            // Local Discovery: places, hidden gems, AI guide
+  [Users, Vote, MessageCircle],      // Party Mode: lobby, preferences, chat
+  [Globe, Shield, BookOpen],         // Tourist Guide: sights, safety, transport
+  [Award, Star, Sparkles],           // Passport: stamps, tiers, elite status
+  [Pen, Heart, Bookmark],            // Community: blogs, badges, collections
+  [MessageCircle, Users, Sparkles],  // Messaging: DM, group, trip chat
 ];
 const comingSoonIcons = [Bell, Shield, Globe, Download];
 

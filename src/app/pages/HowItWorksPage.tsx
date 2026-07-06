@@ -1,17 +1,18 @@
 import {
   ArrowRight, CalendarDays, Sparkles, MapPin, Users,
-  CreditCard, Pen, Lock, Search, Bookmark, Navigation, Star, Route, Vote
+  BookOpen, Award, Heart, Pen, Navigation, Star, Route, Vote, Shield, Bookmark
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const stepIcons = [CalendarDays, MapPin, Users, Navigation, Pen];
+// 5 steps: AI Plan, Discover+Guide, Party Mode, Navigate, Collect+Share
+const stepIcons = [CalendarDays, MapPin, Users, Navigation, Award];
 const stepColors = ["#f07b22", "#3a8fd9", "#9b59b6", "#4caf7d", "#e84393"];
 const stepFeatureIcons = [
-  [Sparkles, Route, CreditCard],
-  [MapPin, Lock, Search],
-  [Vote, Users, Bookmark],
-  [Navigation, Route, Sparkles],
-  [Pen, Star, Bookmark],
+  [Sparkles, Route, BookOpen],    // AI plan, routing, tourist guide
+  [MapPin, Star, Shield],         // local discovery, hidden gems, safety
+  [Users, Vote, Sparkles],        // shared lobby, preferences, AI overlap
+  [Navigation, Sparkles, BookOpen], // offline maps, AI guide, tourist info
+  [Award, Pen, Heart],            // passport, blog, community
 ];
 
 export function HowItWorksPage() {

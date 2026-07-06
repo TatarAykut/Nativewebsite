@@ -1,7 +1,7 @@
-import { MapPin, Star, MessageCircle, Route, Coffee, Zap } from "lucide-react";
+import { Sparkles, MapPin, Users, BookOpen, Award, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const icons = [MapPin, Star, MessageCircle, Route, Coffee, Zap];
+const icons = [Sparkles, MapPin, Users, BookOpen, Award, MessageCircle];
 
 export function Features() {
   const { t } = useLanguage();
