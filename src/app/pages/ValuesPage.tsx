@@ -1,5 +1,6 @@
 import { ArrowRight, Heart, Shield, Users, Compass, Leaf, Eye } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { SEO } from "../components/SEO";
 
 const valueIcons = [Compass, Users, Heart, Shield, Leaf, Eye];
 const valueColors = ["#f07b22", "#3a8fd9", "#e84393", "#4caf7d", "#7ec850", "#9b59b6"];
@@ -10,6 +11,11 @@ export function ValuesPage() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title="Values"
+        path="/values"
+        description="Our values — local-first discovery, privacy by design, sustainable travel, radical transparency, and community-driven experiences."
+      />
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
@@ -32,7 +38,7 @@ export function ValuesPage() {
       <section className="bg-[var(--nw-bg)] py-20">
         <div className="max-w-4xl mx-auto px-6 flex flex-col gap-16">
           {p.values.map((v, i) => {
-            const Icon = valueIcons[i];
+            const Icon = valueIcons[i]!;
             const color = valueColors[i];
             return (
               <div key={v.title} className="flex flex-col gap-6">

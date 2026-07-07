@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const images = [
   { src: "https://images.unsplash.com/photo-1681118143075-5f5a10c9c092?w=600&h=400&fit=crop&auto=format", alt: "Person standing on a stone wall overlooking a city" },
@@ -30,7 +31,7 @@ export function HowItWorks() {
               className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
             >
               <div className="relative rounded-2xl overflow-hidden aspect-video bg-black">
-                <img src={images[i].src} alt={images[i].alt} className="w-full h-full object-cover" />
+                <ImageWithFallback src={images[i]?.src ?? ""} alt={images[i]?.alt ?? ""} className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </div>
 
               <div className="py-4">

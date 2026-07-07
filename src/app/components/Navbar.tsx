@@ -5,20 +5,6 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { useTheme } from "../theme/ThemeContext";
 import logoImg from "../../imports/natfr.png";
 
-const WHITE_REMOVE_FILTER = `
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <defs>
-      <filter id="remove-white" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-        <feColorMatrix type="matrix"
-          values="1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                 -12 -12 -12 36 0"/>
-      </filter>
-    </defs>
-  </svg>
-`;
-
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -62,14 +48,12 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div dangerouslySetInnerHTML={{ __html: WHITE_REMOVE_FILTER }} />
-
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={logoImg}
             alt="NativeWay"
-            style={{ height: "80px", width: "auto", filter: "url(#remove-white)" }}
+            style={{ height: "80px", width: "auto" }}
           />
         </Link>
 
@@ -91,7 +75,6 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:flex items-center gap-3">
-          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -100,10 +83,11 @@ export function Navbar() {
             {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
           </button>
 
-          {/* Language switcher */}
           <div ref={langRef} className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
+              aria-label={`Select language (current: ${currentLang.nativeName})`}
+              aria-expanded={langOpen}
               className="flex items-center gap-2 border border-[var(--nw-border)] text-[var(--nw-muted)] hover:text-[var(--nw-text)] hover:border-[var(--nw-border)] px-3 py-2 rounded-full text-sm transition-all duration-200"
             >
               <span>{currentLang.flag}</span>
@@ -140,7 +124,6 @@ export function Navbar() {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          {/* Mobile theme toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -152,6 +135,7 @@ export function Navbar() {
             className="text-[var(--nw-text)] p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>

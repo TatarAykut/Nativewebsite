@@ -7,11 +7,11 @@ const app = new Hono();
 // Enable logger
 app.use('*', logger(console.log));
 
-// Enable CORS for all routes and methods
+// Enable CORS for the NativeWay app
 app.use(
   "/*",
   cors({
-    origin: "*",
+    origin: ["https://nativeway.app", "http://localhost:5173"],
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     exposeHeaders: ["Content-Length"],

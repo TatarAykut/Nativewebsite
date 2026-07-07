@@ -1,6 +1,9 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
-import { type Language, type Translations, translations, LANGUAGES } from "./translations";
-import { pageTranslations, type PageTranslations } from "./pageTranslations";
+import { type Language, translations, LANGUAGES } from "./translations";
+import { pageTranslations } from "./pageTranslations";
+
+type T = typeof translations[Language];
+type PT = typeof pageTranslations[Language];
 
 function detectLanguage(): Language {
   const saved = localStorage.getItem("nativeway-lang") as Language | null;
@@ -15,8 +18,8 @@ function detectLanguage(): Language {
 interface LanguageContextValue {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: Translations;
-  pt: PageTranslations;
+  t: T;
+  pt: PT;
   languages: typeof LANGUAGES;
 }
 

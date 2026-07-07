@@ -1,22 +1,55 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { supabase } from "../../lib/supabase";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function CTA() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { t } = useLanguage();
   const c = t.cta;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.includes("@")) {
+    setError("");
+
+    // Validate email
+    const trimmed = email.trim();
+    if (!trimmed) {
+      setError("Please enter your email address.");
+      return;
+    }
+    if (!EMAIL_REGEX.test(trimmed)) {
       setError("Please enter a valid email address.");
       return;
     }
-    setError("");
-    setSubmitted(true);
+
+    setLoading(true);
+
+    try {
+      const { error: insertError } = await supabase
+        .from("waitlist")
+        .insert({ email: trimmed, source: "website" });
+
+      if (insertError) {
+        // Duplicate email is fine — user already signed up
+        if (insertError.code === "23505") {
+          setSubmitted(true);
+          return;
+        }
+        throw insertError;
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -45,26 +78,43 @@ export function CTA() {
             <p className="text-[var(--nw-text)]">{c.success}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder={c.placeholder}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-[var(--nw-bg-card)] border border-[var(--nw-border)] text-[var(--nw-text)] placeholder-[var(--nw-muted)] rounded-full px-6 py-4 outline-none focus:border-[#f07b22]/50 transition-colors"
-              style={{ fontFamily: "var(--font-body)" }}
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3" noValidate>
+            <div className="flex-1">
+              <label htmlFor="waitlist-email" className="sr-only">{c.placeholder}</label>
+              <input
+                id="waitlist-email"
+                type="email"
+                placeholder={c.placeholder}
+                value={email}
+                onChange={(e) => { setEmail(e.target.value); setError(""); }}
+                required
+                autoComplete="email"
+                aria-invalid={!!error}
+                aria-describedby={error ? "waitlist-error" : undefined}
+                className="w-full bg-[var(--nw-bg-card)] border border-[var(--nw-border)] text-[var(--nw-text)] placeholder-[var(--nw-muted)] rounded-full px-6 py-4 outline-none focus:border-[#f07b22]/50 transition-colors"
+                style={{ fontFamily: "var(--font-body)" }}
+              />
+            </div>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full hover:bg-[#ffa04a] hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap group"
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full hover:bg-[#ffa04a] hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-200 whitespace-nowrap group"
               style={{ fontWeight: 600 }}
             >
-              {c.button}
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              {loading ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              )}
+              {loading ? "Joining..." : c.button}
             </button>
           </form>
         )}
-        {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
+        {error && (
+          <p id="waitlist-error" role="alert" className="text-red-400 text-sm mt-3">
+            {error}
+          </p>
+        )}
         <p className="text-[var(--nw-muted)] text-xs mt-5">{c.disclaimer}</p>
       </div>
     </section>

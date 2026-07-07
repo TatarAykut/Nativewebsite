@@ -52,8 +52,8 @@ export const translations = {
           description: "Locals earn recognition for sharing their city. Travelers give back by rating honestly. The whole ecosystem runs on mutual trust.",
         },
         {
-          title: "Support Local",
-          description: "We deliberately steer tourism toward independent businesses, family-run spots, and cultural institutions that need it most.",
+          title: "Elevate the Local",
+          description: "Great trips blend the best of both worlds. Alongside world-class hospitality, we make sure independent businesses, family-run spots, and cultural institutions get the visibility they deserve.",
         },
         {
           title: "Privacy by Design",
@@ -157,8 +157,8 @@ export const translations = {
           description: "当地人通过分享自己的城市获得认可。旅行者通过诚实评价回馈社区。整个生态系统建立在相互信任之上。",
         },
         {
-          title: "支持本地",
-          description: "我们有意将旅游业引向独立商家、家族经营的场所以及最需要支持的文化机构。",
+          title: "提升本地",
+          description: "美好的旅行融合了两全其美。在顶级服务之外，我们确保独立商家、家族店铺和文化机构获得应有的关注。",
         },
         {
           title: "隐私设计",
@@ -262,8 +262,8 @@ export const translations = {
           description: "Yerliler şehirlerini paylaşarak tanınırlık kazanır. Gezginler dürüstçe değerlendirerek katkıda bulunur. Tüm ekosistem karşılıklı güven üzerine çalışır.",
         },
         {
-          title: "Yereli Destekle",
-          description: "Turizmi kasıtlı olarak bağımsız işletmelere, aile işletmelerine ve en çok ihtiyaç duyan kültürel kurumlara yönlendiriyoruz.",
+          title: "Yereli Yükselt",
+          description: "Harika seyahatler her iki dünyanın da en iyisini birleştirir. Birinci sınıf konaklamanın yanında, bağımsız işletmelerin, aile işletmelerinin ve kültürel kurumların hak ettikleri görünürlüğü kazanmasını sağlıyoruz.",
         },
         {
           title: "Tasarımda Gizlilik",
@@ -367,8 +367,8 @@ export const translations = {
           description: "Lokale tjener anerkjennelse ved å dele sin by. Reisende gir tilbake ved å vurdere ærlig. Hele økosystemet drives av gjensidig tillit.",
         },
         {
-          title: "Støtt lokalt",
-          description: "Vi styrer bevisst turisme mot uavhengige virksomheter, familieeide steder og kulturinstitusjoner som trenger det mest.",
+          title: "Løft det lokale",
+          description: "Gode reiser kombinerer det beste fra begge verdener. Ved siden av førsteklasses gjestfrihet sørger vi for at uavhengige bedrifter, familiedrevne steder og kulturinstitusjoner får synligheten de fortjener.",
         },
         {
           title: "Personvern by design",

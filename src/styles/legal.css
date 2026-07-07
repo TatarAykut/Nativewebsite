@@ -1,0 +1,9 @@
+/* Shared prose styles for legal pages */
+.prose-nw { color: #8da3b8; line-height: 1.8; }
+.prose-nw h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #f0ece4; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.prose-nw p { margin-bottom: 1rem; }
+.prose-nw ul { margin: 0.75rem 0 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; list-style: disc; }
+.prose-nw li { padding-left: 0.25rem; }
+.prose-nw strong { color: #f0ece4; font-weight: 600; }
+.prose-nw a { color: #f07b22; text-decoration: none; }
+.prose-nw a:hover { text-decoration: underline; }

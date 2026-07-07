@@ -22,7 +22,7 @@ export function Values() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {v.items.map((item, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i]!;
             return (
               <div
                 key={item.title}

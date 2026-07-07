@@ -4,6 +4,7 @@ import {
   Pen, Bookmark, Bell, Download
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { SEO } from "../components/SEO";
 
 // 7 pillars: AI Planner, Local Discovery, Party Mode, Tourist Guide, Passport, Community, Messaging
 const pillarColors = ["#f07b22", "#3a8fd9", "#9b59b6", "#4caf7d", "#e84393", "#f5c842", "#3ab5c7"];
@@ -25,6 +26,11 @@ export function FeaturesPage() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title="Features"
+        path="/features"
+        description="Explore NativeWay's features — AI-powered itineraries, local discovery, party mode, digital passport, and community tools."
+      />
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
@@ -48,7 +54,7 @@ export function FeaturesPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex gap-1 overflow-x-auto py-3 no-scrollbar">
             {p.pillars.map((pillar, i) => {
-              const PillarIcon = pillarIcons[i];
+              const PillarIcon = pillarIcons[i]!;
               const color = pillarColors[i];
               return (
                 <a
@@ -69,9 +75,9 @@ export function FeaturesPage() {
       <section className="bg-[var(--nw-bg)] py-12">
         <div className="max-w-6xl mx-auto px-6 flex flex-col gap-24">
           {p.pillars.map((pillar, i) => {
-            const PillarIcon = pillarIcons[i];
+            const PillarIcon = pillarIcons[i]!;
             const color = pillarColors[i];
-            const itemIcons = pillarItemIcons[i];
+            const itemIcons = pillarItemIcons[i]!;
             return (
               <div key={pillar.category} id={`pillar-${i}`}>
                 {/* Pillar header */}
@@ -102,7 +108,7 @@ export function FeaturesPage() {
                     <p className="text-[var(--nw-muted)] leading-relaxed text-lg mb-8">{pillar.description}</p>
                     <div className="flex flex-col gap-4">
                       {pillar.items.map((item, j) => {
-                        const ItemIcon = itemIcons[j];
+                        const ItemIcon = itemIcons[j]!;
                         return (
                           <div
                             key={item.title}
@@ -172,7 +178,7 @@ export function FeaturesPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {p.comingSoon.items.map((f, i) => {
-              const Icon = comingSoonIcons[i];
+              const Icon = comingSoonIcons[i]!;
               return (
                 <div key={f.title} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] border-dashed rounded-2xl p-7 opacity-75 hover:opacity-100 transition-opacity">
                   <div className="w-10 h-10 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5">

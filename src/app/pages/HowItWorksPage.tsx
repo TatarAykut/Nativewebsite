@@ -3,6 +3,7 @@ import {
   BookOpen, Award, Heart, Pen, Navigation, Star, Route, Vote, Shield, Bookmark
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { SEO } from "../components/SEO";
 
 // 5 steps: AI Plan, Discover+Guide, Party Mode, Navigate, Collect+Share
 const stepIcons = [CalendarDays, MapPin, Users, Navigation, Award];
@@ -21,6 +22,11 @@ export function HowItWorksPage() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title="How It Works"
+        path="/how-it-works"
+        description="See how NativeWay works — from AI trip planning to local discovery, party mode, and digital passport in five simple steps."
+      />
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
@@ -60,9 +66,9 @@ export function HowItWorksPage() {
       <section className="bg-[var(--nw-bg)] py-16">
         <div className="max-w-5xl mx-auto px-6 flex flex-col gap-6">
           {p.steps.map((step, i) => {
-            const StepIcon = stepIcons[i];
+            const StepIcon = stepIcons[i]!;
             const color = stepColors[i];
-            const featureIcons = stepFeatureIcons[i];
+            const featureIcons = stepFeatureIcons[i]!;
             return (
               <div key={i} id={`step-${i + 1}`} className="flex gap-6 items-start">
                 {/* Left: number + line */}
@@ -99,7 +105,7 @@ export function HowItWorksPage() {
                   {/* Feature pills */}
                   <div className="flex flex-wrap gap-3 mb-6">
                     {step.features.map((f, j) => {
-                      const FeatureIcon = featureIcons[j];
+                      const FeatureIcon = featureIcons[j]!;
                       return (
                         <div
                           key={f.label}

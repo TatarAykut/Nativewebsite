@@ -1,5 +1,6 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -8,10 +9,11 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
+        <ImageWithFallback
           src="https://images.unsplash.com/photo-1519055548599-6d4d129508c4?w=1800&h=1200&fit=crop&auto=format"
           alt="Traveler standing by the sea with local village"
           className="w-full h-full object-cover object-center"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--nw-bg)]/95 via-[var(--nw-bg)]/75 to-[var(--nw-bg)]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--nw-bg)] via-transparent to-transparent" />

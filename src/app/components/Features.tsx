@@ -1,5 +1,6 @@
 import { Sparkles, MapPin, Users, BookOpen, Award, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const icons = [Sparkles, MapPin, Users, BookOpen, Award, MessageCircle];
 
@@ -20,18 +21,20 @@ export function Features() {
               {f.heading}
             </h2>
             <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{f.sub}</p>
-            <div className="relative rounded-2xl overflow-hidden aspect-video bg-black">
-              <img
+            <div className="relative rounded-2xl overflow-hidden aspect-video bg-[var(--nw-bg-card)]">
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=800&h=500&fit=crop&auto=format"
                 alt="Person using NativeWay on their phone"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
 
           <div className="grid gap-4">
             {f.items.map((item, i) => {
-              const Icon = icons[i];
+              const Icon = icons[i]!;
               return (
                 <div
                   key={item.title}

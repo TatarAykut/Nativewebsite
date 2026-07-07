@@ -15,7 +15,7 @@ export function Footer() {
             <img
               src={logoImg}
               alt="NativeWay"
-              style={{ height: "56px", width: "auto", marginBottom: "1rem", filter: "url(#remove-white)" }}
+              style={{ height: "56px", width: "auto", marginBottom: "1rem" }}
             />
             <p className="text-[var(--nw-muted)] text-sm leading-relaxed max-w-xs">{f.tagline}</p>
             <div className="flex items-center gap-4 mt-6">

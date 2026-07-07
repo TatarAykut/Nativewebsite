@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function About() {
   const { t } = useLanguage();
@@ -17,13 +18,7 @@ export function About() {
               {a.heading}
             </h2>
             <p className="text-[var(--nw-muted)] leading-relaxed mb-6">{a.p1}</p>
-            <p className="text-[var(--nw-muted)] leading-relaxed mb-8">
-              {a.p2.split("the best travel guide is always a local")[0]}
-              {a.p2.includes("the best travel guide is always a local") && (
-                <span className="text-[var(--nw-text)]">the best travel guide is always a local</span>
-              )}
-              {a.p2.split("the best travel guide is always a local")[1] ?? ""}
-            </p>
+            <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{a.p2}</p>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {["Mateo", "Aiko", "Rania"].map((name, i) => (
@@ -41,11 +36,13 @@ export function About() {
           </div>
 
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-black">
-              <img
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-[var(--nw-bg-card)]">
+              <ImageWithFallback
                 src="https://images.unsplash.com/photo-1780616144913-83206bd3b512?w=800&h=1000&fit=crop&auto=format"
                 alt="Traditional local coffee shop exterior"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute bottom-6 left-6 right-6 bg-[var(--nw-bg)]/80 backdrop-blur-sm rounded-xl px-5 py-4 border border-[var(--nw-border)]">
                 <p className="text-[var(--nw-text)] text-sm mb-1" style={{ fontWeight: 600 }}>{a.cardTitle}</p>

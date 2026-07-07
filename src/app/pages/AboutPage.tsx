@@ -1,5 +1,6 @@
 import { ArrowRight, Globe, Lightbulb, Target } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { SEO } from "../components/SEO";
 
 const team = [
   {
@@ -40,6 +41,11 @@ export function AboutPage() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title="About"
+        path="/about"
+        description="Learn about NativeWay — our mission to connect travelers with authentic local experiences and the team behind the app."
+      />
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
@@ -63,7 +69,7 @@ export function AboutPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {p.mission.map((item, i) => {
-              const Icon = missionIcons[i];
+              const Icon = missionIcons[i]!;
               return (
                 <div key={item.title} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-8">
                   <div className="w-11 h-11 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5">
