@@ -1,12 +1,24 @@
 import { Sparkles, MapPin, Users, BookOpen, Award, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import phoneImgTr from "../../imports/phone.png";
+import phoneImgEn from "../../imports/phone2.png";
+import phoneImgZh from "../../imports/phone3.png";
+import phoneImgNo from "../../imports/phone4.png";
+
+const phoneImages = {
+  en: phoneImgEn,
+  zh: phoneImgZh,
+  tr: phoneImgTr,
+  no: phoneImgNo,
+} as const;
 
 const icons = [Sparkles, MapPin, Users, BookOpen, Award, MessageCircle];
 
 export function Features() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const f = t.features;
+  const featureImg = phoneImages[language];
 
   return (
     <section id="features" className="bg-[var(--nw-bg)] py-28">
@@ -23,7 +35,7 @@ export function Features() {
             <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{f.sub}</p>
             <div className="relative rounded-2xl overflow-hidden aspect-video bg-[var(--nw-bg-card)]">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=800&h=500&fit=crop&auto=format"
+                src={featureImg}
                 alt="Person using NativeWay on their phone"
                 className="w-full h-full object-cover"
                 loading="lazy"

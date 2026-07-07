@@ -22,7 +22,7 @@ export function Footer() {
               {[Instagram, Twitter, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href="https://instagram.com/nativeway" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                   className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/30 transition-all duration-200"
                 >
                   <Icon size={16} />

@@ -45,7 +45,7 @@ export function CTA() {
       }
 
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);

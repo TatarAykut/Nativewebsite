@@ -7,6 +7,13 @@
  * For Plausible or other providers, swap the pageview/event implementations.
  */
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const GA_ID = import.meta.env.VITE_GA_ID as string | undefined;
 
 let initialized = false;
@@ -32,9 +39,7 @@ export function initAnalytics(): void {
 
 export function pageview(url: string): void {
   if (!GA_ID) return;
-  (window as unknown as Record<string, unknown>).gtag?.("event", "page_view", {
-    page_location: url,
-  });
+  window.gtag?.("event", "page_view", { page_location: url });
 }
 
 export function event(
@@ -42,5 +47,5 @@ export function event(
   params?: Record<string, string | number | boolean>,
 ): void {
   if (!GA_ID) return;
-  (window as unknown as Record<string, unknown>).gtag?.("event", action, params);
+  window.gtag?.("event", action, params);
 }
