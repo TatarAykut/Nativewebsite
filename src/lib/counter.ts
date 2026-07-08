@@ -2,7 +2,7 @@
 const KEY = "nativeway-waitlist-count";
 
 function getCount(): number {
-  return Number(localStorage.getItem(KEY)) || 1200;
+  return Number(localStorage.getItem(KEY)) || 0;
 }
 
 function incrementCount(): number {
