@@ -141,15 +141,15 @@ export function FeaturesPage() {
                   {/* Visual block */}
                   <div
                     className="rounded-2xl border p-10 flex flex-col items-center justify-center gap-6 aspect-square max-w-sm mx-auto md:mx-0 w-full"
-                    style={{ backgroundColor: `${color}06`, borderColor: `${color}20` }}
+                    style={{ backgroundColor: `${color}15`, borderColor: `${color}40` }}
                   >
-                    <PillarIcon size={72} style={{ color: `${color}30` }} strokeWidth={1} />
+                    <PillarIcon size={72} style={{ color: `${color}70` }} strokeWidth={1} />
                     <div className="flex flex-wrap gap-2 justify-center">
                       {pillar.items.map((item) => (
                         <span
                           key={item.title}
-                          className="text-xs px-3 py-1.5 rounded-full border"
-                          style={{ color, borderColor: `${color}30`, backgroundColor: `${color}10` }}
+                          className="text-xs px-3 py-1.5 rounded-full border font-medium"
+                          style={{ color, borderColor: `${color}50`, backgroundColor: `${color}20` }}
                         >
                           {item.title}
                         </span>
