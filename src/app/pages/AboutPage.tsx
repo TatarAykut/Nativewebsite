@@ -153,22 +153,6 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[var(--nw-bg)] text-center">
-        <div className="max-w-xl mx-auto px-6">
-          <h2 className="text-3xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
-            {p.cta.heading}
-          </h2>
-          <p className="text-[var(--nw-muted)] mb-8">{p.cta.sub}</p>
-          <a
-            href="/#get-app"
-            className="inline-flex items-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full hover:bg-[var(--nw-accent-hover)] transition-all duration-200 group"
-            style={{ fontWeight: 600 }}
-          >
-            {p.cta.button} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-      </section>
     </div>
   );
 }

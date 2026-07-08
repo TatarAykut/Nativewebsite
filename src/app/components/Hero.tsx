@@ -1,10 +1,17 @@
+import { useState, useEffect } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { waitlistCounter } from "../../lib/counter";
 
 export function Hero() {
   const { t } = useLanguage();
   const h = t.hero;
+  const [count, setCount] = useState(1200);
+
+  useEffect(() => {
+    setCount(waitlistCounter.get());
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -69,7 +76,7 @@ export function Hero() {
             </div>
             <div className="w-px h-10 bg-[var(--nw-border)]" />
             <div>
-              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>1,200+</p>
+              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{count.toLocaleString()}+</p>
               <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat2Label}</p>
             </div>
             <div className="w-px h-10 bg-[var(--nw-border)]" />

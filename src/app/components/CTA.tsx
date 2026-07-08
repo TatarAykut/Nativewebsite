@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { supabase } from "../../lib/supabase";
+import { waitlistCounter } from "../../lib/counter";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -38,12 +39,14 @@ export function CTA() {
       if (insertError) {
         // Duplicate email is fine — user already signed up
         if (insertError.code === "23505") {
+          waitlistCounter.increment();
           setSubmitted(true);
           return;
         }
         throw insertError;
       }
 
+      waitlistCounter.increment();
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
