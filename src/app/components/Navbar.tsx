@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useLanguage } from "../i18n/LanguageContext";
 import { useTheme } from "../theme/ThemeContext";
+import { waitlistCounter } from "../../lib/counter";
 import logoImg from "../../imports/natfr.png";
 
 export function Navbar() {
@@ -116,6 +117,7 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
+            onClick={() => waitlistCounter.increment()}
             className="inline-flex items-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-[var(--nw-accent-hover)] hover:scale-105 active:scale-95"
             style={{ fontWeight: 600 }}
           >
@@ -176,6 +178,7 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
+            onClick={() => waitlistCounter.increment()}
             className="bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-3 rounded-full text-center mt-1"
             style={{ fontWeight: 600 }}
             onClick={() => setMenuOpen(false)}

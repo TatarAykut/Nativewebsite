@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -7,11 +7,12 @@ import { waitlistCounter } from "../../lib/counter";
 export function Hero() {
   const { t } = useLanguage();
   const h = t.hero;
-  const [count, setCount] = useState(1200);
+  const [count, setCount] = useState(() => waitlistCounter.get());
 
-  useEffect(() => {
-    setCount(waitlistCounter.get());
-  }, []);
+  const handleCtaClick = () => {
+    const newCount = waitlistCounter.increment();
+    setCount(newCount);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -55,6 +56,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#get-app"
+              onClick={handleCtaClick}
               className="inline-flex items-center justify-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-7 py-4 rounded-full transition-all duration-200 hover:bg-[#ffa04a] hover:scale-105 active:scale-95 group"
               style={{ fontWeight: 600 }}
             >
