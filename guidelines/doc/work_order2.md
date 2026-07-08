@@ -1,5 +1,5 @@
-Hikayemiz
-Her şey hayal kırıklığıyla biten o seyahatimizle başladı. Dünyanın en güzel şehirlerinden birindeydik ancak kendimizi sadece turistler için kurgulanmış, birbirinin kopyası mekanlarda fazlasıyla zaman ve para harcarken bulmuştuk. Şehrin gerçek güzellikleri ve samimi hikayeleri sadece bir arka sokakta bizi beklerken, biz o otantik ruhu tamamen ıskalamıştık.
-O gün fark ettik ki, kusursuz bir yolculuk siyah ve beyazlardan ibaret değil. Roma'ya gidip Kolezyum'u görmemek ne kadar anlamsızsa, o görkemi yaşadıktan sonra akşam yemeğini sadece turistlere hitap eden ruhsuz bir restoranda yemek de o kadar yorucu. Biz, her iki dünyanın en iyi yanlarını birleştirmek istedik. Sizi hem o ikonik simgelerin ihtişamıyla buluşturan hem de hemen ardından şehrin gerçek ruhunu yansıtan o yerel mahalle kahvecisine götüren kusursuz dengeyi aradık ve NativeWay'i bunun üzerine kurduk.
-Ve seyahatin paylaştıkça güzelleştiğini hiç unutmadık. Bu yüzden NativeWay sizi diğer gezginlerle bir araya getirir; birlikte plan yapın, tavsiye alışverişinde bulunun, yolculuğunuzu paylaşın.
-Çünkü en iyi hikayeler sadece yaşadıklarınız değil, eve dönüp anlattıklarınızdır.
+Amacımız
+Vizyonumuz çok net: Sizin için en makul seyahati A'dan Z'ye tek tıkla planlamak.
+Seyahat planlamak günlerce süren, sekmeler arasında kaybolduğunuz yorucu bir iş olmamalı. NativeWay olarak amacımız; uçuşlardan otellere, ikonik simgelerden gizli kalmış mekanlara kadar tüm rotanızı saniyeler içinde, tek tıkla zahmetsizce organize etmektir.
+Ancak harika bir yolculuk sadece iyi planlanmış bir rota değil, aynı zamanda paylaşılan bir deneyimdir. Teknolojimiz arka planda sizin için en kusursuz planı yaparken, biz gezginlerin birbiriyle sosyalleşebileceği, fikir alışverişinde bulunabileceği ve maceralarını paylaşabileceği canlı bir topluluk yaratıyoruz.
+Tek tıkla planlayın, birlikte keşfedin.

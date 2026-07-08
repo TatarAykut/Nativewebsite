@@ -8,10 +8,10 @@ export const pageTranslations = {
         { title: "Our Approach", text: "Technology in service of human connection. We build tools that get out of the way and let the real experience shine through." },
      ],
       origin: {
-        badge: "The Origin", heading: "A deliberate beginning",
-        p1: "NativeWay wasn't born from a bad meal or a chance encounter. It was founded intentionally by three entrepreneurs — Ahmet Semih Dikilitaş, Said Aydın, and Aykut Arayıcı — who shared a clear vision: build a premium travel ecosystem that respects both the traveler and the destination.",
-        p2: "Instead of chasing venture capital or rapid growth, the team focused on getting the fundamentals right. They spent months researching what travelers actually need, interviewing locals across dozens of cities, and designing an experience that balances iconic landmarks with authentic local discovery.",
-        p3: "The result is a platform built on strong principles: integrity in every recommendation, honesty in every interaction, and an unwavering commitment to quality over shortcuts.",
+        badge: "Our Purpose", heading: "A to Z, in a single click",
+        p1: "Our vision is clear: plan the perfect trip from A to Z with a single click. Travel planning shouldn't mean days of research, dozens of open tabs, and endless decision fatigue. NativeWay organizes your entire journey — flights, hotels, iconic landmarks, hidden gems — in seconds, effortlessly.",
+        p2: "But a great trip isn't just a well-planned route. It's also a shared experience. While our technology builds your perfect itinerary behind the scenes, we're creating a vibrant community where travelers connect, swap ideas, and share their adventures.",
+        p3: "Plan in one click. Discover together.",
       },
       timeline: {
         badge: "Journey", heading: "How we got here",
@@ -197,10 +197,10 @@ export const pageTranslations = {
         { title: "我们的方法", text: "以技术服务人与人之间的连接。我们构建默默退居幕后、让真实体验自然绽放的工具。" },
      ],
       origin: {
-        badge: "起源", heading: "一个深思熟虑的开始",
-        p1: "NativeWay 并非源于一顿糟糕的饭菜或一次偶然的相遇。它由三位企业家——Ahmet Semih Dikilitaş、Said Aydın 和 Aykut Arayıcı——怀着清晰的愿景有意识地创立：打造一个既尊重旅行者也尊重目的地的优质旅行生态系统。",
-        p2: "团队没有追逐风险投资或快速增长，而是专注于打好基础。他们花了数月时间研究旅行者的真正需求，走访数十座城市与当地人交流，设计出一种平衡标志性景点与真实本地探索的体验。",
-        p3: "成果是一个建立在坚定原则之上的平台：每一条推荐都保持诚信，每一次互动都保持诚实，始终坚守质量而非捷径。",
+        badge: "我们的目标", heading: "从 A 到 Z，一键完成",
+        p1: "我们的愿景很明确：一键规划从 A 到 Z 的完美旅程。旅行规划不应该意味着数天的搜索、几十个打开的标签页和无尽的决策疲劳。NativeWay 在几秒钟内轻松整理您的整个旅程——航班、酒店、标志性地标、隐藏的宝藏。",
+        p2: "但一次伟大的旅程不仅仅是一条精心规划的路线，它也是一次共享的体验。在技术在后台为您构建完美行程的同时，我们正在创建一个充满活力的社区，让旅行者可以连接、交换想法并分享他们的冒险。",
+        p3: "一键规划，一起探索。",
       },
       timeline: {
         badge: "历程", heading: "我们如何走到今天",
@@ -290,10 +290,10 @@ export const pageTranslations = {
         { title: "Yaklaşımımız", text: "İnsan bağlantısının hizmetinde teknoloji. Kenara çekilip gerçek deneyimin parlamasına izin veren araçlar inşa ediyoruz." },
      ],
       origin: {
-        badge: "Başlangıç Noktası", heading: "Bilinçli bir başlangıç",
-        p1: "NativeWay kötü bir yemekten ya da tesadüfi bir karşılaşmadan doğmadı. Ahmet Semih Dikilitaş, Said Aydın ve Aykut Arayıcı tarafından, net bir vizyonla bilinçli olarak kuruldu: hem gezgine hem de destinasyona saygı duyan premium bir seyahat ekosistemi inşa etmek.",
-        p2: "Ekip, risk sermayesi peşinde koşmak ya da hızlı büyümek yerine temelleri doğru atmaya odaklandı. Gezginlerin gerçekten neye ihtiyaç duyduğunu araştırmak, onlarca şehirde yerlilerle görüşmek ve ikonik simge yapılarla otantik yerel keşfi dengeleyen bir deneyim tasarlamak için aylar harcadılar.",
-        p3: "Sonuç, güçlü ilkeler üzerine inşa edilmiş bir platformdur: her öneride dürüstlük, her etkileşimde şeffaflık ve kısayollar yerine kaliteye sarsılmaz bir bağlılık.",
+        badge: "Amacımız", heading: "A'dan Z'ye, tek tıkla",
+        p1: "Vizyonumuz çok net: Sizin için en makul seyahati A'dan Z'ye tek tıkla planlamak. Seyahat planlamak günlerce süren, sekmeler arasında kaybolduğunuz yorucu bir iş olmamalı. NativeWay olarak amacımız; uçuşlardan otellere, ikonik simgelerden gizli kalmış mekanlara kadar tüm rotanızı saniyeler içinde, tek tıkla zahmetsizce organize etmektir.",
+        p2: "Ancak harika bir yolculuk sadece iyi planlanmış bir rota değil, aynı zamanda paylaşılan bir deneyimdir. Teknolojimiz arka planda sizin için en kusursuz planı yaparken, biz gezginlerin birbiriyle sosyalleşebileceği, fikir alışverişinde bulunabileceği ve maceralarını paylaşabileceği canlı bir topluluk yaratıyoruz.",
+        p3: "Tek tıkla planlayın, birlikte keşfedin.",
       },
       timeline: {
         badge: "Yolculuk", heading: "Buraya nasıl geldik",
@@ -408,10 +408,10 @@ export const pageTranslations = {
         { title: "Vår tilnærming", text: "Teknologi i menneskelig tilkoblings tjeneste. Vi bygger verktøy som trekker seg tilbake og lar den ekte opplevelsen skinne gjennom." },
      ],
       origin: {
-        badge: "Opprinnelsen", heading: "En bevisst begynnelse",
-        p1: "NativeWay ble ikke født av et dårlig måltid eller et tilfeldig møte. Det ble grunnlagt med hensikt av tre gründere — Ahmet Semih Dikilitaş, Said Aydın og Aykut Arayıcı — som delte en klar visjon: bygg et premium reiseøkosystem som respekterer både den reisende og destinasjonen.",
-        p2: "I stedet for å jage risikokapital eller rask vekst, fokuserte teamet på å få det grunnleggende riktig. De brukte måneder på å undersøke hva reisende faktisk trenger, intervjue lokale i dusinvis av byer, og designe en opplevelse som balanserer ikoniske landemerker med autentisk lokal oppdagelse.",
-        p3: "Resultatet er en plattform bygget på sterke prinsipper: integritet i hver anbefaling, ærlighet i hver interaksjon, og en urokkelig forpliktelse til kvalitet over snarveier.",
+        badge: "Vårt formål", heading: "A til Å, i ett klikk",
+        p1: "Vår visjon er klar: planlegg den perfekte reisen fra A til Å med ett enkelt klikk. Reiseplanlegging skal ikke bety dager med søk, dusinvis av åpne faner og endeløs beslutningstretthet. NativeWay organiserer hele reisen din — flyreiser, hoteller, ikoniske landemerker, skjulte perler — på sekunder, uanstrengt.",
+        p2: "Men en flott reise er ikke bare en godt planlagt rute. Det er også en delt opplevelse. Mens teknologien vår bygger den perfekte reiseruten i bakgrunnen, skaper vi et levende fellesskap der reisende kan koble seg sammen, utveksle ideer og dele eventyrene sine.",
+        p3: "Planlegg med ett klikk. Oppdag sammen.",
       },
       timeline: {
         badge: "Reisen", heading: "Slik kom vi hit",
