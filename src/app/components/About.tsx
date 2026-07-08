@@ -18,7 +18,8 @@ export function About() {
               {a.heading}
             </h2>
             <p className="text-[var(--nw-muted)] leading-relaxed mb-6">{a.p1}</p>
-            <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{a.p2}</p>
+            <p className="text-[var(--nw-muted)] leading-relaxed mb-6">{a.p2}</p>
+            <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{a.p3}</p>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {["Ahmet Semih Dikilitaş", "Said", "Aykut"].map((name, i) => (
