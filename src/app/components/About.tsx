@@ -21,7 +21,7 @@ export function About() {
             <p className="text-[var(--nw-muted)] leading-relaxed mb-8">{a.p2}</p>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
-                {["Mateo", "Aiko", "Rania"].map((name, i) => (
+                {["Ahmet Semih Dikilitaş", "Said", "Aykut"].map((name, i) => (
                   <div
                     key={name}
                     className="w-9 h-9 rounded-full border-2 border-[var(--nw-bg)] bg-[var(--nw-bg-input)] flex items-center justify-center text-xs text-[#f07b22]"

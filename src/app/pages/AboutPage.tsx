@@ -4,32 +4,25 @@ import { SEO } from "../components/SEO";
 
 const team = [
   {
-    name: "Mateo Reyes",
+    name: "Ahmet Semih Dikilitaş",
     role: "Co-founder & CEO",
-    bio: "Former backpacker who spent 3 years living in 12 countries. Built NativeWay after one too many tourist traps.",
-    initial: "M",
+    bio: "Deneyimli girişimci, seyahat teknolojileri tutkunu. NativeWay'i gezginlerin gerçek deneyimlere ulaşması için kurdu.",
+    initial: "A",
     color: "#f07b22",
   },
   {
-    name: "Aiko Tanaka",
+    name: "Said Aydın",
     role: "Co-founder & CTO",
-    bio: "Ex-Google engineer passionate about community-driven products. Grew up between Tokyo and São Paulo.",
-    initial: "A",
+    bio: "Yazılım mimarı, full-stack geliştirici. NativeWay'in teknik altyapısını sıfırdan inşa ediyor.",
+    initial: "S",
     color: "#3a8fd9",
   },
   {
-    name: "Rania Khalil",
-    role: "Head of Community",
-    bio: "Traveled to 60+ countries, former travel journalist. Obsessed with connecting curious people to real places.",
-    initial: "R",
+    name: "Aykut Arayıcı",
+    role: "Head of Product",
+    bio: "Ürün stratejisti, kullanıcı deneyimi tasarımcısı. Her özelliğin gezginlere gerçek değer katmasını sağlıyor.",
+    initial: "A",
     color: "#4caf7d",
-  },
-  {
-    name: "Diego Ferreira",
-    role: "Head of Design",
-    bio: "Believes great design should feel invisible. Makes sure NativeWay is as beautiful as the places it features.",
-    initial: "D",
-    color: "#9b59b6",
   },
 ];
 
