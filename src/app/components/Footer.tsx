@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Link } from "react-router";
 import logoImg from "../../imports/natfr.png";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -21,8 +21,6 @@ export function Footer() {
             <div className="flex items-center gap-4 mt-6">
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/nativeway.official/", label: "Instagram" },
-                { Icon: Twitter, href: "https://x.com/nativeway", label: "Twitter" },
-                { Icon: Linkedin, href: "https://linkedin.com/company/nativeway", label: "LinkedIn" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
