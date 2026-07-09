@@ -37,8 +37,6 @@ export const translations = {
       p2: "That day we realized a perfect trip isn't black or white. Skipping the Colosseum in Rome makes no sense — but after soaking in that grandeur, eating at a soulless tourist-trap restaurant every night is just as draining. We set out to build the perfect balance: the kind that takes you to iconic landmarks, then right after, to the neighborhood café that captures the city's true spirit. That's what NativeWay was built on.",
       p3: "And we never forgot that travel is better shared. NativeWay connects you with fellow travelers heading to the same place at the same time — meet up, plan together, swap tips, share the journey. Because the best stories aren't just the ones you live; they're the ones you come home and tell.",
       founderNote: "Built by travelers, for travelers.",
-      cardTitle: "",
-      cardSub: "",
     },
     values: {
       badge: "What We Stand For",
@@ -143,8 +141,6 @@ export const translations = {
       p2: "那天我们意识到，完美的旅程并非非黑即白。去了罗马却跳过斗兽场毫无意义——但在感受了那份宏伟之后，每晚都在毫无灵魂的游客餐厅吃饭同样令人疲惫。我们开始寻找完美的平衡：那种能带你去看标志性地标，然后随即把你带到捕捉城市真正精神的街区咖啡馆的体验。NativeWay 正是建立在这一信念之上。",
       p3: "我们从未忘记，旅行因分享而更美。NativeWay 将你与同一时间前往同一目的地的旅行者连接起来——见面、一起规划、交换建议、分享旅程。因为最棒的故事，不只是你经历的那些，更是你回家后讲述的那些。",
       founderNote: "由旅行者打造，为旅行者服务。",
-      cardTitle: "",
-      cardSub: "",
     },
     values: {
       badge: "我们的立场",
@@ -249,8 +245,6 @@ export const translations = {
       p2: "O gün fark ettik ki, kusursuz bir yolculuk siyah ve beyazlardan ibaret değil. Roma'ya gidip Kolezyum'u görmemek ne kadar anlamsızsa, o görkemi yaşadıktan sonra akşam yemeğini sadece turistlere hitap eden ruhsuz bir restoranda yemek de o kadar yorucu. Biz, her iki dünyanın en iyi yanlarını birleştirmek istedik. Sizi hem o ikonik simgelerin ihtişamıyla buluşturan hem de hemen ardından şehrin gerçek ruhunu yansıtan o yerel mahalle kahvecisine götüren kusursuz dengeyi aradık ve NativeWay'i bunun üzerine kurduk.",
       p3: "Ve seyahatin paylaştıkça güzelleştiğini hiç unutmadık. NativeWay sizi aynı anda aynı yere giden gezginlerle buluşturur; tanışın, birlikte plan yapın, tavsiye alışverişinde bulunun, yolculuğunuzu paylaşın. Çünkü en iyi hikayeler sadece yaşadıklarınız değil, eve dönüp anlattıklarınızdır.",
       founderNote: "Gezginler tarafından, gezginler için inşa edildi.",
-      cardTitle: "",
-      cardSub: "",
     },
     values: {
       badge: "Neyin Yanında Duruyoruz",
@@ -355,8 +349,6 @@ export const translations = {
       p2: "Den dagen innså vi at en perfekt reise ikke er svart-hvitt. Å dra til Roma uten å se Colosseum gir ingen mening — men etter å ha opplevd den prakten, er det like slitsomt å spise på en sjelløs turistrestaurant hver kveld. Vi satte oss fore å bygge den perfekte balansen: den som tar deg til ikoniske landemerker, og rett etterpå, til nabolagskaféen som fanger byens sanne ånd. Det er dette NativeWay er bygget på.",
       p3: "Og vi glemte aldri at reise er bedre når det deles. NativeWay kobler deg med andre reisende som drar til samme sted samtidig — møt opp, planlegg sammen, bytt tips, del reisen. For de beste historiene er ikke bare de du opplever; de er de du kommer hjem og forteller.",
       founderNote: "Bygget av reisende, for reisende.",
-      cardTitle: "",
-      cardSub: "",
     },
     values: {
       badge: "Hva vi står for",
