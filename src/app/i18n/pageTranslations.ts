@@ -3,9 +3,9 @@ export const pageTranslations = {
     aboutPage: {
       hero: { badge: "Our Story", heading: "We believe travel should feel human", sub: "NativeWay was born from a simple frustration — the best experiences in any city are hidden from the people who need them most. We're changing that." },
       mission: [
-        { title: "Our Mission", text: "To close the gap between tourists and locals — making every traveler feel like they belong, and every local feel heard." },
-        { title: "Our Vision", text: "A world where travel creates real cultural exchange, supports local economies, and leaves destinations better than we found them." },
-        { title: "Our Approach", text: "Technology in service of human connection. We build tools that get out of the way and let the real experience shine through." },
+        { title: "Our Mission", text: "Plan your entire trip — flights, hotels, landmarks, hidden gems — in seconds, with a single click. No more tab overload. No more decision fatigue." },
+        { title: "Our Vision", text: "A world where travel planning is effortless and journeys are shared. Where technology handles the logistics so travelers can focus on what matters: the experience." },
+        { title: "Our Approach", text: "Smart automation behind the scenes, vibrant community at the forefront. We build the tools that make trip planning feel like magic — fast, seamless, and deeply personal." },
      ],
       origin: {
         badge: "Our Purpose", heading: "A to Z, in a single click",
@@ -192,9 +192,9 @@ export const pageTranslations = {
     aboutPage: {
       hero: { badge: "我们的故事", heading: "我们相信旅行应该充满人情味", sub: "NativeWay 源于一个简单的挫败感——每座城市中最好的体验，对最需要它们的人来说往往是隐形的。我们正在改变这一点。" },
       mission: [
-        { title: "我们的使命", text: "弥合游客与当地人之间的鸿沟——让每位旅行者都感到融入，让每位当地人都感到被倾听。" },
-        { title: "我们的愿景", text: "一个旅行能带来真实文化交流、支持本地经济并让目的地比我们到来时更美好的世界。" },
-        { title: "我们的方法", text: "以技术服务人与人之间的连接。我们构建默默退居幕后、让真实体验自然绽放的工具。" },
+        { title: "我们的使命", text: "在几秒钟内，一键规划您的整个旅程——航班、酒店、地标、隐藏的宝藏。不再有过多的标签页，不再有决策疲劳。" },
+        { title: "我们的愿景", text: "一个旅行规划毫不费力、旅程可以分享的世界。技术处理后勤，让旅行者专注于真正重要的事：体验本身。" },
+        { title: "我们的方法", text: "后台智能自动化，前台充满活力的社区。我们打造的工具体验如同魔法——快速、无缝且深度个性化。" },
      ],
       origin: {
         badge: "我们的目标", heading: "从 A 到 Z，一键完成",
@@ -285,9 +285,9 @@ export const pageTranslations = {
     aboutPage: {
       hero: { badge: "Hikayemiz", heading: "Seyahatin insani hissettirmesi gerektiğine inanıyoruz", sub: "NativeWay basit bir hayal kırıklığından doğdu — her şehirdeki en iyi deneyimler, onlara en çok ihtiyaç duyan kişilerden gizli. Bunu değiştiriyoruz." },
       mission: [
-        { title: "Misyonumuz", text: "Turistler ve yerliler arasındaki uçurumu kapatmak — her gezginin ait hissetmesini, her yerlinin duyulduğunu hissetmesini sağlamak." },
-        { title: "Vizyonumuz", text: "Seyahatin gerçek kültürel alışverişe yol açtığı, yerel ekonomileri desteklediği ve destinasyonları daha iyi bıraktığı bir dünya." },
-        { title: "Yaklaşımımız", text: "İnsan bağlantısının hizmetinde teknoloji. Kenara çekilip gerçek deneyimin parlamasına izin veren araçlar inşa ediyoruz." },
+        { title: "Misyonumuz", text: "Tüm seyahatinizi — uçuşlar, oteller, simge yapılar, gizli hazineler — saniyeler içinde, tek tıkla planlayın. Artık sekmeler arasında kaybolmak yok, karar yorgunluğu yok." },
+        { title: "Vizyonumuz", text: "Seyahat planlamanın zahmetsiz, yolculukların paylaşımlı olduğu bir dünya. Teknoloji lojistiği hallederken gezginler asıl meseleye odaklanır: deneyime." },
+        { title: "Yaklaşımımız", text: "Arka planda akıllı otomasyon, ön planda canlı bir topluluk. Seyahat planlamayı sihir gibi hissettiren araçlar inşa ediyoruz — hızlı, sorunsuz ve son derece kişisel." },
      ],
       origin: {
         badge: "Amacımız", heading: "A'dan Z'ye, tek tıkla",
@@ -403,9 +403,9 @@ export const pageTranslations = {
     aboutPage: {
       hero: { badge: "Vår historie", heading: "Vi tror reisen bør føles menneskelig", sub: "NativeWay ble født av en enkel frustrasjon — de beste opplevelsene i enhver by er skjult for dem som trenger dem mest. Det endrer vi på." },
       mission: [
-        { title: "Vårt oppdrag", text: "Å tette gapet mellom turister og lokalbefolkning — slik at enhver reisende føler tilhørighet, og enhver lokal føler seg hørt." },
-        { title: "Vår visjon", text: "En verden der reise skaper ekte kulturutveksling, støtter lokale økonomier og etterlater destinasjoner bedre enn vi fant dem." },
-        { title: "Vår tilnærming", text: "Teknologi i menneskelig tilkoblings tjeneste. Vi bygger verktøy som trekker seg tilbake og lar den ekte opplevelsen skinne gjennom." },
+        { title: "Vårt oppdrag", text: "Planlegg hele reisen din — flyreiser, hoteller, landemerker, skjulte perler — på sekunder, med ett klikk. Ikke mer faneoverbelastning, ikke mer beslutningstretthet." },
+        { title: "Vår visjon", text: "En verden der reiseplanlegging er uanstrengt og reiser deles. Der teknologi håndterer logistikken slik at reisende kan fokusere på det som betyr noe: opplevelsen." },
+        { title: "Vår tilnærming", text: "Smart automatisering bak kulissene, levende fellesskap i front. Vi bygger verktøyene som får reiseplanlegging til å føles som magi — raskt, sømløst og dypt personlig." },
      ],
       origin: {
         badge: "Vårt formål", heading: "A til Å, i ett klikk",
