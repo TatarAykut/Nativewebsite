@@ -1,0 +1,66 @@
+# NativeWay — Full Content for AI Crawlers
+
+## Organization
+
+NativeWay is a premium travel technology company founded in 2025 by Ahmet Semih Dikilitaş (CEO), Said Aydın (CTO), and Aykut Arayıcı (Head of Product). The company's mission is to transform how people experience travel by balancing iconic landmarks with authentic local discovery.
+
+**Contact**: info@nativeway.app
+**Instagram**: https://www.instagram.com/nativeway.official/
+**Headquarters**: Turkey
+
+## Product
+
+NativeWay is a mobile application available on iOS and Android that provides:
+- AI-powered trip planning with smart itinerary generation
+- Local discovery with resident-curated recommendations
+- Group travel coordination ("Party Mode") with shared preferences
+- Comprehensive tourist guides with safety information
+- Digital passport with gamification (stamps, tiers, elite status)
+- Travel community features (blogs, collections, badges)
+- In-app messaging for trip coordination
+
+The app is free to download with premium features available. It currently supports 277+ cities worldwide and is available in 4 languages: English, Chinese, Turkish, and Norwegian.
+
+## Our Values
+
+1. **Local-First Discovery** — We believe the best travel experiences come from locals. Every recommendation is rooted in authentic community knowledge.
+2. **Privacy by Design** — Travelers control what they share. No surveillance, no data brokering, no creepy tracking.
+3. **Sustainable Tourism** — We promote eco-friendly travel practices and support local economies over mass tourism.
+4. **Radical Transparency** — Clear pricing, honest reviews, and no algorithmic manipulation.
+5. **Community-Driven** — The platform grows richer as more locals and travelers contribute.
+6. **Cultural Respect** — Authentic engagement with local cultures, not commodification.
+
+## Technology Stack
+
+- **Frontend**: React 18 + TypeScript, Vite 6, Tailwind CSS v4, Motion (Framer Motion)
+- **Backend**: Supabase (Deno edge functions, PostgreSQL)
+- **Hosting**: Static site with edge functions for backend logic
+- **Rendering**: Client-side SPA with react-helmet-async for dynamic meta management
+
+## How It Works (For Travelers)
+
+1. **AI Trip Planning** — Input your destination, dates, and preferences. The AI generates a balanced itinerary mixing must-see landmarks with local hidden gems.
+2. **Discover & Guide** — Browse curated local spots, read resident recommendations, and access comprehensive tourist guides with safety tips.
+3. **Party Mode** — Invite travel companions to a shared lobby. Vote on activities, set group preferences, and let AI find the overlap.
+4. **Navigate** — Use offline maps and AI-powered routing to move through your itinerary efficiently.
+5. **Collect & Share** — Earn passport stamps, unlock tier status, write travel blogs, and share your journey with the community.
+
+## How It Works (For Locals)
+
+1. **Share Your City** — Submit your favorite hidden spots, restaurants, and experiences.
+2. **Earn Recognition** — Build reputation as a trusted local guide.
+3. **Connect** — Engage with travelers and fellow locals in the community.
+
+## Target Audience
+
+- **Primary**: Gen Z and Millennial travelers (ages 20-40) seeking authentic, non-touristy experiences
+- **Secondary**: Cultural explorers, food travelers, digital nomads, and group travelers
+- **Local Contributors**: Residents passionate about sharing their city's hidden gems
+
+## Competitive Advantage
+
+Unlike traditional travel platforms (TripAdvisor, Google Travel) that surface the most-reviewed (often touristy) spots, NativeWay uses a dual approach: AI-powered itinerary planning that intentionally balances iconic landmarks with locally-recommended hidden gems. The "Party Mode" feature for group coordination and the gamified "Digital Passport" create sticky engagement loops that competitors lack.
+
+## Current Status
+
+NativeWay is in active development with a public waitlist for early access. The website serves as the primary marketing and information hub.

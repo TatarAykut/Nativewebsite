@@ -12,11 +12,14 @@ export function CookiePage() {
         title="Cookie Policy"
         path="/cookies"
         description="NativeWay cookie policy — how and why we use cookies on our platform."
+        ogType="article"
+        publishedAt="2025-01-01"
+        modifiedAt="2025-07-09"
       />
-      <div className="max-w-3xl mx-auto px-6">
+      <article className="max-w-3xl mx-auto px-6" aria-labelledby="cookies-title">
         <div className="py-16 border-b border-[var(--nw-border)] mb-12">
           <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.badge}</span>
-          <h1 className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
+          <h1 id="cookies-title" className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             {p.title}
           </h1>
           <p className="text-[var(--nw-muted)]">{p.lastUpdated}</p>
@@ -29,7 +32,7 @@ export function CookiePage() {
             </LegalSection>
           ))}
         </div>
-      </div>
+      </article>
     </div>
   );
 }

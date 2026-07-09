@@ -5,9 +5,9 @@ interface LegalSectionProps {
 
 export function LegalSection({ title, children }: LegalSectionProps) {
   return (
-    <div>
-      <h2>{title}</h2>
+    <section aria-labelledby={`legal-${title.replace(/\s+/g, "-").toLowerCase()}`}>
+      <h2 id={`legal-${title.replace(/\s+/g, "-").toLowerCase()}`}>{title}</h2>
       {children}
-    </div>
+    </section>
   );
 }

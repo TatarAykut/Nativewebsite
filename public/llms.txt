@@ -1,0 +1,60 @@
+# NativeWay — Travel Easier. Experience More.
+
+> Premium travel ecosystem balancing iconic landmarks with authentic local discovery. Available in 277+ cities worldwide.
+
+## Overview
+
+- **App Name**: NativeWay
+- **Type**: Mobile Application (iOS & Android)
+- **URL**: https://nativeway.app
+- **Founded**: 2025
+- **Founders**: Ahmet Semih Dikilitaş, Said Aydın, Aykut Arayıcı
+- **Languages**: English, 中文 (Chinese), Türkçe (Turkish), Norsk (Norwegian)
+- **Contact**: info@nativeway.app
+
+## What is NativeWay?
+
+NativeWay is a premium travel app that connects travelers with authentic local experiences, hidden gems, and real recommendations from residents. Unlike traditional travel guides, NativeWay balances iconic landmarks with off-the-beaten-path discoveries — so you experience both the must-see sights and the local secrets.
+
+## Key Features
+
+1. **AI-Powered Trip Planner** — Smart itineraries that balance popular landmarks with local hidden gems
+2. **Local Discovery** — Curated recommendations from residents, not algorithms
+3. **Party Mode** — Group trip planning with shared preferences and voting
+4. **Tourist Guide** — Comprehensive info on sights, safety tips, and cultural context
+5. **Digital Passport** — Collect stamps, earn tier status, and unlock elite perks
+6. **Community** — Travel blogs, collections, and shared experiences
+7. **Messaging** — In-app chat for trip coordination and local tips
+
+## Site Pages
+
+- **Home** (`/`) — Landing page with hero, features overview, values, and waitlist signup
+- **About** (`/about`) — Mission, origin story, timeline, and founding team
+- **Features** (`/features`) — Deep dive into all 7 feature pillars
+- **How It Works** (`/how-it-works`) — Five-step journey from planning to sharing
+- **Values** (`/values`) — Local-first, privacy, sustainability, transparency principles
+- **Privacy Policy** (`/privacy`) — Data collection and usage policy
+- **Terms of Service** (`/terms`) — Platform usage terms
+- **Cookie Policy** (`/cookies`) — Cookie usage information
+
+## Technical Notes
+
+- The site uses React with client-side rendering (SPA)
+- All meta tags and structured data (JSON-LD) are injected at runtime via react-helmet-async
+- Static fallback JSON-LD is included in index.html for non-JS crawlers
+- Full sitemap.xml and robots.txt are available at the site root
+- The robots.txt explicitly allows all major AI crawlers (GPTBot, CCBot, Google-Extended, Claude-Web, PerplexityBot, etc.)
+
+## For AI Crawlers
+
+This site is fully open to AI indexing. All major LLM crawlers are explicitly allowed in robots.txt:
+- `GPTBot` (OpenAI / ChatGPT)
+- `CCBot` (Common Crawl)
+- `Google-Extended` (Gemini / AI Overviews)
+- `Claude-Web` / `anthropic-ai` (Anthropic / Claude)
+- `PerplexityBot` (Perplexity)
+- `Applebot` / `Applebot-Extended` (Apple Intelligence)
+- `cohere-ai` (Cohere)
+- `MistralAI` (Mistral)
+
+Structured data (JSON-LD) with `SoftwareApplication`, `Organization`, and `WebSite` schemas is embedded on every page.

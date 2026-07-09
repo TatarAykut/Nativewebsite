@@ -24,10 +24,13 @@ export function Root() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[var(--nw-bg)] overflow-x-hidden">
+    <div
+      className="min-h-screen bg-[var(--nw-bg)] overflow-x-hidden"
+      role="document"
+    >
       <SkipLink />
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" aria-label="Main content">
         <Outlet />
       </main>
       <Footer />

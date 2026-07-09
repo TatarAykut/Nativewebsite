@@ -1,4 +1,107 @@
+# ═══════════════════════════════════════════════════════════════════════
+# NativeWay — robots.txt
+# Optimized for traditional search engines AND AI/LLM crawlers.
+# Last updated: 2025-07-09
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── AI / LLM Crawlers (explicitly allowed) ──────────────────────────
+
+# OpenAI — ChatGPT / GPTBot
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+
+# Anthropic — Claude
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 2
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 2
+
+# Google — Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 2
+
+# Google — Bard (legacy name, still used by some crawlers)
+User-agent: GoogleOther
+Allow: /
+Crawl-delay: 2
+
+# Common Crawl — used by many AI training datasets
+User-agent: CCBot
+Allow: /
+Crawl-delay: 5
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 2
+
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 2
+
+# Apple — Apple Intelligence
+User-agent: Applebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Applebot-Extended
+Allow: /
+Crawl-delay: 2
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 2
+
+# Mistral AI
+User-agent: MistralAI
+Allow: /
+Crawl-delay: 2
+
+# ── Traditional Search Engines ──────────────────────────────────────
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# ── Catch-all — all other crawlers ──────────────────────────────────
+
 User-agent: *
 Allow: /
+Crawl-delay: 5
+
+# Disallow nothing — this is a public landing site, every page should be indexed
+
+# ── Sitemap ────────────────────────────────────────────────────────
 
 Sitemap: https://nativeway.app/sitemap.xml
