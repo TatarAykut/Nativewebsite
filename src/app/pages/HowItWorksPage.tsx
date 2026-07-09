@@ -148,7 +148,7 @@ export function HowItWorksPage() {
             <div className="h-px flex-1 bg-white/8" />
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
-            {p.locals.steps.map((step) => (
+            {p.locals.steps.map((step: { number: string; title: string; description: string }) => (
               <div key={step.number} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-8">
                 <span
                   className="text-5xl text-[#f07b22]/15 block mb-3 leading-none"
@@ -166,9 +166,6 @@ export function HowItWorksPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-[var(--nw-muted)] text-sm mt-8">
-            {p.locals.note}
-          </p>
         </div>
       </section>
 
