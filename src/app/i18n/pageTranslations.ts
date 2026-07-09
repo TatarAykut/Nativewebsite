@@ -137,7 +137,7 @@ export const pageTranslations = {
         { title: "Radical Transparency", summary: "We tell you how the sausage is made — because you deserve to know.", description: "NativeWay publishes its content moderation guidelines, local verification process, and business model openly. If we change anything significant, we tell the community first.", principles: ["Public content moderation policy", "Open changelog of platform updates", "Community feedback published including critical"], quote: "\"Trust is built by showing your work. Every time.\" — Ahmet Semih Dikilitaş, CEO" },
 
      ],
-      commitment: { heading: "These aren't aspirations — they're constraints", p1: "We've turned our values into hard product rules. We can't insert a sponsored recommendation even if we wanted to — the system doesn't allow it. We can't sell location data — we don't collect it in a form that can be sold.", p2: "That's the difference between a value statement and a value. We build the constraints in." },
+      commitment: { heading: "These aren't aspirations — they're commitments", p1: "Values only matter when they guide real decisions. We build NativeWay with the traveler's trust at the center — every recommendation is rooted in authenticity, every feature is designed with integrity, and your data is treated with the respect it deserves.", p2: "That's the difference between talking about values and living them. We choose to live them — every day." },
       cta: { heading: "Share our values? Come join us.", sub: "Early access is open — and free for the first year.", button: "Get Early Access" },
     },
     privacyPage: {
@@ -254,7 +254,7 @@ export const pageTranslations = {
         { title: "彻底透明", summary: "我们告诉您背后的运作方式——因为您值得知道。", description: "NativeWay 公开其内容审核准则、本地验证流程和商业模式。如果做出重大改变，我们会首先告知社区。", principles: ["公开内容审核政策", "平台更新的公开更新日志", "发布社区反馈（包括批评性反馈）"], quote: "\"信任通过展示您的工作来建立。每一次都是。\" — Ahmet Semih Dikilitaş，CEO" },
 
      ],
-      commitment: { heading: "这些不是愿望——而是约束", p1: "我们将价值观转化为硬性产品规则。即使我们想要，也无法插入赞助推荐——系统不允许。", p2: "这就是价值声明与价值观之间的区别。我们将约束内建其中。" },
+      commitment: { heading: "这些不是愿望——而是承诺", p1: "价值观只有在指导真正决策时才有意义。我们将旅行者的信任置于 NativeWay 的核心——每一条推荐都根植于真实，每一个功能都以诚信设计，您的数据得到应有的尊重。", p2: "这就是谈论价值观与践行价值观的区别。我们选择践行——每一天。" },
       cta: { heading: "认同我们的价值观？来加入我们吧。", sub: "早期访问已开放——第一年免费。", button: "提前获取" },
     },
     // Legal pages — awaiting Chinese translation; displaying English
@@ -348,7 +348,7 @@ export const pageTranslations = {
         { title: "Radikal Şeffaflık", summary: "Size işin iç yüzünü anlatıyoruz — çünkü bunu bilmeyi hak ediyorsunuz.", description: "NativeWay içerik moderasyon yönergelerini, yerel doğrulama sürecini ve iş modelini açıkça yayımlar. Önemli değişikliklerde önce topluluğa söyleriz.", principles: ["Kamuya açık içerik moderasyon politikası", "Platform güncellemelerinin açık değişiklik günlüğü", "Eleştirel olanlar dahil topluluk geri bildirimi yayımlandı"], quote: "\"Güven çalışmanızı göstererek inşa edilir. Her seferinde.\" — Ahmet Semih Dikilitaş, CEO" },
 
      ],
-      commitment: { heading: "Bunlar birer özlem değil — kısıtlamalardır", p1: "Değerlerimizi katı ürün kurallarına dönüştürdük. İstsek de sponsorlu öneri ekleyemeyiz — sistem izin vermiyor. Konum verisi satamayız — satabileceğimiz formda toplamıyoruz.", p2: "Değer beyanı ile değer arasındaki fark budur. Kısıtlamaları içine inşa ediyoruz." },
+      commitment: { heading: "Bunlar birer özlem değil — taahhüttür", p1: "Değerler yalnızca gerçek kararları yönlendirdiklerinde anlam kazanır. NativeWay'i gezginin güvenini merkeze koyarak inşa ediyoruz — her öneri otantikliğe dayanır, her özellik dürüstlükle tasarlanır ve verileriniz hak ettiği saygıyla işlenir.", p2: "Değerler hakkında konuşmakla onları yaşamak arasındaki fark budur. Biz yaşamayı seçiyoruz — her gün." },
       cta: { heading: "Değerlerimizi paylaşıyor musunuz? Gelin katılın.", sub: "Erken erişim açık — ve ilk yıl ücretsiz.", button: "Erken Erişim Alın" },
     },
     privacyPage: {
@@ -465,7 +465,7 @@ export const pageTranslations = {
         { title: "Radikal åpenhet", summary: "Vi forteller deg hvordan det henger sammen — fordi du fortjener å vite.", description: "NativeWay publiserer sine retningslinjer for innholdsmoderering, den lokale verifiseringsprosessen og forretningsmodellen åpent. Hvis vi endrer noe vesentlig, forteller vi fellesskapet først.", principles: ["Offentlig retningslinje for innholdsmoderering", "Åpen endringslogg for plattformoppdateringer", "Fellesskapstilbakemeldinger publisert inkludert kritiske"], quote: "\"Tillit bygges ved å vise arbeidet ditt. Hver gang.\" — Ahmet Semih Dikilitaş, CEO" },
 
      ],
-      commitment: { heading: "Dette er ikke ambisjoner — det er begrensninger", p1: "Vi har gjort verdiene våre om til harde produktregler. Vi kan ikke sette inn en sponset anbefaling selv om vi ville — systemet tillater det ikke. Vi kan ikke selge lokasjonsdata — vi samler det ikke inn i en form som kan selges.", p2: "Det er forskjellen mellom en verdierklæring og en verdi. Vi bygger begrensningene inn." },
+      commitment: { heading: "Dette er ikke ambisjoner — det er forpliktelser", p1: "Verdier betyr bare noe når de styrer ekte beslutninger. Vi bygger NativeWay med den reisendes tillit i sentrum — hver anbefaling er forankret i autentisitet, hver funksjon er designet med integritet, og dataene dine behandles med den respekten de fortjener.", p2: "Det er forskjellen mellom å snakke om verdier og å leve dem. Vi velger å leve dem — hver dag." },
       cta: { heading: "Deler du våre verdier? Bli med oss.", sub: "Tidlig tilgang er åpen — og gratis det første året.", button: "Få tidlig tilgang" },
     },
     // Legal pages — awaiting Norwegian translation; displaying English
