@@ -19,10 +19,14 @@ export function Footer() {
             />
             <p className="text-[var(--nw-muted)] text-sm leading-relaxed max-w-xs">{f.tagline}</p>
             <div className="flex items-center gap-4 mt-6">
-              {[Instagram, Twitter, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/nativeway.official/", label: "Instagram" },
+                { Icon: Twitter, href: "https://x.com/nativeway", label: "Twitter" },
+                { Icon: Linkedin, href: "https://linkedin.com/company/nativeway", label: "LinkedIn" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="https://instagram.com/nativeway" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                  key={label}
+                  href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                   className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/30 transition-all duration-200"
                 >
                   <Icon size={16} />
