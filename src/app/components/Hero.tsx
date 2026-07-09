@@ -73,7 +73,7 @@ export function Hero() {
 
           <div className="mt-16 flex items-center gap-8">
             <div>
-              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>50+</p>
+              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>277+</p>
               <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat1Label}</p>
             </div>
             <div className="w-px h-10 bg-[var(--nw-border)]" />
