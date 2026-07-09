@@ -178,10 +178,9 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
-            onClick={() => waitlistCounter.increment()}
+            onClick={() => { waitlistCounter.increment(); setMenuOpen(false); }}
             className="bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-3 rounded-full text-center mt-1"
             style={{ fontWeight: 600 }}
-            onClick={() => setMenuOpen(false)}
           >
             {t.nav.cta}
           </Link>
