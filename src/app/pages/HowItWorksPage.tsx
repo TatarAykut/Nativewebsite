@@ -70,7 +70,7 @@ export function HowItWorksPage() {
             const color = stepColors[i];
             const featureIcons = stepFeatureIcons[i]!;
             return (
-              <div key={i} id={`step-${i + 1}`} className="flex gap-6 items-start">
+              <div key={i} id={`step-${i + 1}`} className="flex gap-6 items-start scroll-mt-36">
                 {/* Left: number + line */}
                 <div className="hidden md:flex flex-col items-center gap-2 pt-1 shrink-0">
                   <div

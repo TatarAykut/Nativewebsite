@@ -79,7 +79,7 @@ export function FeaturesPage() {
             const color = pillarColors[i];
             const itemIcons = pillarItemIcons[i]!;
             return (
-              <div key={pillar.category} id={`pillar-${i}`}>
+              <div key={pillar.category} id={`pillar-${i}`} className="scroll-mt-36">
                 {/* Pillar header */}
                 <div className="flex items-center gap-4 mb-10">
                   <div
