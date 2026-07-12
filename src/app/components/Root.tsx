@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { CookieBanner } from "./CookieBanner";
-import { handleAnchorClick } from "../utils/smoothScroll";
+import { handleAnchorClick, smoothScrollTo } from "../utils/smoothScroll";
 
 function SkipLink() {
   return (
@@ -18,11 +18,23 @@ function SkipLink() {
 }
 
 export function Root() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Hash route (e.g. "/#get-app" from the Navbar CTA, on-page or cross-page):
+    // wait for the target section to mount, then smooth-scroll to it.
+    if (hash) {
+      const id = hash.slice(1);
+      const raf = requestAnimationFrame(() =>
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) smoothScrollTo(el);
+        }, 60)
+      );
+      return () => cancelAnimationFrame(raf);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   // Intercept anchor-link clicks for custom smooth scroll (slower than browser default)
   useEffect(() => {
