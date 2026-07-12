@@ -32,10 +32,10 @@ export function CookieBanner() {
       aria-label="Cookie consent"
     >
       <div className="flex items-start gap-3 mb-3">
-        <Cookie size={18} className="text-[#f07b22] shrink-0 mt-0.5" />
+        <Cookie size={18} className="text-[var(--nw-accent-text)] shrink-0 mt-0.5" />
         <p className="text-sm text-[var(--nw-muted)] leading-relaxed">
           We use only essential cookies to keep the site working. No tracking, no ads.{" "}
-          <Link to="/cookies" className="text-[#f07b22] hover:underline" onClick={dismiss}>
+          <Link to="/cookies" className="text-[var(--nw-accent-text)] hover:underline" onClick={dismiss}>
             Learn more
           </Link>
         </p>

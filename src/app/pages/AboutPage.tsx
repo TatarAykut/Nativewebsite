@@ -44,7 +44,7 @@ export function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#f07b22]/5 blur-3xl" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
           <h1
             className="text-5xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -66,7 +66,7 @@ export function AboutPage() {
               return (
                 <div key={item.title} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-8">
                   <div className="w-11 h-11 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5">
-                    <Icon size={20} className="text-[#f07b22]" />
+                    <Icon size={20} className="text-[var(--nw-accent-text)]" />
                   </div>
                   <h3 className="text-[var(--nw-text)] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.1rem" }}>
                     {item.title}
@@ -83,7 +83,7 @@ export function AboutPage() {
       <section className="py-20 bg-[var(--nw-bg-surface)]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.origin.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.origin.badge}</span>
             <h2 className="text-4xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
               {p.origin.heading}
             </h2>
@@ -100,7 +100,7 @@ export function AboutPage() {
       <section className="py-20 bg-[var(--nw-bg)]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.timeline.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.timeline.badge}</span>
             <h2 className="text-4xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
               {p.timeline.heading}
             </h2>
@@ -111,7 +111,7 @@ export function AboutPage() {
               {p.timeline.milestones.map((m) => (
                 <div key={m.year} className="flex gap-8 items-start">
                   <div className="shrink-0 w-14 h-14 rounded-full bg-[var(--nw-bg-card)] border border-[#f07b22]/30 flex items-center justify-center z-10">
-                    <span className="text-[#f07b22] text-xs" style={{ fontWeight: 700 }}>{m.year}</span>
+                    <span className="text-[var(--nw-accent-text)] text-xs" style={{ fontWeight: 700 }}>{m.year}</span>
                   </div>
                   <div className="pt-3">
                     <h3 className="text-[var(--nw-text)] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.05rem" }}>
@@ -130,7 +130,7 @@ export function AboutPage() {
       <section className="py-20 bg-[var(--nw-bg-surface)]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.team.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.team.badge}</span>
             <h2 className="text-4xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
               {p.team.heading}
             </h2>
@@ -145,7 +145,7 @@ export function AboutPage() {
                   {member.initial}
                 </div>
                 <h3 className="text-[var(--nw-text)] mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}>{member.name}</h3>
-                <p className="text-[#f07b22] text-xs mb-3 tracking-wide">{member.role}</p>
+                <p className="text-[var(--nw-accent-text)] text-xs mb-3 tracking-wide">{member.role}</p>
                 <p className="text-[var(--nw-muted)] text-sm leading-relaxed">{member.bio}</p>
               </div>
             ))}

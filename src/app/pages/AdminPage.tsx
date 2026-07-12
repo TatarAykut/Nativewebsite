@@ -121,7 +121,7 @@ export function AdminPage() {
 
             {loading && !data ? (
               <div className="flex items-center justify-center py-20">
-                <Loader2 size={24} className="animate-spin text-[#f07b22]" />
+                <Loader2 size={24} className="animate-spin text-[var(--nw-accent-text)]" />
               </div>
             ) : data && data.entries.length > 0 ? (
               <>

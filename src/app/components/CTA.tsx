@@ -69,20 +69,20 @@ export function CTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#f07b22]/5 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-2xl mx-auto px-6 text-center">
-        <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{c.badge}</span>
+        <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{c.badge}</span>
         <h2
           className="text-4xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
           style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
         >
           {c.heading1}
           <br />
-          <span className="text-[#f07b22]">{c.heading2}</span>
+          <span className="text-[var(--nw-accent-text)]">{c.heading2}</span>
         </h2>
         <p className="text-[var(--nw-muted)] text-lg leading-relaxed mb-10">{c.sub}</p>
 
         {submitted ? (
           <div className="flex items-center justify-center gap-3 bg-[var(--nw-bg-card)] border border-[#f07b22]/30 rounded-2xl px-8 py-6">
-            <CheckCircle size={22} className="text-[#f07b22]" />
+            <CheckCircle size={22} className="text-[var(--nw-accent-text)]" />
             <p className="text-[var(--nw-text)]">{c.success}</p>
           </div>
         ) : (

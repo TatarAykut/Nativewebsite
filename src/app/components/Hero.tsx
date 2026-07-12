@@ -37,8 +37,8 @@ export function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-24">
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 mb-6">
-            <MapPin size={14} className="text-[#f07b22]" />
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase">{h.badge}</span>
+            <MapPin size={14} className="text-[var(--nw-accent-text)]" />
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase">{h.badge}</span>
           </div>
 
           <h1
@@ -47,7 +47,7 @@ export function Hero() {
           >
             {h.headline1}
             <br />
-            <span className="text-[#f07b22]">{h.headline2}</span>
+            <span className="text-[var(--nw-accent-text)]">{h.headline2}</span>
             <br />
             {h.headline3}
           </h1>

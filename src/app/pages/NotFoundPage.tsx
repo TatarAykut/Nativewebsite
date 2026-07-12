@@ -8,9 +8,9 @@ export function NotFoundPage() {
       <SEO title="Page Not Found" path="" description="The page you're looking for doesn't exist." />
       <div className="max-w-md mx-auto px-6 text-center">
         <div className="text-8xl mb-6" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
-          <span className="text-[#f07b22]">4</span>
+          <span className="text-[var(--nw-accent-text)]">4</span>
           <span className="text-[var(--nw-text)]">0</span>
-          <span className="text-[#f07b22]">4</span>
+          <span className="text-[var(--nw-accent-text)]">4</span>
         </div>
         <h1 className="text-2xl text-[var(--nw-text)] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
           Page not found

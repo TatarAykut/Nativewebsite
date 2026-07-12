@@ -21,7 +21,7 @@ export function ValuesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#f07b22]/4 blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
           <h1
             className="text-5xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}

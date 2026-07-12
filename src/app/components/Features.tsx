@@ -25,7 +25,7 @@ export function Features() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div className="sticky top-24">
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{f.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{f.badge}</span>
             <h2
               className="text-4xl md:text-5xl text-[var(--nw-text)] leading-tight mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -53,7 +53,7 @@ export function Features() {
                   className="flex gap-5 bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-6 hover:border-[#f07b22]/25 hover:bg-[var(--nw-bg-surface)] transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 shrink-0 rounded-xl bg-[#f07b22]/10 flex items-center justify-center group-hover:bg-[#f07b22]/20 transition-colors">
-                    <Icon size={18} className="text-[#f07b22]" />
+                    <Icon size={18} className="text-[var(--nw-accent-text)]" />
                   </div>
                   <div>
                     <h3

@@ -15,7 +15,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="bg-[var(--nw-bg-surface)] py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{h.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{h.badge}</span>
           <h2
             className="text-4xl md:text-5xl text-[var(--nw-text)] max-w-lg mx-auto leading-tight"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}

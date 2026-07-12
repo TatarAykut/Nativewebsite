@@ -21,7 +21,7 @@ export function PrivacyPage() {
       />
       <article className="max-w-3xl mx-auto px-6" aria-labelledby="privacy-title">
         <div className="py-16 border-b border-[var(--nw-border)] mb-12">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.badge}</span>
           <h1 id="privacy-title" className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             {p.title}
           </h1>

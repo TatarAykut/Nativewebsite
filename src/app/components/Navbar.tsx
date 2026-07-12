@@ -64,7 +64,7 @@ export function Navbar() {
                 to={l.href}
                 className={`text-sm transition-colors duration-200 tracking-wide ${
                   location.pathname === l.href
-                    ? "text-[#f07b22]"
+                    ? "text-[var(--nw-accent-text)]"
                     : "text-[var(--nw-muted)] hover:text-[var(--nw-text)]"
                 }`}
               >
@@ -78,7 +78,7 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/40 transition-all duration-200"
+            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[var(--nw-accent-text)] hover:border-[#f07b22]/40 transition-all duration-200"
           >
             {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
           </button>
@@ -102,7 +102,7 @@ export function Navbar() {
                     key={lang.code}
                     onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-[var(--nw-border-subtle)] transition-colors ${
-                      language === lang.code ? "text-[#f07b22] bg-[#f07b22]/5" : "text-[var(--nw-muted)]"
+                      language === lang.code ? "text-[var(--nw-accent-text)] bg-[#f07b22]/5" : "text-[var(--nw-muted)]"
                     }`}
                   >
                     <span className="text-base">{lang.flag}</span>
@@ -149,7 +149,7 @@ export function Navbar() {
               key={l.href}
               to={l.href}
               className={`py-2 border-b border-[var(--nw-border)] last:border-0 ${
-                location.pathname === l.href ? "text-[#f07b22]" : "text-[var(--nw-text)]"
+                location.pathname === l.href ? "text-[var(--nw-accent-text)]" : "text-[var(--nw-text)]"
               }`}
               onClick={() => setMenuOpen(false)}
             >
@@ -164,7 +164,7 @@ export function Navbar() {
                 onClick={() => setLanguage(lang.code)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all ${
                   language === lang.code
-                    ? "border-[#f07b22] text-[#f07b22] bg-[#f07b22]/10"
+                    ? "border-[#f07b22] text-[var(--nw-accent-text)] bg-[#f07b22]/10"
                     : "border-[var(--nw-border)] text-[var(--nw-muted)]"
                 }`}
               >

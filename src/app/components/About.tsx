@@ -10,7 +10,7 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{a.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{a.badge}</span>
             <h2
               className="text-4xl md:text-5xl text-[var(--nw-text)] leading-tight mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -25,7 +25,7 @@ export function About() {
                 {["Ahmet Semih Dikilitaş", "Said", "Aykut"].map((name, i) => (
                   <div
                     key={name}
-                    className="w-9 h-9 rounded-full border-2 border-[var(--nw-bg)] bg-[var(--nw-bg-input)] flex items-center justify-center text-xs text-[#f07b22]"
+                    className="w-9 h-9 rounded-full border-2 border-[var(--nw-bg)] bg-[var(--nw-bg-input)] flex items-center justify-center text-xs text-[var(--nw-accent-text)]"
                     style={{ zIndex: 3 - i }}
                   >
                     {name[0]}

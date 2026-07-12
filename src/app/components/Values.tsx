@@ -11,7 +11,7 @@ export function Values() {
     <section id="values" className="bg-[var(--nw-bg-surface)] py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{v.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{v.badge}</span>
           <h2
             className="text-4xl md:text-5xl text-[var(--nw-text)] max-w-xl mx-auto leading-tight"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -29,7 +29,7 @@ export function Values() {
                 className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-7 hover:border-[#f07b22]/30 hover:bg-[var(--nw-bg-surface)] transition-all duration-300 group"
               >
                 <div className="w-11 h-11 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5 group-hover:bg-[#f07b22]/20 transition-colors">
-                  <Icon size={20} className="text-[#f07b22]" />
+                  <Icon size={20} className="text-[var(--nw-accent-text)]" />
                 </div>
                 <h3
                   className="text-[var(--nw-text)] mb-3 text-lg"
