@@ -1,0 +1,4 @@
+# SPA fallback — serve index.html for any path that isn't a real file.
+# Used by Cloudflare Pages and Netlify. Prerendered per-route HTML (e.g.
+# /about/index.html) is served first; only unmatched paths hit this fallback.
+/*    /index.html    200

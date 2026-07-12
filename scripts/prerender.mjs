@@ -19,8 +19,27 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "..", "dist");
 const PORT = 4173; // default vite preview port
-const CHROME_PATH =
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+
+/**
+ * Locate a Chrome/Chromium executable across platforms.
+ * puppeteer-core does NOT ship a browser, so we must find one. On a CI/Linux
+ * host without Chrome we return null and the caller SKIPS prerender gracefully
+ * (an SEO enhancement must never fail the production build).
+ */
+function findChrome() {
+  const candidates = [
+    process.env.PUPPETEER_EXECUTABLE_PATH,
+    process.env.CHROME_PATH,
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", // macOS
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    "/usr/bin/google-chrome",       // Linux
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // Windows
+  ].filter(Boolean);
+  return candidates.find((p) => fs.existsSync(p)) || null;
+}
 
 const ROUTES = [
   { path: "/", label: "Home" },
@@ -89,12 +108,23 @@ function startServer() {
 async function prerender() {
   console.log("\n🕸  NativeWay Prerender — generating static HTML for all routes\n");
 
+  // 0. Resolve a browser; skip (not fail) the build if none is available.
+  const chromePath = findChrome();
+  if (!chromePath) {
+    console.warn(
+      "  ⚠  No Chrome/Chromium found — skipping prerender.\n" +
+      "     The SPA still deploys fine (crawlers get the SPA-fallback HTML).\n" +
+      "     To enable prerendering set PUPPETEER_EXECUTABLE_PATH to a Chrome binary.\n"
+    );
+    return;
+  }
+
   // 1. Start server
   const server = await startServer();
 
   // 2. Launch headless Chrome
   const browser = await puppeteer.launch({
-    executablePath: CHROME_PATH,
+    executablePath: chromePath,
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
@@ -149,6 +179,8 @@ async function prerender() {
 }
 
 prerender().catch((err) => {
-  console.error("Prerender failed:", err);
-  process.exit(1);
+  // Never fail the build over a prerender (SEO enhancement) error — the SPA is
+  // fully functional without it. Warn loudly and exit 0 so deploy proceeds.
+  console.warn("  ⚠  Prerender skipped due to error:", err.message);
+  process.exit(0);
 });
