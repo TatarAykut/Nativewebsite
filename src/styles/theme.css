@@ -172,7 +172,9 @@ html.light {
 
   html {
     font-size: var(--font-size);
-    scroll-behavior: smooth;
+    /* NOTE: native `scroll-behavior: smooth` intentionally NOT set here.
+       Anchor smooth-scroll is handled in JS (smoothScrollTo). Having both
+       causes the browser's native animation to fight the JS rAF loop → jank. */
   }
 
   h1 {

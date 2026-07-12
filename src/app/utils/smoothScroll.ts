@@ -6,7 +6,7 @@
  * to create a calmer, more deliberate scroll feel.
  */
 
-const DEFAULT_DURATION = 900; // ms — slower, more relaxed scroll
+const DEFAULT_DURATION = 550; // ms — calm but responsive (900ms felt sluggish)
 const DEFAULT_OFFSET = 80;    // px — navbar clearance fallback
 
 function easeInOutCubic(t: number): number {
