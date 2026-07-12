@@ -37,13 +37,13 @@ Denetim: 3 paralel statik-analiz ajanı + gerçek Chrome'da 10 route'un runtime 
   3. `ADMIN_TOKEN` env ekle → Redeploy
   4. localhost:5173'ten test (CORS zaten izinli). Detay: `deployment.md`.
 
-### 🟡 should-fix — Frontend (yapılınca deploy'da geçerli; henüz YAPILMADI)
-- **Light-mode kontrast AA fail** — turuncu üstü beyaz buton 2.78:1 (tüm CTA'lar), krem üstü turuncu yazı 2.42:1
-- **Sabit İngilizce metinler** — CTA hataları + "Joining...", CookieBanner (tamamı), 404 sayfası → 4 dile taşınmalı
-- **Waitlist sayaç hataları** — optimistic +1 arkadan gelen refresh ile eziliyor; 409 (zaten kayıtlı) sayacı yine artırıyor
-- **Router `errorElement` yok** — sayfa hatasında React Router'ın çirkin varsayılan ekranı çıkar
-- **SEO ufak** — 404 indexlenebilir + canonical anasayfaya; `/admin` noindex değil; anasayfada JSON-LD çift
-- **tr timeline** — About'ta Türkçe'de fazladan duplicate "2026" milestone
+### 🟡 should-fix — Frontend
+- ✅ **Light-mode kontrast AA fail** — DÜZELTİLDİ: buton 2.78→6.42:1, accent metin 2.42→4.88:1 (yeni `--nw-accent-text` token). Commit `d006635`
+- ✅ **Sabit İngilizce metinler** — DÜZELTİLDİ: CTA hataları+"Joining...", CookieBanner, 404 → 4 dile taşındı; 404'e noindex de eklendi. Commit `2058589`
+- ⏳ **Waitlist sayaç hataları** — optimistic +1 arkadan gelen refresh ile eziliyor; 409 (zaten kayıtlı) sayacı yine artırıyor
+- ⏳ **Router `errorElement` yok** — sayfa hatasında React Router'ın çirkin varsayılan ekranı çıkar
+- ⏳ **SEO ufak** — (404 indexlenebilir ✅ düzeltildi); `/admin` noindex değil; anasayfada JSON-LD çift
+- ⏳ **tr timeline** — About'ta Türkçe'de fazladan duplicate "2026" milestone
 
 ### 🟡 should-fix — Edge function (kod düzeltilir ama function redeploy'unda geçerli; henüz YAPILMADI)
 - **CORS dar** — sadece `nativeway.app` + localhost; `www.` ve preview domainleri eklenmeli
