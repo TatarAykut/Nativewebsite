@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -7,14 +7,11 @@ import { waitlistCounter } from "../../lib/counter";
 export function Hero() {
   const { t } = useLanguage();
   const h = t.hero;
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    waitlistCounter.get().then(setCount);
-  }, []);
+  const [count, setCount] = useState(() => waitlistCounter.get());
 
   const handleCtaClick = () => {
-    // Navigate to CTA section — signup happens there
+    const newCount = waitlistCounter.increment();
+    setCount(newCount);
   };
 
   return (

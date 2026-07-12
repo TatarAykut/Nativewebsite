@@ -11,7 +11,6 @@ const ValuesPage = lazy(() => import("./pages/ValuesPage").then(m => ({ default:
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage").then(m => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import("./pages/TermsPage").then(m => ({ default: m.TermsPage })));
 const CookiePage = lazy(() => import("./pages/CookiePage").then(m => ({ default: m.CookiePage })));
-const AdminPage = lazy(() => import("./pages/AdminPage").then(m => ({ default: m.AdminPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 function PageLoader() {
@@ -39,7 +38,6 @@ export const router = createBrowserRouter([
       { path: "privacy", Component: () => <Lazy><PrivacyPage /></Lazy> },
       { path: "terms", Component: () => <Lazy><TermsPage /></Lazy> },
       { path: "cookies", Component: () => <Lazy><CookiePage /></Lazy> },
-      { path: "admin", Component: () => <Lazy><AdminPage /></Lazy> },
       { path: "*", Component: () => <Lazy><NotFoundPage /></Lazy> },
     ],
   },

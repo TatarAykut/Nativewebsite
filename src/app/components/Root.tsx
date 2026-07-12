@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { CookieBanner } from "./CookieBanner";
-import { handleAnchorClick } from "../utils/smoothScroll";
 
 function SkipLink() {
   return (
@@ -23,12 +22,6 @@ export function Root() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  // Intercept anchor-link clicks for custom smooth scroll (slower than browser default)
-  useEffect(() => {
-    document.addEventListener("click", handleAnchorClick);
-    return () => document.removeEventListener("click", handleAnchorClick);
-  }, []);
 
   return (
     <div
