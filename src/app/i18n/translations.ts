@@ -100,6 +100,10 @@ export const translations = {
       button: "Join the waitlist",
       success: "You're on the list! We'll be in touch soon.",
       disclaimer: "No spam. No commitments. Unsubscribe anytime.",
+      loading: "Joining...",
+      errorEmpty: "Please enter your email address.",
+      errorInvalid: "Please enter a valid email address.",
+      errorGeneric: "Something went wrong. Please try again.",
     },
     footer: {
       tagline: "Connecting travelers with authentic local experiences worldwide. Travel Easier. Experience More.",
@@ -109,6 +113,19 @@ export const translations = {
       companyLinks: ["About", "Blog", "Careers", "Press", "Contact"],
       copyright: "© 2026 NativeWay. All rights reserved.",
       legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    },
+    cookieBanner: {
+      text: "We use only essential cookies to keep the site working. No tracking, no ads.",
+      learnMore: "Learn more",
+      dismiss: "Dismiss",
+      accept: "Got it",
+      ariaLabel: "Cookie consent",
+    },
+    notFound: {
+      title: "Page not found",
+      text: "The page you're looking for doesn't exist or has been moved.",
+      home: "Go Home",
+      features: "Explore Features",
     },
   },
 
@@ -204,6 +221,10 @@ export const translations = {
       button: "加入候补名单",
       success: "您已成功加入名单！我们将尽快与您联系。",
       disclaimer: "无垃圾邮件，无承诺，随时可取消订阅。",
+      loading: "加入中...",
+      errorEmpty: "请输入您的电子邮箱地址。",
+      errorInvalid: "请输入有效的电子邮箱地址。",
+      errorGeneric: "出了点问题，请重试。",
     },
     footer: {
       tagline: "连接旅行者与世界各地真实的本地体验。旅行更轻松，体验更丰富。",
@@ -213,6 +234,19 @@ export const translations = {
       companyLinks: ["关于我们", "博客", "招聘", "媒体", "联系我们"],
       copyright: "© 2026 NativeWay. 保留所有权利。",
       legal: ["隐私政策", "服务条款", "Cookie 政策"],
+    },
+    cookieBanner: {
+      text: "我们仅使用必要的 Cookie 以保证网站正常运行。无跟踪，无广告。",
+      learnMore: "了解更多",
+      dismiss: "关闭",
+      accept: "知道了",
+      ariaLabel: "Cookie 同意",
+    },
+    notFound: {
+      title: "页面未找到",
+      text: "您要查找的页面不存在或已被移动。",
+      home: "返回首页",
+      features: "浏览功能",
     },
   },
 
@@ -308,6 +342,10 @@ export const translations = {
       button: "Bekleme listesine katıl",
       success: "Listedesiniz! En kısa sürede sizinle iletişime geçeceğiz.",
       disclaimer: "Spam yok. Taahhüt yok. İstediğiniz zaman aboneliği iptal edin.",
+      loading: "Katılıyor...",
+      errorEmpty: "Lütfen e-posta adresinizi girin.",
+      errorInvalid: "Lütfen geçerli bir e-posta adresi girin.",
+      errorGeneric: "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     },
     footer: {
       tagline: "Gezginleri dünya genelinde otantik yerel deneyimlerle buluşturuyoruz. Daha kolay seyahat. Daha fazla deneyim.",
@@ -317,6 +355,19 @@ export const translations = {
       companyLinks: ["Hakkımızda", "Blog", "Kariyer", "Basın", "İletişim"],
       copyright: "© 2026 NativeWay. Tüm hakları saklıdır.",
       legal: ["Gizlilik Politikası", "Hizmet Şartları", "Çerez Politikası"],
+    },
+    cookieBanner: {
+      text: "Sitenin çalışması için yalnızca gerekli çerezleri kullanıyoruz. Takip yok, reklam yok.",
+      learnMore: "Daha fazla bilgi",
+      dismiss: "Kapat",
+      accept: "Anladım",
+      ariaLabel: "Çerez onayı",
+    },
+    notFound: {
+      title: "Sayfa bulunamadı",
+      text: "Aradığınız sayfa mevcut değil veya taşınmış.",
+      home: "Ana Sayfa",
+      features: "Özellikleri Keşfet",
     },
   },
 
@@ -412,6 +463,10 @@ export const translations = {
       button: "Bli med på ventelisten",
       success: "Du er på listen! Vi tar kontakt snart.",
       disclaimer: "Ingen spam. Ingen forpliktelser. Avslutt abonnementet når som helst.",
+      loading: "Blir med...",
+      errorEmpty: "Vennligst skriv inn e-postadressen din.",
+      errorInvalid: "Vennligst skriv inn en gyldig e-postadresse.",
+      errorGeneric: "Noe gikk galt. Vennligst prøv igjen.",
     },
     footer: {
       tagline: "Kobler reisende med autentiske lokale opplevelser verden over. Reis enklere. Opplev mer.",
@@ -421,6 +476,19 @@ export const translations = {
       companyLinks: ["Om oss", "Blogg", "Karriere", "Presse", "Kontakt"],
       copyright: "© 2026 NativeWay. Alle rettigheter forbeholdt.",
       legal: ["Personvernerklæring", "Vilkår for bruk", "Informasjonskapselpolicy"],
+    },
+    cookieBanner: {
+      text: "Vi bruker kun nødvendige informasjonskapsler for at nettstedet skal fungere. Ingen sporing, ingen annonser.",
+      learnMore: "Les mer",
+      dismiss: "Lukk",
+      accept: "Skjønner",
+      ariaLabel: "Samtykke til informasjonskapsler",
+    },
+    notFound: {
+      title: "Siden ble ikke funnet",
+      text: "Siden du leter etter finnes ikke eller har blitt flyttet.",
+      home: "Til forsiden",
+      features: "Utforsk funksjoner",
     },
   },
 } as const;

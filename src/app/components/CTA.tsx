@@ -21,11 +21,11 @@ export function CTA() {
     // Validate email
     const trimmed = email.trim();
     if (!trimmed) {
-      setError("Please enter your email address.");
+      setError(c.errorEmpty);
       return;
     }
     if (!EMAIL_REGEX.test(trimmed)) {
-      setError("Please enter a valid email address.");
+      setError(c.errorInvalid);
       return;
     }
 
@@ -53,8 +53,8 @@ export function CTA() {
       waitlistCounter.increment();
       waitlistCounter.refresh(); // pull live count in background
       setSubmitted(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } catch {
+      setError(c.errorGeneric);
     } finally {
       setLoading(false);
     }
@@ -114,7 +114,7 @@ export function CTA() {
               ) : (
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               )}
-              {loading ? "Joining..." : c.button}
+              {loading ? c.loading : c.button}
             </button>
           </form>
         )}
