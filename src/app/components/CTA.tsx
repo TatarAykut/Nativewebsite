@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-import { supabase } from "../../lib/supabase";
+import { EDGE_URL } from "../../lib/supabase";
 import { waitlistCounter } from "../../lib/counter";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,24 +32,29 @@ export function CTA() {
     setLoading(true);
 
     try {
-      const { error: insertError } = await supabase
-        .from("waitlist")
-        .insert({ email: trimmed, source: "website" });
+      const res = await fetch(`${EDGE_URL}/api/waitlist`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      });
 
-      if (insertError) {
-        // Duplicate email is fine — user already signed up
-        if (insertError.code === "23505") {
-          waitlistCounter.increment();
-          setSubmitted(true);
-          return;
-        }
-        throw insertError;
+      // 409 means already signed up — still show success
+      if (res.status === 409) {
+        waitlistCounter.increment();
+        setSubmitted(true);
+        return;
+      }
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body as any).error || `Request failed (${res.status})`);
       }
 
       waitlistCounter.increment();
+      waitlistCounter.refresh(); // pull live count in background
       setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
