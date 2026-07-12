@@ -1,10 +1,13 @@
 import { SEO } from "../components/SEO";
 import { LegalSection } from "../components/LegalSection";
+import { LegalFallbackNotice, LEGAL_FALLBACK_LANGS } from "../components/LegalFallbackNotice";
 import { useLanguage } from "../i18n/LanguageContext";
+import { pageTranslations } from "../i18n/pageTranslations";
 
 export function TermsPage() {
-  const { pt } = useLanguage();
-  const p = pt.termsPage;
+  const { pt, language } = useLanguage();
+  // zh/no legal content isn't fully translated — fall back to English + notice.
+  const p = LEGAL_FALLBACK_LANGS.includes(language) ? pageTranslations.en.termsPage : pt.termsPage;
 
   return (
     <div className="pt-24 pb-20 bg-[var(--nw-bg)] min-h-screen">
@@ -26,6 +29,7 @@ export function TermsPage() {
         </div>
 
         <div className="prose-nw">
+          <LegalFallbackNotice language={language} />
           {p.sections.map((section, i) => (
             <LegalSection key={i} title={section.title}>
               <div dangerouslySetInnerHTML={{ __html: section.content }} />
