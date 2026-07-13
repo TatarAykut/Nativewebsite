@@ -1,5 +1,5 @@
 import {
-  ArrowRight, CalendarDays, Sparkles, MapPin, Users,
+  CalendarDays, Sparkles, MapPin, Users,
   BookOpen, Award, Heart, Pen, Navigation, Star, Route, Vote, Shield
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";

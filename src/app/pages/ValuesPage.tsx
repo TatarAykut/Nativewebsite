@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, Shield, Users, Compass, Leaf, Eye } from "lucide-react";
+import { Heart, Shield, Users, Compass, Leaf, Eye } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { SEO } from "../components/SEO";
 

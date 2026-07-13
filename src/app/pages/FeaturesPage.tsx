@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle,
+  Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle,
   CalendarDays, Route, Star, Coffee, Vote, Globe, Shield,
   Pen, Bookmark, Bell, Download
 } from "lucide-react";

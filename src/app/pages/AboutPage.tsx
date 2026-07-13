@@ -1,4 +1,4 @@
-import { ArrowRight, Globe, Lightbulb, Target } from "lucide-react";
+import { Globe, Lightbulb, Target } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { SEO } from "../components/SEO";
 
