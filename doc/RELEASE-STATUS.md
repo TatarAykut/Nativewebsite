@@ -81,7 +81,7 @@ Kod + backend hazır. Build/tsc/lint temiz, testler 3/3, waitlist uçtan uca ça
 - **Said'in pushlanmamış işi korundu:** Fiyatlandırma sayfası + waitlist + analytics (25 Haziran, commit
   `68afca5`) `origin/dev`'de yoktu; **`said-pricing-work`** branch'ine ve **`backup/dev-said-2026-06-25`**
   tag'ine yedeklendi. Bu işin release'e girip girmeyeceği ayrı bir karar.
-- **Waitlist reklam-amacı yeniden çerçeveleme (ERTELENDİ):** "Erken erişim/ücretsiz premium" yerine
-  "lansmanda haber ver, çıktığı gün indir" mantığı istendi. Backend değişmiyor; ~%90 metin (i18n)
-  değişikliği. Blocker'lardan sonra yapılacak.
+- **Waitlist reklam-amacı yeniden çerçeveleme (✅ TAMAM):** "Erken erişim/ücretsiz premium" yerine
+  "lansmanda haber ver, çıktığı gün indir" mantığı 4 dilde uygulandı (nav/hero/CTA/sayfa CTA'ları +
+  Terms §7'den premium vaadi kaldırıldı). Commit `530dd2d`.
 - **Yedekler:** orijinal büyük görseller scratchpad'de yedeklendi (bu oturuma özel, kalıcı değil).
