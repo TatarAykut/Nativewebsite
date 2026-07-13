@@ -31,24 +31,23 @@ Denetim: 3 paralel statik-analiz ajanı + gerçek Chrome'da 10 route'un runtime 
 
 ### 🔴 Tek gerçek blocker — senin aksiyonun
 - **Blocker 2 — Waitlist backend deploy edilmemiş.** Tüm edge-function endpoint'leri 404
-  ("load failed" sebebi bu). Kod hazır, sadece Supabase panosundan deploy gerekiyor:
-  1. SQL Editor → `supabase/migrations/001_create_waitlist.sql` → Run
-  2. Edge Functions → `server` adıyla oluştur → `supabase/functions/server/index.tsx` → Deploy
-  3. `ADMIN_TOKEN` env ekle → Redeploy
-  4. localhost:5173'ten test (CORS zaten izinli). Detay: `deployment.md`.
+  ("load failed" sebebi bu). **KARAR: yeni bir Supabase hesabı açılıp sıfırdan kurulacak**
+  (eski proje `lnfgtcgnacmubnovzexi` terk ediliyor). Adım adım kılavuz: **[`SUPABASE-SETUP.md`](./SUPABASE-SETUP.md)**.
+  Özet: tablo (migration) → edge function deploy (`--no-verify-jwt`) → `ADMIN_TOKEN` →
+  frontend'i yeni projeye bağla (`.env`) → localhost'tan test.
 
-### 🟡 should-fix — Frontend
-- ✅ **Light-mode kontrast AA fail** — DÜZELTİLDİ: buton 2.78→6.42:1, accent metin 2.42→4.88:1 (yeni `--nw-accent-text` token). Commit `d006635`
-- ✅ **Sabit İngilizce metinler** — DÜZELTİLDİ: CTA hataları+"Joining...", CookieBanner, 404 → 4 dile taşındı; 404'e noindex de eklendi. Commit `2058589`
-- ⏳ **Waitlist sayaç hataları** — optimistic +1 arkadan gelen refresh ile eziliyor; 409 (zaten kayıtlı) sayacı yine artırıyor
-- ⏳ **Router `errorElement` yok** — sayfa hatasında React Router'ın çirkin varsayılan ekranı çıkar
-- ⏳ **SEO ufak** — (404 indexlenebilir ✅ düzeltildi); `/admin` noindex değil; anasayfada JSON-LD çift
-- ⏳ **tr timeline** — About'ta Türkçe'de fazladan duplicate "2026" milestone
+### 🟡 should-fix — Frontend (HEPSİ TAMAM ✅)
+- ✅ **Light-mode kontrast AA** — buton 2.78→6.42:1, accent metin 2.42→4.88:1 (yeni `--nw-accent-text`). `d006635`
+- ✅ **Sabit İngilizce metinler** — CTA/CookieBanner/404 → 4 dile taşındı. `2058589`
+- ✅ **Waitlist sayaç hataları** — 409 artık sayacı şişirmiyor; optimistic +1'i ezen refresh kaldırıldı. `8628e88`
+- ✅ **Router `errorElement`** — markalı `RouteError` root route'a eklendi. `8628e88`
+- ✅ **SEO ufak** — 404 noindex, `/admin` noindex + robots Disallow, anasayfada çift JSON-LD giderildi. `8628e88`
+- ✅ **tr timeline** — duplicate "2026" milestone kaldırıldı (6→5). `8628e88`
 
-### 🟡 should-fix — Edge function (kod düzeltilir ama function redeploy'unda geçerli; henüz YAPILMADI)
-- **CORS dar** — sadece `nativeway.app` + localhost; `www.` ve preview domainleri eklenmeli
-- **Rate limiter** — X-Forwarded-For ile bypass edilebilir + bellek sızıntısı (eviction yok)
-- **Admin token URL'de** — edge loglarına düşüyor; `Authorization` header'a taşınmalı
+### 🟡 should-fix — Edge function (KOD TAMAM ✅ — yeni deploy'da otomatik geçerli)
+- ✅ **CORS** — `www.` eklendi + `ALLOWED_ORIGINS` env ile ayarlanabilir. `f719c2d`
+- ✅ **Rate limiter** — süresi dolan kayıtlar temizleniyor (bellek sızıntısı giderildi). `f719c2d`
+- ✅ **Admin token** — artık `x-admin-token` header'ında (URL/loglardan çıktı). `f719c2d`
 
 ### 🟢 minor (opsiyonel)
 Eskimiş tarihler (2025-07-09), CTA başarı mesajı SR'a duyurulmuyor (`role="status"`),
@@ -61,14 +60,14 @@ kullanılmayan i18n key'leri, çevrilmemiş a11y label'ları, ana JS bundle 634K
 
 ## 🚦 RELEASE İÇİN GEREKENLER (minimum gate)
 
-1. **[ ] Blocker 2 — backend deploy** (senin Supabase adımın) → sonra localhost'tan uçtan uca test
+1. **[ ] Blocker 2 — yeni Supabase kurulumu** (senin adımın) → bkz. `SUPABASE-SETUP.md` → localhost'tan uçtan uca test
 2. **[ ] Blocker 6'yı kabul et** — zh/no yasal sayfalar İngilizce fallback ile çıkıyor (profesyonel çeviri sonradan)
 3. **[ ] Host'u doğrula** — `_redirects` (Cloudflare/Netlify) veya `vercel.json` (Vercel) hedef host'la eşleşiyor mu
-4. **[ ] `dev` → `main` merge** — release main'den alınacaksa (şu an dev, main'in 7 commit önünde)
-5. **(önerilir) 🟡 frontend should-fix'leri** — özellikle **kontrast** + **sabit metinler** (kalite için)
+4. **[ ] `dev` → `main` merge** — release main'den alınacaksa (şu an dev, main'in önünde)
+5. **[x] 🟡 should-fix'ler** — frontend + edge-function should-fix'lerin HEPSİ tamam ✅
 
-**Karar:** Blocker 2 kapanınca + host doğrulanınca teknik olarak yayına çıkılabilir.
-🟡 kontrast ve sabit-metin düzeltmeleri "kaliteli lansman" için güçlü şekilde önerilir.
+**Karar:** Artık tek kalan iş **yeni Supabase kurulumu** (Blocker 2) + host doğrulama.
+Should-fix'ler (kontrast, sabit metinler, sayaç, router, SEO, edge-function) bitti. Build/tsc/lint temiz, testler 3/3.
 
 ---
 
