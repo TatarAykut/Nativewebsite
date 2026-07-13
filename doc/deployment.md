@@ -6,7 +6,7 @@
 
 ## Yapılan Değişiklikler (Kod Tarafı — Tamamlandı ✅)
 
-### 1. Edge Function API'leri (`supabase/functions/server/index.tsx`)
+### 1. Edge Function API'leri (`supabase/functions/server/index.ts`)
 
 Eski durumda sadece health check endpoint'i vardı. Aşağıdaki endpoint'ler eklendi:
 
@@ -79,7 +79,7 @@ CREATE POLICY "Allow anonymous inserts" ON waitlist
 
 1. Dashboard'da **Edge Functions** menüsüne git
 2. **Create a new function** veya mevcut `server` fonksiyonunu bul
-3. `supabase/functions/server/index.tsx` dosyasının içeriğini kopyala
+3. `supabase/functions/server/index.ts` dosyasının içeriğini kopyala
 4. Fonksiyona yapıştır ve **Deploy** et
 
 ### Adım 3: ADMIN_TOKEN Environment Variable Ayarla
@@ -140,4 +140,4 @@ npx vercel deploy --prod dist
 - **Rate limiting in-memory çalışır**, edge function cold start olduğunda sıfırlanır. Production scale'de bu kabul edilebilir.
 - **Waitlist count 60sn cache'lenir**, `GET /api/waitlist/count` sık çağrıldığında DB'yi yormaz.
 - **Admin token sessionStorage'da saklanır**, sayfa kapanınca silinir. Tarayıcıda kalıcı olarak tutulmaz.
-- **Edge function CORS** şu an `localhost:5173` ve `nativeway.app` için açık. Yeni domain eklenirse `index.tsx` içinde güncellenmeli.
+- **Edge function CORS** şu an `localhost:5173` ve `nativeway.app` için açık. Yeni domain eklenirse `index.ts` içinde (veya `ALLOWED_ORIGINS` env ile) güncellenmeli.

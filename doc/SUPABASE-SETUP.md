@@ -27,7 +27,7 @@ supabase functions deploy server --no-verify-jwt
 ```
 
 **Yol B — Dashboard:**
-- **Edge Functions → Create function** → isim tam olarak **`server`** → `supabase/functions/server/index.tsx` içeriğini yapıştır → **Deploy**.
+- **Edge Functions → Create function** → isim tam olarak **`server`** → `supabase/functions/server/index.ts` içeriğini yapıştır → **Deploy**.
 - Fonksiyon ayarlarında **"Verify JWT" seçeneğini KAPAT**.
 
 > ⚠️ **`--no-verify-jwt` / Verify JWT kapalı ŞART:** Frontend (CTA kaydı ve sayaç) auth header göndermeden çağırıyor, yani fonksiyon public olmalı. Admin ucu zaten kendi içinde `ADMIN_TOKEN` ile korunuyor.
