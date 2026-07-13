@@ -3,7 +3,9 @@ import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
 import { createClient } from "jsr:@supabase/supabase-js@2.49.8";
 
-const app = new Hono();
+// Supabase serves this function under /<function-name>, so the incoming request
+// path is prefixed with "/server". basePath makes the routes below match.
+const app = new Hono().basePath("/server");
 
 // ---------------------------------------------------------------------------
 // Supabase client (service role — server-side only, never exposed to browser)
