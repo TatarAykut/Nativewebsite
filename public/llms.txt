@@ -1,12 +1,13 @@
 # NativeWay — Travel Easier. Experience More.
 
-> Premium travel ecosystem balancing iconic landmarks with authentic local discovery. Available in 277+ cities worldwide.
+> Premium travel ecosystem balancing iconic landmarks with authentic local discovery. Pre-launch: currently collecting signups for launch across 277+ cities.
 
 ## Overview
 
 - **App Name**: NativeWay
 - **Type**: Mobile Application (iOS & Android)
 - **URL**: https://nativeway.app
+- **Status**: Pre-launch — not yet released; the site collects launch-notification signups
 - **Founded**: 2025
 - **Founders**: Ahmet Semih Dikilitaş, Said Aydın, Aykut Arayıcı
 - **Languages**: English, 中文 (Chinese), Türkçe (Turkish), Norsk (Norwegian)

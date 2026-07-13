@@ -25,13 +25,21 @@ export function Root() {
     // wait for the target section to mount, then smooth-scroll to it.
     if (hash) {
       const id = hash.slice(1);
-      const raf = requestAnimationFrame(() =>
-        setTimeout(() => {
+      // Track the timeout too: the rAF callback fires within ~16ms, so by the
+      // time a rapid second navigation runs this cleanup the rAF is already done
+      // and cancelAnimationFrame alone cannot stop the timer it scheduled —
+      // leaving a stale scroll to the previous hash.
+      let timeout: ReturnType<typeof setTimeout> | undefined;
+      const raf = requestAnimationFrame(() => {
+        timeout = setTimeout(() => {
           const el = document.getElementById(id);
           if (el) smoothScrollTo(el);
-        }, 60)
-      );
-      return () => cancelAnimationFrame(raf);
+        }, 60);
+      });
+      return () => {
+        cancelAnimationFrame(raf);
+        if (timeout !== undefined) clearTimeout(timeout);
+      };
     }
     window.scrollTo(0, 0);
   }, [pathname, hash]);

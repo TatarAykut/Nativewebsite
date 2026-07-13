@@ -226,3 +226,11 @@ html.light {
     line-height: 1.5;
   }
 }
+
+/* ── Theme-dependent icons ───────────────────────────────────────────
+   Rendered as theme-independent markup (both icons always in the DOM) so the
+   prerendered HTML hydrates cleanly regardless of the visitor's theme. CSS,
+   not React, decides which one is visible. See Navbar's <ThemeIcon />. */
+.nw-icon-light { display: none; }
+html.light .nw-icon-dark { display: none; }
+html.light .nw-icon-light { display: block; }

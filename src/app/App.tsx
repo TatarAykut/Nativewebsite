@@ -1,20 +1,15 @@
-import { RouterProvider } from "react-router";
-import { HelmetProvider } from "react-helmet-async";
-import { ErrorBoundary } from "./components/ErrorBoundary";
-import { router } from "./routes";
-import { LanguageProvider } from "./i18n/LanguageContext";
-import { ThemeProvider } from "./theme/ThemeContext";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { AppProviders } from "./AppProviders";
+import { routes } from "./routes";
+
+// Client-only: createBrowserRouter reads `document`. Kept out of routes.tsx so
+// the SSG entry can import the route table without pulling this in.
+const router = createBrowserRouter(routes);
 
 export default function App() {
   return (
-    <ErrorBoundary>
-      <HelmetProvider>
-        <ThemeProvider>
-          <LanguageProvider>
-            <RouterProvider router={router} />
-          </LanguageProvider>
-        </ThemeProvider>
-      </HelmetProvider>
-    </ErrorBoundary>
+    <AppProviders>
+      <RouterProvider router={router} />
+    </AppProviders>
   );
 }

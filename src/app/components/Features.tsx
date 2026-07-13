@@ -1,10 +1,13 @@
 import { Sparkles, MapPin, Users, BookOpen, Award, MessageCircle } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import phoneImgTr from "../../imports/phone.png";
-import phoneImgEn from "../../imports/phone2.png";
-import phoneImgZh from "../../imports/phone3.png";
-import phoneImgNo from "../../imports/phone4.png";
+// WebP, not PNG: these are photographic app screenshots and the lossless PNG
+// encodings ran 748–1137 kB each. Re-encoded they are ~42–50 kB with no visible
+// difference (phone4's partial transparency is preserved — WebP keeps alpha).
+import phoneImgTr from "../../imports/phone.webp";
+import phoneImgEn from "../../imports/phone2.webp";
+import phoneImgZh from "../../imports/phone3.webp";
+import phoneImgNo from "../../imports/phone4.webp";
 
 const phoneImages = {
   en: phoneImgEn,

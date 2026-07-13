@@ -48,16 +48,21 @@ export function CTA() {
         const body = await res.json().catch(() => ({}));
         throw new Error((body as { error?: string }).error || `Request failed (${res.status})`);
       }
-
-      // Optimistic +1 only. Don't refresh() here: the count endpoint is cached
-      // ~60s server-side and would clobber this bump with the pre-signup value.
-      waitlistCounter.increment();
-      setSubmitted(true);
     } catch {
       setError(c.errorGeneric);
+      return;
     } finally {
       setLoading(false);
     }
+
+    // Past this point the signup HAS been persisted server-side, so nothing here
+    // may surface an error to the user. Bumping a local cache counter must never
+    // be able to report a successful signup as a failure.
+    setSubmitted(true);
+
+    // Optimistic +1 only. Don't refresh() here: the count endpoint is cached
+    // ~60s server-side and would clobber this bump with the pre-signup value.
+    waitlistCounter.increment();
   };
 
   return (

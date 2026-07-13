@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SSG_HEAD:START — scripts/ssg.mjs replaces everything down to SSG_HEAD:END
+         with the page's own Helmet tags, so each prerendered route ships its own
+         title/description/canonical instead of the home page's. The markup below
+         is the dev-server and SPA-fallback default; keep it in sync in spirit. -->
+
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- Primary Meta Tags                                             -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <title>NativeWay — Travel Easier. Experience More.</title>
     <meta name="title" content="NativeWay — Travel Easier. Experience More." />
-    <meta name="description" content="NativeWay connects you with authentic local experiences, hidden gems, and real recommendations from locals. No tourist traps — just real travel. Available in 277+ cities worldwide." />
+    <meta name="description" content="NativeWay connects you with authentic local experiences, hidden gems, and real recommendations from locals. No tourist traps — just real travel. Launching across 277+ cities — join the list to be notified." />
     <meta name="keywords" content="NativeWay, travel app, local experiences, hidden gems, authentic travel, city guide, cultural tourism, local recommendations, travel planner, landmark guide, seyahat uygulaması, yerel deneyimler, 旅行应用" />
     <meta name="author" content="NativeWay" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -65,6 +70,9 @@
     <meta name="apple-mobile-web-app-title" content="NativeWay" />
     <meta name="theme-color" content="#0b1829" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
+    <!-- SSG_HEAD:END -->
+
+    <!-- Not emitted by Helmet — must stay outside the replaced block. -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -74,6 +82,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Fonts — linked here, not @imported from the CSS bundle, so the -->
+    <!-- browser can fetch them in parallel instead of discovering them -->
+    <!-- only after the app stylesheet has downloaded and parsed.       -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,600&display=swap"
+    />
+
+    <!-- The hero background is the LCP element on the landing page. It is
+         self-hosted (same origin, long-cacheable, no third-party DNS/TLS hop)
+         and preloaded here so the fetch starts during HTML parse rather than
+         after React mounts. Keep in sync with Hero.tsx's srcset. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero/hero-1440.webp"
+      imagesrcset="/hero/hero-960.webp 960w, /hero/hero-1440.webp 1440w, /hero/hero-1920.webp 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- JSON-LD Structured Data (static fallback for non-JS crawlers) -->
@@ -110,20 +141,15 @@
           "applicationCategory": "TravelApplication",
           "applicationSubCategory": "MobileApplication",
           "operatingSystem": "iOS, Android",
-          "description": "Balance iconic landmarks with authentic local discovery. Discover hidden gems, local food spots, and cultural experiences curated by locals across 277+ cities.",
+          "description": "Balance iconic landmarks with authentic local discovery. Hidden gems, local food spots, and cultural experiences curated by locals — launching across 277+ cities.",
           "author": {"@id": "https://nativeway.app/#organization"},
           "publisher": {"@id": "https://nativeway.app/#organization"},
           "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
-            "description": "Free to download with premium features available"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "ratingCount": "1250"
+            "availability": "https://schema.org/PreOrder",
+            "description": "Free at launch, with premium features available"
           }
         },
         {
@@ -148,7 +174,42 @@
     }
     </script>
 
-    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- Anti-FOUC: paint the correct theme background before any JS     -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <style>
+      html, body { height: 100%; margin: 0; }
+      #root { height: 100%; }
+      /* Dark is the default; the boot script below adds .light before first
+         paint when needed. Declared here (not just in the bundled CSS) so the
+         background is correct even during the stylesheet fetch. */
+      html { background: #0b1829; color-scheme: dark; }
+      html.light { background: #f4efe6; color-scheme: light; }
+    </style>
+
+    <!-- Runs synchronously before the body parses, so the resolved theme is on
+         <html> for the very first paint. Never let this throw: localStorage
+         access raises SecurityError when cookies are blocked (Safari private
+         mode, embedded webviews) and an uncaught error here blanks the page. -->
+    <script>
+      (function () {
+        try {
+          var stored = null;
+          try { stored = localStorage.getItem('nativeway-theme'); } catch (e) {}
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          // toggle(), not add(): the prerendered HTML ships with whatever class
+          // the build machine's Chrome resolved, so we must be able to clear it.
+          document.documentElement.classList.toggle('light', theme === 'light');
+        } catch (e) {
+          /* Fall through to the dark default already set by CSS. */
+        }
+      })();
+    </script>
   </head>
 
   <body>

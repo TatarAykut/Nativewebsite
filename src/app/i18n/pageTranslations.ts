@@ -23,7 +23,15 @@ export const pageTranslations = {
           { year: "2026", title: "Public launch", description: "NativeWay opens to the world — a premium, principled travel ecosystem ready to elevate how people explore." },
        ],
       },
-      team: { badge: "The Team", heading: "Built by travelers, for travelers" },
+      team: {
+        badge: "The Team",
+        heading: "Built by travelers, for travelers",
+        members: [
+          { role: "Co-founder & CEO", bio: "Serial entrepreneur with a passion for travel technology. Founded NativeWay so travelers could reach experiences that are actually real." },
+          { role: "Co-founder & CTO", bio: "Software architect and full-stack engineer. Building NativeWay's technical foundation from the ground up." },
+          { role: "Head of Product", bio: "Product strategist and UX designer. Makes sure every feature delivers genuine value to travelers." },
+        ],
+      },
       cta: { heading: "Ready to travel the native way?", sub: "Leave your email and be first to download when we launch.", button: "Get Notified" },
     },
     featuresPage: {
@@ -212,7 +220,15 @@ export const pageTranslations = {
           { year: "2026", title: "公开发布", description: "NativeWay 向世界开放——一个优质、有原则的旅行生态系统，准备提升人们的探索方式。" },
        ],
       },
-      team: { badge: "团队", heading: "由旅行者创立，为旅行者服务" },
+      team: {
+        badge: "团队",
+        heading: "由旅行者创立，为旅行者服务",
+        members: [
+          { role: "联合创始人兼首席执行官", bio: "连续创业者，热衷于旅行科技。创立 NativeWay，让旅行者能够触及真实的体验。" },
+          { role: "联合创始人兼首席技术官", bio: "软件架构师、全栈工程师。从零开始构建 NativeWay 的技术基础。" },
+          { role: "产品负责人", bio: "产品策略师、用户体验设计师。确保每一项功能都为旅行者带来真正的价值。" },
+        ],
+      },
       cta: { heading: "准备好以本地方式旅行了吗？", sub: "留下您的邮箱，上线时第一个下载体验。", button: "获取通知" },
     },
     featuresPage: {
@@ -305,7 +321,15 @@ export const pageTranslations = {
           { year: "2026", title: "Halka açılış", description: "NativeWay dünyaya açılıyor — premium, ilkeli bir seyahat ekosistemi, insanların keşfetme biçimini yükseltmeye hazır." },
        ],
       },
-      team: { badge: "Ekip", heading: "Gezginler tarafından, gezginler için kuruldu" },
+      team: {
+        badge: "Ekip",
+        heading: "Gezginler tarafından, gezginler için kuruldu",
+        members: [
+          { role: "Kurucu Ortak & CEO", bio: "Deneyimli girişimci, seyahat teknolojileri tutkunu. NativeWay'i gezginlerin gerçek deneyimlere ulaşması için kurdu." },
+          { role: "Kurucu Ortak & CTO", bio: "Yazılım mimarı, full-stack geliştirici. NativeWay'in teknik altyapısını sıfırdan inşa ediyor." },
+          { role: "Ürün Direktörü", bio: "Ürün stratejisti, kullanıcı deneyimi tasarımcısı. Her özelliğin gezginlere gerçek değer katmasını sağlıyor." },
+        ],
+      },
       cta: { heading: "Yerli gibi seyahat etmeye hazır mısınız?", sub: "E-postanı bırak, yayına çıktığımız gün ilk sen indir.", button: "Haber Ver" },
     },
     featuresPage: {
@@ -422,7 +446,15 @@ export const pageTranslations = {
           { year: "2026", title: "Offentlig lansering", description: "NativeWay åpner for verden — et premium, prinsipielt reiseøkosystem klart til å heve måten folk utforsker på." },
        ],
       },
-      team: { badge: "Teamet", heading: "Bygget av reisende, for reisende" },
+      team: {
+        badge: "Teamet",
+        heading: "Bygget av reisende, for reisende",
+        members: [
+          { role: "Medgründer og CEO", bio: "Seriegründer med lidenskap for reiseteknologi. Grunnla NativeWay slik at reisende kan finne opplevelser som faktisk er ekte." },
+          { role: "Medgründer og CTO", bio: "Programvarearkitekt og full-stack-utvikler. Bygger NativeWays tekniske fundament fra bunnen av." },
+          { role: "Produktsjef", bio: "Produktstrateg og UX-designer. Sørger for at hver funksjon gir reisende reell verdi." },
+        ],
+      },
       cta: { heading: "Klar til å reise på den lokale måten?", sub: "Legg igjen e-posten din og bli den første til å laste ned ved lansering.", button: "Bli varslet" },
     },
     featuresPage: {

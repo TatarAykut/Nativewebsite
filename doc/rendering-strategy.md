@@ -33,7 +33,7 @@ Browser → GET / → <div id="root"></div> → JS indirilir → React render ed
 Birbiriyle `@id` referanslarıyla bağlanan 3 ana şema oluşturuldu:
 
 - **`Organization`** — NativeWay şirket bilgileri, 3 kurucu (`Person` entity'leri ile: Ahmet Semih Dikilitaş, Said Aydın, Aykut Arayıcı), iletişim, sosyal medya, faaliyet alanları
-- **`SoftwareApplication`** (MobileApplication) — iOS/Android, 277+ şehir, 8 özellik, rating ⭐4.8, ücretsiz
+- **`SoftwareApplication`** (MobileApplication) — iOS/Android, 277+ şehir (lansmanda), 8 özellik, ücretsiz — uydurma aggregateRating kaldırıldı
 - **`WebSite`** — SearchAction, 4 dil desteği (en/zh/tr/no), telif hakkı
 - **`BreadcrumbList`** — Her sayfa için otomatik breadcrumb (root hariç)
 - **Statik fallback** — `index.html` içinde aynı JSON-LD gömülü (JS çalıştırmayan crawler'lar için)

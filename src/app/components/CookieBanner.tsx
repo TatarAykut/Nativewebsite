@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Cookie, X } from "lucide-react";
 import { Link } from "react-router";
 import { useLanguage } from "../i18n/LanguageContext";
+import { getItem, setItem } from "../../lib/storage";
 
 const STORAGE_KEY = "nativeway-cookie-consent";
 
@@ -11,14 +12,14 @@ export function CookieBanner() {
   const c = t.cookieBanner;
 
   useEffect(() => {
-    const consented = localStorage.getItem(STORAGE_KEY);
+    const consented = getItem(STORAGE_KEY);
     if (!consented) {
       setVisible(true);
     }
   }, []);
 
   const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
+    setItem(STORAGE_KEY, "true");
     setVisible(false);
   };
 

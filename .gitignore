@@ -2,3 +2,9 @@ node_modules/
 dist/
 .env
 *.local
+
+# Supabase CLI local state (project ref, org id, DB pooler URL)
+supabase/.temp/
+
+# This is a pnpm workspace — a second (npm) lockfile only confuses tooling and CI
+package-lock.json

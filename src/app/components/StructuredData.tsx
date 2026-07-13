@@ -21,10 +21,16 @@ export function StructuredData({ path = "" }: StructuredDataProps) {
   const breadcrumb = path && path !== "/" ? buildBreadcrumb(path) : null;
   if (!breadcrumb) return null;
 
+  // dangerouslySetInnerHTML, not children: as children React HTML-escapes the
+  // JSON (" → &quot;), but browsers parse <script> content as raw text and never
+  // decode entities — so the hydrated DOM would hold a literal "&quot;" where
+  // React expects '"'. That mismatch made React discard and rebuild every page
+  // that renders a breadcrumb (i.e. every page except home).
   return (
-    <script type="application/ld+json">
-      {JSON.stringify(breadcrumb, null, 0)}
-    </script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+    />
   );
 }
 
@@ -45,15 +51,15 @@ function buildBreadcrumb(path: string) {
   ];
 
   let accumulated = "";
-  for (let i = 0; i < segments.length; i++) {
-    accumulated += `/${segments[i]}`;
+  segments.forEach((segment, i) => {
+    accumulated += `/${segment}`;
     items.push({
       "@type": "ListItem" as const,
       position: i + 2,
-      name: segmentToLabel(segments[i]),
+      name: segmentToLabel(segment),
       item: `${BASE_URL}${accumulated}`,
     });
-  }
+  });
 
   return {
     "@context": "https://schema.org",

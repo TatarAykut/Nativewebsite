@@ -5,6 +5,21 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { useTheme } from "../theme/ThemeContext";
 import logoImg from "../../imports/natfr.png";
 
+/**
+ * Both icons are always rendered; CSS (`.nw-icon-*` in theme.css) reveals the
+ * one matching the active theme. Branching on `theme` here would make the
+ * markup theme-dependent, which mismatches the prerendered HTML during
+ * hydration and forces React to discard and rebuild the page.
+ */
+function ThemeIcon() {
+  return (
+    <>
+      <Sun size={15} className="nw-icon-dark" aria-hidden="true" />
+      <Moon size={15} className="nw-icon-light" aria-hidden="true" />
+    </>
+  );
+}
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +27,7 @@ export function Navbar() {
   const langRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { t, language, setLanguage, languages } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -80,7 +95,7 @@ export function Navbar() {
             aria-label="Toggle theme"
             className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[var(--nw-accent-text)] hover:border-[#f07b22]/40 transition-all duration-200"
           >
-            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+            <ThemeIcon />
           </button>
 
           <div ref={langRef} className="relative">
@@ -129,7 +144,7 @@ export function Navbar() {
             aria-label="Toggle theme"
             className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)]"
           >
-            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+            <ThemeIcon />
           </button>
           <button
             className="text-[var(--nw-text)] p-1"

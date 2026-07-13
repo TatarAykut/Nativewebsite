@@ -16,7 +16,7 @@ function figmaAssetResolver() {
   }
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
@@ -33,4 +33,22 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
-})
+
+  build: {
+    rollupOptions: {
+      // Client build only. In the SSG build (scripts/ssg.mjs) React and the
+      // router are external — Node loads them from node_modules — and Rollup
+      // refuses to place an external module into a manual chunk.
+      output: isSsrBuild
+        ? {}
+        : {
+            // Split the rarely-changing vendor code out of the app chunk so a
+            // copy tweak does not force every returning visitor to re-download
+            // React and the router.
+            manualChunks: {
+              'vendor-react': ['react', 'react-dom', 'react-router'],
+            },
+          },
+    },
+  },
+}))

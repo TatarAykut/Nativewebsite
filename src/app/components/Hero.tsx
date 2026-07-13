@@ -3,14 +3,23 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { waitlistCounter } from "../../lib/counter";
+import { HERO_LQIP } from "./heroLqip";
 
 export function Hero() {
   const { t } = useLanguage();
   const h = t.hero;
-  const [count, setCount] = useState(0);
+  // null = not known yet (or the fetch failed). The stat is hidden rather than
+  // rendered as "0+", which would tell visitors nobody has signed up.
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    waitlistCounter.get().then(setCount);
+    let cancelled = false;
+    waitlistCounter.get().then((n) => {
+      if (!cancelled) setCount(n);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleCtaClick = () => {
@@ -19,12 +28,26 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0">
+      {/* The inlined placeholder is the background of this layer, so the hero
+          area already carries the photo's colours and brightness on the first
+          painted frame. The real image then lands on top as a blur→sharp
+          transition instead of a dark→bright flash. */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url("${HERO_LQIP}")` }}
+      >
+        {/* LCP element. Self-hosted (no third-party DNS/TLS hop on the critical
+            path), preloaded from index.html at high priority, and served at the
+            width the viewport actually needs. Keep the srcset in sync with the
+            <link rel="preload" imagesrcset> there. */}
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1519055548599-6d4d129508c4?w=1800&h=1200&fit=crop&auto=format"
+          src="/hero/hero-1440.webp"
+          srcSet="/hero/hero-960.webp 960w, /hero/hero-1440.webp 1440w, /hero/hero-1920.webp 1920w"
+          sizes="100vw"
           alt="Traveler standing by the sea with local village"
           className="w-full h-full object-cover object-center"
           decoding="async"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--nw-bg)]/95 via-[var(--nw-bg)]/75 to-[var(--nw-bg)]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--nw-bg)] via-transparent to-transparent" />
@@ -74,21 +97,26 @@ export function Hero() {
             </a>
           </div>
 
+          {/* Two stats, both real: a planned-coverage figure that says "planned"
+              on the label, and the live signup count. The third slot used to read
+              "100% / Local-first" — a slogan dressed as a measurement, and one
+              that contradicted the product's own "balance landmarks WITH local"
+              positioning. A fabricated number sitting beside the live counter
+              only made the counter look fabricated too. */}
           <div className="mt-16 flex items-center gap-8">
             <div>
               <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>277+</p>
               <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat1Label}</p>
             </div>
-            <div className="w-px h-10 bg-[var(--nw-border)]" />
-            <div>
-              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{count.toLocaleString()}+</p>
-              <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat2Label}</p>
-            </div>
-            <div className="w-px h-10 bg-[var(--nw-border)]" />
-            <div>
-              <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>100%</p>
-              <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat3Label}</p>
-            </div>
+            {count !== null && (
+              <>
+                <div className="w-px h-10 bg-[var(--nw-border)]" />
+                <div>
+                  <p className="text-2xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{count.toLocaleString()}+</p>
+                  <p className="text-xs text-[var(--nw-muted)] tracking-wide mt-0.5">{h.stat2Label}</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

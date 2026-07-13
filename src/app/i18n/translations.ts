@@ -27,7 +27,6 @@ export const translations = {
       ctaSecondary: "Learn More",
       stat1Label: "Cities planned",
       stat2Label: "On the launch list",
-      stat3Label: "Local-first",
       scroll: "Scroll",
     },
     about: {
@@ -148,7 +147,6 @@ export const translations = {
       ctaSecondary: "了解更多",
       stat1Label: "计划城市",
       stat2Label: "已加入名单",
-      stat3Label: "本地优先",
       scroll: "滚动",
     },
     about: {
@@ -269,7 +267,6 @@ export const translations = {
       ctaSecondary: "Daha Fazla Bilgi",
       stat1Label: "Planlanan şehir",
       stat2Label: "Lansman listesinde",
-      stat3Label: "Yerel öncelikli",
       scroll: "Kaydır",
     },
     about: {
@@ -390,7 +387,6 @@ export const translations = {
       ctaSecondary: "Lær mer",
       stat1Label: "Planlagte byer",
       stat2Label: "På lanseringslisten",
-      stat3Label: "Lokalt først",
       scroll: "Bla ned",
     },
     about: {

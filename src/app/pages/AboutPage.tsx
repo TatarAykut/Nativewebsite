@@ -2,28 +2,16 @@ import { Globe, Lightbulb, Target } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { SEO } from "../components/SEO";
 
+/**
+ * Identity only — role and bio are translated and live in pageTranslations under
+ * aboutPage.team.members, index-aligned with this array. They used to be
+ * hardcoded here in Turkish, which every English, Chinese and Norwegian visitor
+ * saw untranslated.
+ */
 const team = [
-  {
-    name: "Ahmet Semih Dikilitaş",
-    role: "Co-founder & CEO",
-    bio: "Deneyimli girişimci, seyahat teknolojileri tutkunu. NativeWay'i gezginlerin gerçek deneyimlere ulaşması için kurdu.",
-    initial: "A",
-    color: "#f07b22",
-  },
-  {
-    name: "Said Aydın",
-    role: "Co-founder & CTO",
-    bio: "Yazılım mimarı, full-stack geliştirici. NativeWay'in teknik altyapısını sıfırdan inşa ediyor.",
-    initial: "S",
-    color: "#3a8fd9",
-  },
-  {
-    name: "Aykut Arayıcı",
-    role: "Head of Product",
-    bio: "Ürün stratejisti, kullanıcı deneyimi tasarımcısı. Her özelliğin gezginlere gerçek değer katmasını sağlıyor.",
-    initial: "A",
-    color: "#4caf7d",
-  },
+  { name: "Ahmet Semih Dikilitaş", initial: "A", color: "#f07b22" },
+  { name: "Said Aydın", initial: "S", color: "#3a8fd9" },
+  { name: "Aykut Arayıcı", initial: "A", color: "#4caf7d" },
 ];
 
 const missionIcons = [Target, Globe, Lightbulb];
@@ -136,17 +124,20 @@ export function AboutPage() {
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
+            {team.map((member, i) => (
               <div key={member.name} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-7 text-center hover:border-[#f07b22]/25 transition-all duration-300">
+                {/* The initial sits on a solid tint of the member's colour rather
+                    than colour-on-colour-at-12%-alpha, which measured 2.45:1 in
+                    light theme — below the 3:1 WCAG AA floor even for large text. */}
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl"
-                  style={{ backgroundColor: `${member.color}20`, color: member.color, fontFamily: "var(--font-display)", fontWeight: 700 }}
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-xl text-white"
+                  style={{ backgroundColor: member.color, fontFamily: "var(--font-display)", fontWeight: 700 }}
                 >
                   {member.initial}
                 </div>
                 <h3 className="text-[var(--nw-text)] mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}>{member.name}</h3>
-                <p className="text-[var(--nw-accent-text)] text-xs mb-3 tracking-wide">{member.role}</p>
-                <p className="text-[var(--nw-muted)] text-sm leading-relaxed">{member.bio}</p>
+                <p className="text-[var(--nw-accent-text)] text-xs mb-3 tracking-wide">{p.team.members[i]?.role}</p>
+                <p className="text-[var(--nw-muted)] text-sm leading-relaxed">{p.team.members[i]?.bio}</p>
               </div>
             ))}
           </div>

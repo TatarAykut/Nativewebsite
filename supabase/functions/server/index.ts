@@ -25,10 +25,45 @@ const RATE_LIMIT_WINDOW = 60_000; // per minute
 const rateStore = new Map<string, { count: number; resetAt: number }>();
 
 function getClientIP(c: any): string {
+  // Prefer the platform-set header: Supabase's edge proxy sets x-real-ip from
+  // the actual connection, and a client cannot forge it.
+  const real = c.req.header("x-real-ip");
+  if (real) return real.trim();
+
+  // Fall back to X-Forwarded-For, taking the LAST hop rather than the first.
+  // The first entry is whatever the client sent — an attacker can put a random
+  // value there and land in a fresh rate-limit bucket on every request, which
+  // bypasses the limit entirely. Each trusted proxy appends the address it saw,
+  // so the last entry is the one our infrastructure actually observed.
   const forwarded = c.req.header("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  // Fallback — Deno.connectInfo available in fetch handler
+  if (forwarded) {
+    const hops = forwarded.split(",").map((h: string) => h.trim()).filter(Boolean);
+    if (hops.length > 0) return hops[hops.length - 1];
+  }
+
   return "unknown";
+}
+
+/**
+ * Constant-time secret comparison.
+ *
+ * `a !== b` bails at the first differing byte, so response time leaks how much
+ * of a guessed token was correct — enough to reconstruct it byte by byte.
+ * Comparing SHA-256 digests instead of the raw strings gives fixed-length
+ * inputs, so neither the token's length nor its contents leak through timing.
+ */
+async function secretsMatch(a: string, b: string): Promise<boolean> {
+  const enc = new TextEncoder();
+  const [da, db] = await Promise.all([
+    crypto.subtle.digest("SHA-256", enc.encode(a)),
+    crypto.subtle.digest("SHA-256", enc.encode(b)),
+  ]);
+  const va = new Uint8Array(da);
+  const vb = new Uint8Array(db);
+
+  let diff = 0;
+  for (let i = 0; i < va.length; i++) diff |= va[i] ^ vb[i];
+  return diff === 0;
 }
 
 function checkRateLimit(ip: string): boolean {
@@ -169,11 +204,19 @@ app.get("/api/waitlist/count", async (c) => {
 // GET /api/admin/waitlist — admin view (token-protected)
 // ---------------------------------------------------------------------------
 app.get("/api/admin/waitlist", async (c) => {
-  // Prefer the x-admin-token header (query param leaks into request logs/history).
-  const token = c.req.header("x-admin-token") ?? c.req.query("token");
+  // Throttle before authenticating: this token is the only thing protecting the
+  // full email list, and an unthrottled endpoint can be guessed at indefinitely.
+  if (!checkRateLimit(`admin:${getClientIP(c)}`)) {
+    return c.json({ error: "Too many requests. Please slow down." }, 429);
+  }
+
+  // Header only. The query-param fallback that used to be accepted here leaked
+  // the admin token into server logs, browser history and Referer headers.
+  const token = c.req.header("x-admin-token");
   const adminToken = Deno.env.get("ADMIN_TOKEN");
 
-  if (!adminToken || token !== adminToken) {
+  // Fails closed when ADMIN_TOKEN is unset, and compares in constant time.
+  if (!adminToken || !token || !(await secretsMatch(token, adminToken))) {
     return c.json({ error: "Unauthorized" }, 401);
   }
 
