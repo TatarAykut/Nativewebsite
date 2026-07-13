@@ -31,6 +31,14 @@ function getClientIP(c: any): string {
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
+
+  // Evict expired buckets so rateStore can't grow unbounded across warm invocations.
+  if (rateStore.size > 500) {
+    for (const [key, val] of rateStore) {
+      if (now > val.resetAt) rateStore.delete(key);
+    }
+  }
+
   const entry = rateStore.get(ip);
 
   if (!entry || now > entry.resetAt) {
@@ -48,12 +56,22 @@ function checkRateLimit(ip: string): boolean {
 // Middleware
 // ---------------------------------------------------------------------------
 app.use("*", logger(console.log));
+
+// Allowed origins — override via ALLOWED_ORIGINS env (comma-separated) per deploy.
+const ALLOWED_ORIGINS = (
+  Deno.env.get("ALLOWED_ORIGINS") ??
+  "https://nativeway.app,https://www.nativeway.app,http://localhost:5173"
+)
+  .split(",")
+  .map((o) => o.trim())
+  .filter(Boolean);
+
 app.use(
   "/*",
   cors({
-    origin: ["https://nativeway.app", "http://localhost:5173"],
-    allowHeaders: ["Content-Type", "Authorization"],
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    origin: ALLOWED_ORIGINS,
+    allowHeaders: ["Content-Type", "Authorization", "x-admin-token"],
+    allowMethods: ["GET", "POST", "OPTIONS"],
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
   }),
@@ -149,7 +167,8 @@ app.get("/api/waitlist/count", async (c) => {
 // GET /api/admin/waitlist — admin view (token-protected)
 // ---------------------------------------------------------------------------
 app.get("/api/admin/waitlist", async (c) => {
-  const token = c.req.query("token");
+  // Prefer the x-admin-token header (query param leaks into request logs/history).
+  const token = c.req.header("x-admin-token") ?? c.req.query("token");
   const adminToken = Deno.env.get("ADMIN_TOKEN");
 
   if (!adminToken || token !== adminToken) {

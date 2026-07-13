@@ -29,7 +29,9 @@ export function AdminPage() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${EDGE_URL}/api/admin/waitlist?token=${encodeURIComponent(authToken)}&page=${p}&limit=50`);
+      const res = await fetch(`${EDGE_URL}/api/admin/waitlist?page=${p}&limit=50`, {
+        headers: { "x-admin-token": authToken },
+      });
       if (res.status === 401) {
         setError("Invalid token. Please check and try again.");
         sessionStorage.removeItem("nw-admin-token");
