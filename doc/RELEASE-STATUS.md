@@ -27,14 +27,15 @@ Denetim: 3 paralel statik-analiz ajanı + gerçek Chrome'da 10 route'un runtime 
 
 ---
 
-## ⏳ KALANLAR
+## ✅ ÇÖZÜLEN BLOCKER
 
-### 🔴 Tek gerçek blocker — senin aksiyonun
-- **Blocker 2 — Waitlist backend deploy edilmemiş.** Tüm edge-function endpoint'leri 404
-  ("load failed" sebebi bu). **KARAR: yeni bir Supabase hesabı açılıp sıfırdan kurulacak**
-  (eski proje `lnfgtcgnacmubnovzexi` terk ediliyor). Adım adım kılavuz: **[`SUPABASE-SETUP.md`](./SUPABASE-SETUP.md)**.
-  Özet: tablo (migration) → edge function deploy (`--no-verify-jwt`) → `ADMIN_TOKEN` →
-  frontend'i yeni projeye bağla (`.env`) → localhost'tan test.
+### ✅ Blocker 2 — Waitlist backend CANLI
+Yeni Supabase projesi kuruldu ve bağlandı: **`nsjbwadklqmresyqcfuk`** (eski `lnfgtcgnacmubnovzexi` terk edildi).
+- Tablo oluşturuldu (migration), edge function deploy edildi (`--no-verify-jwt`, `index.ts` + Hono `basePath('/server')`), `ADMIN_TOKEN` set edildi.
+- Frontend yeni projeye bağlandı (`.env` + `src/lib/supabase.ts` / `.env.example` / `utils/supabase/info.tsx` fallback'leri).
+- **Doğrulandı:** health 200 · count 200 · signup 201 · duplicate 409 · rate-limit 429 · CORS (localhost:5173 + nativeway.app ✓, izinsiz origin engelli) · admin auth 401.
+- ⚠️ **Yapılacak (küçük):** test kayıtlarını temizle (launch sayacı temiz olsun):
+  `DELETE FROM waitlist WHERE email LIKE '%@example.com';`  (SQL Editor)
 
 ### 🟡 should-fix — Frontend (HEPSİ TAMAM ✅)
 - ✅ **Light-mode kontrast AA** — buton 2.78→6.42:1, accent metin 2.42→4.88:1 (yeni `--nw-accent-text`). `d006635`
@@ -60,14 +61,15 @@ kullanılmayan i18n key'leri, çevrilmemiş a11y label'ları, ana JS bundle 634K
 
 ## 🚦 RELEASE İÇİN GEREKENLER (minimum gate)
 
-1. **[ ] Blocker 2 — yeni Supabase kurulumu** (senin adımın) → bkz. `SUPABASE-SETUP.md` → localhost'tan uçtan uca test
+1. **[x] Blocker 2 — waitlist backend** ✅ CANLI ve bağlı (`nsjbwadklqmresyqcfuk`), uçtan uca doğrulandı
 2. **[ ] Blocker 6'yı kabul et** — zh/no yasal sayfalar İngilizce fallback ile çıkıyor (profesyonel çeviri sonradan)
 3. **[ ] Host'u doğrula** — `_redirects` (Cloudflare/Netlify) veya `vercel.json` (Vercel) hedef host'la eşleşiyor mu
 4. **[ ] `dev` → `main` merge** — release main'den alınacaksa (şu an dev, main'in önünde)
 5. **[x] 🟡 should-fix'ler** — frontend + edge-function should-fix'lerin HEPSİ tamam ✅
+6. **[ ] Domain al** (`nativeway.app` önerilir — koda birebir uyar) + prod env (`VITE_SUPABASE_URL/ANON_KEY`) + edge `ADMIN_TOKEN`
 
-**Karar:** Artık tek kalan iş **yeni Supabase kurulumu** (Blocker 2) + host doğrulama.
-Should-fix'ler (kontrast, sabit metinler, sayaç, router, SEO, edge-function) bitti. Build/tsc/lint temiz, testler 3/3.
+**Karar:** Tek kalan zorunlu iş **hosting seçip deploy** (Blocker 6 kabulü + host rewrite doğrulama + domain).
+Kod + backend hazır. Build/tsc/lint temiz, testler 3/3, waitlist uçtan uca çalışıyor.
 
 ---
 
