@@ -38,20 +38,20 @@ export function CTA() {
         body: JSON.stringify({ email: trimmed }),
       });
 
-      // 409 means already signed up — still show success
+      // 409 = already signed up — show success but do NOT bump the counter (no new row)
       if (res.status === 409) {
-        waitlistCounter.increment();
         setSubmitted(true);
         return;
       }
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error((body as any).error || `Request failed (${res.status})`);
+        throw new Error((body as { error?: string }).error || `Request failed (${res.status})`);
       }
 
+      // Optimistic +1 only. Don't refresh() here: the count endpoint is cached
+      // ~60s server-side and would clobber this bump with the pre-signup value.
       waitlistCounter.increment();
-      waitlistCounter.refresh(); // pull live count in background
       setSubmitted(true);
     } catch {
       setError(c.errorGeneric);

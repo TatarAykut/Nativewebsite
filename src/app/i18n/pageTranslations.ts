@@ -303,7 +303,6 @@ export const pageTranslations = {
           { year: "2024", title: "Temeller atılıyor", description: "Çekirdek platform mimarisi inşa ediliyor. Tasarım ve mühendislik kararları hızdan önce dürüstlükle yönlendiriliyor." },
           { year: "2025", title: "Rafine ve test", description: "Seçkin bir toplulukla kapalı beta. Her özellik, gerçek geri bildirimlere dayanarak yayından önce parlatılıyor." },
           { year: "2026", title: "Halka açılış", description: "NativeWay dünyaya açılıyor — premium, ilkeli bir seyahat ekosistemi, insanların keşfetme biçimini yükseltmeye hazır." },
-          { year: "2026", title: "Lansman yılı", description: "NativeWay halka açık lansmanına hazırlanıyor. Misyon basit: her gezginin kendini yerel gibi hissettirmek." },
        ],
       },
       team: { badge: "Ekip", heading: "Gezginler tarafından, gezginler için kuruldu" },

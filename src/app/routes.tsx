@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import { Root } from "./components/Root";
+import { RouteError } from "./components/RouteError";
 import { HomePage } from "./pages/HomePage";
 
 // Code-split all non-home pages for faster initial load
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    errorElement: <RouteError />,
     children: [
       { index: true, Component: HomePage },
       { path: "about", Component: () => <Lazy><AboutPage /></Lazy> },

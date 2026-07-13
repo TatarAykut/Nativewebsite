@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Loader2, LogOut, RefreshCw } from "lucide-react";
 import { EDGE_URL } from "../../lib/supabase";
+import { SEO } from "../components/SEO";
 
 interface WaitlistEntry {
   id: number;
@@ -65,6 +66,7 @@ export function AdminPage() {
 
   return (
     <div className="pt-24 min-h-screen bg-[var(--nw-bg)]">
+      <SEO title="Admin" path="/admin" noIndex />
       <div className="max-w-5xl mx-auto px-6 py-12">
         <div className="flex items-center justify-between mb-8">
           <div>
