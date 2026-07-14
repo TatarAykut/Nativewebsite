@@ -3,6 +3,12 @@ import { Link } from "react-router";
 import logoImg from "../../imports/natfr.png";
 import { useLanguage } from "../i18n/LanguageContext";
 
+/** Kept in sync with the Organization contactPoint in index.html's JSON-LD. */
+const CONTACT_EMAIL = "info@nativeway.app";
+
+const LINK_CLASS =
+  "text-[var(--nw-muted)] text-sm hover:text-[var(--nw-text)] transition-colors";
+
 export function Footer() {
   const { t } = useLanguage();
   const f = t.footer;
@@ -33,23 +39,29 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Every link here goes somewhere. The footer used to list Pricing,
+              Changelog, Blog, Careers and Press as greyed-out <span>s — pages
+              that do not exist. Seven of ten links were dead, which reads as an
+              unfinished site rather than an ambitious one, and a disabled <span>
+              is worse than no link at all for keyboard and screen-reader users:
+              it is not focusable and announces as ordinary text. */}
           <div>
             <p className="text-[var(--nw-text)] text-sm mb-4" style={{ fontWeight: 600 }}>{f.productHeading}</p>
             <ul className="flex flex-col gap-2.5">
-              <li><Link to="/features" className="text-[var(--nw-muted)] text-sm hover:text-[var(--nw-text)] transition-colors">{f.productLinks[0]}</Link></li>
-              <li><Link to="/how-it-works" className="text-[var(--nw-muted)] text-sm hover:text-[var(--nw-text)] transition-colors">{f.productLinks[1]}</Link></li>
-              <li><span className="text-[var(--nw-muted)] text-sm opacity-40 cursor-not-allowed select-none">{f.productLinks[2]}</span></li>
-              <li><span className="text-[var(--nw-muted)] text-sm opacity-40 cursor-not-allowed select-none">{f.productLinks[3]}</span></li>
+              <li><Link to="/features" className={LINK_CLASS}>{f.productLinks[0]}</Link></li>
+              <li><Link to="/how-it-works" className={LINK_CLASS}>{f.productLinks[1]}</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="text-[var(--nw-text)] text-sm mb-4" style={{ fontWeight: 600 }}>{f.companyHeading}</p>
             <ul className="flex flex-col gap-2.5">
-              <li><Link to="/about" className="text-[var(--nw-muted)] text-sm hover:text-[var(--nw-text)] transition-colors">{f.companyLinks[0]}</Link></li>
-              {f.companyLinks.slice(1).map((item) => (
-                <li key={item}><span className="text-[var(--nw-muted)] text-sm opacity-40 cursor-not-allowed select-none">{item}</span></li>
-              ))}
+              <li><Link to="/about" className={LINK_CLASS}>{f.companyLinks[0]}</Link></li>
+              <li>
+                <a href={`mailto:${CONTACT_EMAIL}`} className={LINK_CLASS}>
+                  {f.companyLinks[1]}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
