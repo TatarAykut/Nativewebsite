@@ -123,7 +123,11 @@ export function AboutPage() {
               {p.team.heading}
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Three founders in a three-column grid. This was lg:grid-cols-4, so
+              the three cards filled the first three of four tracks and the row
+              read as left-aligned with a hole on the right. Matches the mission
+              grid above, which is already md:grid-cols-3. */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <div key={member.name} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] rounded-2xl p-7 text-center hover:border-[#f07b22]/25 transition-all duration-300">
                 {/* The initial sits on a solid tint of the member's colour rather

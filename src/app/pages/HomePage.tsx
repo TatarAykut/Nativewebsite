@@ -10,9 +10,9 @@ export function HomePage() {
   return (
     <>
       <SEO
-        title="NativeWay — Travel Easier. Experience More."
+        title="NativeWay — Plan Your Whole Trip in One Click"
         path="/"
-        description="NativeWay connects you with authentic local experiences, hidden gems, and real recommendations from locals. No tourist traps — just real travel."
+        description="Plan your whole trip in one click: iconic landmarks worth the queue, plus the local spots tourists never find. Group planning built in. Launching across 277+ cities."
       />
       <Hero />
       <About />

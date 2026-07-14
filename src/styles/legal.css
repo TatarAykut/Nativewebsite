@@ -1,9 +1,61 @@
-/* Shared prose styles for legal pages */
-.prose-nw { color: #8da3b8; line-height: 1.8; }
-.prose-nw h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #f0ece4; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.prose-nw p { margin-bottom: 1rem; }
-.prose-nw ul { margin: 0.75rem 0 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; list-style: disc; }
-.prose-nw li { padding-left: 0.25rem; }
-.prose-nw strong { color: #f0ece4; font-weight: 600; }
-.prose-nw a { color: #f07b22; text-decoration: none; }
-.prose-nw a:hover { text-decoration: underline; }
+/* Shared prose styles for legal pages (privacy, terms, cookies).
+   These render translated HTML through dangerouslySetInnerHTML, so the styling
+   has to live here rather than as utility classes on the elements. */
+
+.prose-nw {
+  color: var(--nw-muted);
+  line-height: 1.8;
+}
+
+/* Every colour here must be a token. They were hardcoded to the dark theme's
+   palette (#f0ece4 text, rgba(255,255,255,…) rules), so on the light theme's
+   cream background every section heading and every <strong> term rendered
+   near-white — effectively invisible. On a page whose entire job is to be read,
+   the legally load-bearing words were the ones that disappeared. */
+.prose-nw h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--nw-text);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--nw-border);
+}
+
+.prose-nw p {
+  margin-bottom: 1rem;
+}
+
+/* A plain list, not a flex column. `display: flex` blockifies the <li>s into
+   flex items, which breaks ::marker placement — the bullet was stranded far to
+   the left of its text and read as a stray run of spaces. Gaps between items
+   belong on the item's margin, not on a flex container. */
+.prose-nw ul {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.25rem;
+  list-style: disc outside;
+}
+
+.prose-nw li {
+  margin-bottom: 0.4rem;
+}
+
+.prose-nw li::marker {
+  color: var(--nw-muted);
+}
+
+.prose-nw strong {
+  color: var(--nw-text);
+  font-weight: 600;
+}
+
+/* --nw-accent-text, not the raw brand orange: #f07b22 only clears WCAG AA on
+   the dark background. See the note in theme.css. */
+.prose-nw a {
+  color: var(--nw-accent-text);
+  text-decoration: none;
+}
+
+.prose-nw a:hover {
+  text-decoration: underline;
+}

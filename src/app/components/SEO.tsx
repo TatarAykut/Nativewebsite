@@ -22,7 +22,7 @@ const BASE_URL = "https://nativeway.app";
 const SITE_NAME = "NativeWay";
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 const DEFAULT_DESC =
-  "NativeWay connects you with authentic local experiences, hidden gems, and real recommendations from people who call the destination home.";
+  "Plan your whole trip in one click: iconic landmarks worth the queue, plus the local spots tourists never find. Group planning built in. Launching across 277+ cities.";
 const DEFAULT_KEYWORDS = [
   "NativeWay",
   "travel app",

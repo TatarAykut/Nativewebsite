@@ -105,7 +105,7 @@ export const translations = {
       errorGeneric: "Something went wrong. Please try again.",
     },
     footer: {
-      tagline: "Connecting travelers with authentic local experiences worldwide. Travel Easier. Experience More.",
+      tagline: "Complete trip plans in one click — the iconic landmarks and the local places worth the detour.",
       productHeading: "Product",
       companyHeading: "Company",
       productLinks: ["Features", "How It Works"],
@@ -225,7 +225,7 @@ export const translations = {
       errorGeneric: "出了点问题，请重试。",
     },
     footer: {
-      tagline: "连接旅行者与世界各地真实的本地体验。旅行更轻松，体验更丰富。",
+      tagline: "一键生成完整行程 —— 经典地标，以及值得绕路的本地去处。",
       productHeading: "产品",
       companyHeading: "公司",
       productLinks: ["功能介绍", "使用方式"],
@@ -345,7 +345,7 @@ export const translations = {
       errorGeneric: "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     },
     footer: {
-      tagline: "Gezginleri dünya genelinde otantik yerel deneyimlerle buluşturuyoruz. Daha kolay seyahat. Daha fazla deneyim.",
+      tagline: "Tek tıkla komple gezi planı — ikonik duraklar ve yolunuzu değiştirmeye değer yerel adresler.",
       productHeading: "Ürün",
       companyHeading: "Şirket",
       productLinks: ["Özellikler", "Nasıl Çalışır"],
@@ -465,7 +465,7 @@ export const translations = {
       errorGeneric: "Noe gikk galt. Vennligst prøv igjen.",
     },
     footer: {
-      tagline: "Kobler reisende med autentiske lokale opplevelser verden over. Reis enklere. Opplev mer.",
+      tagline: "Komplette reiseplaner med ett klikk — de ikoniske stedene og de lokale perlene verdt en omvei.",
       productHeading: "Produkt",
       companyHeading: "Selskap",
       productLinks: ["Funksjoner", "Slik fungerer det"],
