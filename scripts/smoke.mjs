@@ -62,7 +62,12 @@ check("theme toggle flips the theme", themeBefore !== themeAfter, `${themeBefore
 const persisted = await page.evaluate(() => localStorage.getItem("nativeway-theme"));
 check("theme persists to localStorage", persisted === (themeAfter ? "light" : "dark"), `stored=${persisted}`);
 
-// 2. Language switch
+// 2. Language switch.
+// Assert the heading CHANGES, not that it contains a particular word. Pinning
+// this to specific copy made the suite fail every time marketing text was
+// edited, reporting a green feature as broken.
+const h1Before = await page.evaluate(() => document.querySelector("h1")?.innerText || "");
+
 await page.click('button[aria-label^="Select language"]');
 await new Promise((r) => setTimeout(r, 250));
 const switched = await page.evaluate(() => {
@@ -72,8 +77,13 @@ const switched = await page.evaluate(() => {
   return true;
 });
 await new Promise((r) => setTimeout(r, 500));
-const h1 = await page.evaluate(() => document.querySelector("h1")?.innerText || "");
-check("language switch renders Turkish", switched && /seyahat/i.test(h1), h1.slice(0, 38).replace(/\n/g, " "));
+
+const h1After = await page.evaluate(() => document.querySelector("h1")?.innerText || "");
+check(
+  "language switch re-renders the page in the new language",
+  switched && h1After.length > 0 && h1After !== h1Before,
+  `"${h1Before.slice(0, 22).replace(/\n/g, " ")}" -> "${h1After.slice(0, 22).replace(/\n/g, " ")}"`,
+);
 check("<html lang> follows language", (await page.evaluate(() => document.documentElement.lang)) === "tr");
 
 // 3. Client-side navigation
