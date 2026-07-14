@@ -19,7 +19,7 @@ NativeWay is a mobile application available on iOS and Android that provides:
 - Travel community features (blogs, collections, badges)
 - In-app messaging for trip coordination
 
-The app is free to download with premium features available. It currently supports 277+ cities worldwide and is available in 4 languages: English, Chinese, Turkish, and Norwegian.
+NativeWay has not launched yet. The website collects launch-notification signups; the app is not downloadable today. At launch it is planned to be free with premium features available, to cover 277+ cities, and to ship in 4 languages: English, Chinese, Turkish, and Norwegian.
 
 ## Our Values
 

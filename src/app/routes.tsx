@@ -1,17 +1,27 @@
 import { lazy, Suspense } from "react";
-import { createBrowserRouter } from "react-router";
+import { type RouteObject } from "react-router";
 import { Root } from "./components/Root";
-import { HomePage } from "./pages/HomePage";
+import { RouteError } from "./components/RouteError";
 
-// Code-split all non-home pages for faster initial load
-const AboutPage = lazy(() => import("./pages/AboutPage").then(m => ({ default: m.AboutPage })));
-const FeaturesPage = lazy(() => import("./pages/FeaturesPage").then(m => ({ default: m.FeaturesPage })));
-const HowItWorksPage = lazy(() => import("./pages/HowItWorksPage").then(m => ({ default: m.HowItWorksPage })));
-const ValuesPage = lazy(() => import("./pages/ValuesPage").then(m => ({ default: m.ValuesPage })));
-const PrivacyPage = lazy(() => import("./pages/PrivacyPage").then(m => ({ default: m.PrivacyPage })));
-const TermsPage = lazy(() => import("./pages/TermsPage").then(m => ({ default: m.TermsPage })));
-const CookiePage = lazy(() => import("./pages/CookiePage").then(m => ({ default: m.CookiePage })));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+// The eight public pages are imported eagerly and NOT code-split. They are
+// prerendered by scripts/ssg.mjs, and React.lazy would make the client's first
+// render emit a Suspense fallback (the spinner) rather than the page — which
+// cannot hydrate the prerendered markup, so React would discard it and rebuild
+// the page from scratch (a visible flash). Together they are only a few kB.
+import { HomePage } from "./pages/HomePage";
+import { AboutPage } from "./pages/AboutPage";
+import { FeaturesPage } from "./pages/FeaturesPage";
+import { HowItWorksPage } from "./pages/HowItWorksPage";
+import { ValuesPage } from "./pages/ValuesPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
+import { TermsPage } from "./pages/TermsPage";
+import { CookiePage } from "./pages/CookiePage";
+
+// Never prerendered, so lazy-loading them costs nothing at hydration time.
+const AdminPage = lazy(() => import("./pages/AdminPage").then((m) => ({ default: m.AdminPage })));
+const NotFoundPage = lazy(() =>
+  import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
+);
 
 function PageLoader() {
   return (
@@ -25,20 +35,45 @@ function Lazy({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={<PageLoader />}>{children}</Suspense>;
 }
 
-export const router = createBrowserRouter([
+/**
+ * The shared route table. The browser builds a data router from it (below) and
+ * the SSG build feeds the same array to createStaticHandler, so both render an
+ * identical tree — which is what makes the generated HTML hydratable.
+ */
+export const routes: RouteObject[] = [
   {
     path: "/",
     Component: Root,
+    errorElement: <RouteError />,
     children: [
       { index: true, Component: HomePage },
-      { path: "about", Component: () => <Lazy><AboutPage /></Lazy> },
-      { path: "features", Component: () => <Lazy><FeaturesPage /></Lazy> },
-      { path: "how-it-works", Component: () => <Lazy><HowItWorksPage /></Lazy> },
-      { path: "values", Component: () => <Lazy><ValuesPage /></Lazy> },
-      { path: "privacy", Component: () => <Lazy><PrivacyPage /></Lazy> },
-      { path: "terms", Component: () => <Lazy><TermsPage /></Lazy> },
-      { path: "cookies", Component: () => <Lazy><CookiePage /></Lazy> },
-      { path: "*", Component: () => <Lazy><NotFoundPage /></Lazy> },
+      { path: "about", Component: AboutPage },
+      { path: "features", Component: FeaturesPage },
+      { path: "how-it-works", Component: HowItWorksPage },
+      { path: "values", Component: ValuesPage },
+      { path: "privacy", Component: PrivacyPage },
+      { path: "terms", Component: TermsPage },
+      { path: "cookies", Component: CookiePage },
+      {
+        path: "admin",
+        Component: () => (
+          <Lazy>
+            <AdminPage />
+          </Lazy>
+        ),
+      },
+      {
+        path: "*",
+        Component: () => (
+          <Lazy>
+            <NotFoundPage />
+          </Lazy>
+        ),
+      },
     ],
   },
-]);
+];
+
+// NOTE: no createBrowserRouter here. This module is imported by the SSG entry,
+// which runs in Node — and createBrowserRouter touches `document` at call time.
+// The browser router is created in App.tsx, which only the client entry loads.

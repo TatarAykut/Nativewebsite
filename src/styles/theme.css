@@ -13,6 +13,9 @@
   --nw-accent:       #f07b22;
   --nw-accent-hover: #ffa04a;
   --nw-accent-fg:    #0b1829;
+  /* Accent color for TEXT/icons on page backgrounds (WCAG-tuned per theme).
+     Dark: #f07b22 clears AA on the dark bg. Do NOT use --nw-accent for text. */
+  --nw-accent-text:  #f07b22;
   --nw-border:       rgba(255, 255, 255, 0.08);
   --nw-border-subtle:rgba(255, 255, 255, 0.05);
   --nw-glow:         rgba(240, 123, 34, 0.05);
@@ -29,7 +32,11 @@ html.light {
   --nw-muted:        #4d6373;
   --nw-accent:       #f07b22;
   --nw-accent-hover: #d96a15;
-  --nw-accent-fg:    #ffffff;
+  /* Dark text on orange buttons — white (#fff) on #f07b22 was 2.78:1 (AA fail). */
+  --nw-accent-fg:    #0b1829;
+  /* Darker orange for text on the cream bg — #f07b22 was 2.42:1 (AA fail);
+     #a84e0a ≈ 4.9:1 on cream, clears AA for normal text. */
+  --nw-accent-text:  #a84e0a;
   --nw-border:       rgba(13, 24, 41, 0.12);
   --nw-border-subtle:rgba(13, 24, 41, 0.06);
   --nw-glow:         rgba(240, 123, 34, 0.08);
@@ -172,7 +179,9 @@ html.light {
 
   html {
     font-size: var(--font-size);
-    scroll-behavior: smooth;
+    /* NOTE: native `scroll-behavior: smooth` intentionally NOT set here.
+       Anchor smooth-scroll is handled in JS (smoothScrollTo). Having both
+       causes the browser's native animation to fight the JS rAF loop → jank. */
   }
 
   h1 {
@@ -217,3 +226,11 @@ html.light {
     line-height: 1.5;
   }
 }
+
+/* ── Theme-dependent icons ───────────────────────────────────────────
+   Rendered as theme-independent markup (both icons always in the DOM) so the
+   prerendered HTML hydrates cleanly regardless of the visitor's theme. CSS,
+   not React, decides which one is visible. See Navbar's <ThemeIcon />. */
+.nw-icon-light { display: none; }
+html.light .nw-icon-dark { display: none; }
+html.light .nw-icon-light { display: block; }

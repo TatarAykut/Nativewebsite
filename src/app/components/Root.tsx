@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { CookieBanner } from "./CookieBanner";
+import { handleAnchorClick, smoothScrollTo } from "../utils/smoothScroll";
 
 function SkipLink() {
   return (
@@ -17,11 +18,37 @@ function SkipLink() {
 }
 
 export function Root() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Hash route (e.g. "/#get-app" from the Navbar CTA, on-page or cross-page):
+    // wait for the target section to mount, then smooth-scroll to it.
+    if (hash) {
+      const id = hash.slice(1);
+      // Track the timeout too: the rAF callback fires within ~16ms, so by the
+      // time a rapid second navigation runs this cleanup the rAF is already done
+      // and cancelAnimationFrame alone cannot stop the timer it scheduled —
+      // leaving a stale scroll to the previous hash.
+      let timeout: ReturnType<typeof setTimeout> | undefined;
+      const raf = requestAnimationFrame(() => {
+        timeout = setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) smoothScrollTo(el);
+        }, 60);
+      });
+      return () => {
+        cancelAnimationFrame(raf);
+        if (timeout !== undefined) clearTimeout(timeout);
+      };
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
+
+  // Intercept anchor-link clicks for custom smooth scroll (slower than browser default)
+  useEffect(() => {
+    document.addEventListener("click", handleAnchorClick);
+    return () => document.removeEventListener("click", handleAnchorClick);
+  }, []);
 
   return (
     <div

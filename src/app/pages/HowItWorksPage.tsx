@@ -1,5 +1,5 @@
 import {
-  ArrowRight, CalendarDays, Sparkles, MapPin, Users,
+  CalendarDays, Sparkles, MapPin, Users,
   BookOpen, Award, Heart, Pen, Navigation, Star, Route, Vote, Shield
 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -31,7 +31,7 @@ export function HowItWorksPage() {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
           <h1
             className="text-5xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -54,7 +54,7 @@ export function HowItWorksPage() {
                 href={`#step-${i + 1}`}
                 className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm text-[var(--nw-muted)] hover:text-[var(--nw-text)] hover:bg-[var(--nw-border-subtle)] transition-all"
               >
-                <span className="text-[#f07b22] text-xs" style={{ fontWeight: 700 }}>0{i + 1}</span>
+                <span className="text-[var(--nw-accent-text)] text-xs" style={{ fontWeight: 700 }}>0{i + 1}</span>
                 {label}
               </a>
             ))}
@@ -144,7 +144,7 @@ export function HowItWorksPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex gap-3 items-center mb-12">
             <div className="h-px flex-1 bg-white/8" />
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase px-4">{p.locals.heading}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase px-4">{p.locals.heading}</span>
             <div className="h-px flex-1 bg-white/8" />
           </div>
           <div className="grid sm:grid-cols-2 gap-6">

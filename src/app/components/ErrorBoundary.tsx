@@ -34,7 +34,7 @@ export class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen flex items-center justify-center bg-[var(--nw-bg)]">
           <div className="max-w-md mx-auto px-6 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#f07b22]/10 mb-6">
-              <AlertTriangle size={32} className="text-[#f07b22]" />
+              <AlertTriangle size={32} className="text-[var(--nw-accent-text)]" />
             </div>
             <h1 className="text-2xl text-[var(--nw-text)] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
               Something went wrong

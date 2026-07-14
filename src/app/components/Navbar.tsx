@@ -3,8 +3,22 @@ import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import { useLanguage } from "../i18n/LanguageContext";
 import { useTheme } from "../theme/ThemeContext";
-import { waitlistCounter } from "../../lib/counter";
 import logoImg from "../../imports/natfr.png";
+
+/**
+ * Both icons are always rendered; CSS (`.nw-icon-*` in theme.css) reveals the
+ * one matching the active theme. Branching on `theme` here would make the
+ * markup theme-dependent, which mismatches the prerendered HTML during
+ * hydration and forces React to discard and rebuild the page.
+ */
+function ThemeIcon() {
+  return (
+    <>
+      <Sun size={15} className="nw-icon-dark" aria-hidden="true" />
+      <Moon size={15} className="nw-icon-light" aria-hidden="true" />
+    </>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,7 +27,7 @@ export function Navbar() {
   const langRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { t, language, setLanguage, languages } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -45,7 +59,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--nw-bg)]/95 backdrop-blur-md border-b border-[var(--nw-border)] shadow-xl"
+          ? "bg-[var(--nw-bg)]/98 border-b border-[var(--nw-border)] shadow-xl"
           : "bg-transparent"
       }`}
     >
@@ -65,7 +79,7 @@ export function Navbar() {
                 to={l.href}
                 className={`text-sm transition-colors duration-200 tracking-wide ${
                   location.pathname === l.href
-                    ? "text-[#f07b22]"
+                    ? "text-[var(--nw-accent-text)]"
                     : "text-[var(--nw-muted)] hover:text-[var(--nw-text)]"
                 }`}
               >
@@ -79,9 +93,9 @@ export function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/40 transition-all duration-200"
+            className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[var(--nw-accent-text)] hover:border-[#f07b22]/40 transition-all duration-200"
           >
-            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+            <ThemeIcon />
           </button>
 
           <div ref={langRef} className="relative">
@@ -103,7 +117,7 @@ export function Navbar() {
                     key={lang.code}
                     onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left hover:bg-[var(--nw-border-subtle)] transition-colors ${
-                      language === lang.code ? "text-[#f07b22] bg-[#f07b22]/5" : "text-[var(--nw-muted)]"
+                      language === lang.code ? "text-[var(--nw-accent-text)] bg-[#f07b22]/5" : "text-[var(--nw-muted)]"
                     }`}
                   >
                     <span className="text-base">{lang.flag}</span>
@@ -117,7 +131,6 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
-            onClick={() => waitlistCounter.increment()}
             className="inline-flex items-center gap-2 bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:bg-[var(--nw-accent-hover)] hover:scale-105 active:scale-95"
             style={{ fontWeight: 600 }}
           >
@@ -131,7 +144,7 @@ export function Navbar() {
             aria-label="Toggle theme"
             className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)]"
           >
-            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+            <ThemeIcon />
           </button>
           <button
             className="text-[var(--nw-text)] p-1"
@@ -145,13 +158,13 @@ export function Navbar() {
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-[var(--nw-bg)]/98 backdrop-blur-md border-t border-[var(--nw-border)] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[var(--nw-bg)]/98 border-t border-[var(--nw-border)] px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link
               key={l.href}
               to={l.href}
               className={`py-2 border-b border-[var(--nw-border)] last:border-0 ${
-                location.pathname === l.href ? "text-[#f07b22]" : "text-[var(--nw-text)]"
+                location.pathname === l.href ? "text-[var(--nw-accent-text)]" : "text-[var(--nw-text)]"
               }`}
               onClick={() => setMenuOpen(false)}
             >
@@ -166,7 +179,7 @@ export function Navbar() {
                 onClick={() => setLanguage(lang.code)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-all ${
                   language === lang.code
-                    ? "border-[#f07b22] text-[#f07b22] bg-[#f07b22]/10"
+                    ? "border-[#f07b22] text-[var(--nw-accent-text)] bg-[#f07b22]/10"
                     : "border-[var(--nw-border)] text-[var(--nw-muted)]"
                 }`}
               >
@@ -178,7 +191,7 @@ export function Navbar() {
 
           <Link
             to="/#get-app"
-            onClick={() => { waitlistCounter.increment(); setMenuOpen(false); }}
+            onClick={() => { setMenuOpen(false); }}
             className="bg-[#f07b22] text-[var(--nw-accent-fg)] px-5 py-3 rounded-full text-center mt-1"
             style={{ fontWeight: 600 }}
           >

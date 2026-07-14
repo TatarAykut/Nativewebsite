@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-import { supabase } from "../../lib/supabase";
+import { EDGE_URL } from "../../lib/supabase";
 import { waitlistCounter } from "../../lib/counter";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,38 +21,48 @@ export function CTA() {
     // Validate email
     const trimmed = email.trim();
     if (!trimmed) {
-      setError("Please enter your email address.");
+      setError(c.errorEmpty);
       return;
     }
     if (!EMAIL_REGEX.test(trimmed)) {
-      setError("Please enter a valid email address.");
+      setError(c.errorInvalid);
       return;
     }
 
     setLoading(true);
 
     try {
-      const { error: insertError } = await supabase
-        .from("waitlist")
-        .insert({ email: trimmed, source: "website" });
+      const res = await fetch(`${EDGE_URL}/api/waitlist`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      });
 
-      if (insertError) {
-        // Duplicate email is fine — user already signed up
-        if (insertError.code === "23505") {
-          waitlistCounter.increment();
-          setSubmitted(true);
-          return;
-        }
-        throw insertError;
+      // 409 = already signed up — show success but do NOT bump the counter (no new row)
+      if (res.status === 409) {
+        setSubmitted(true);
+        return;
       }
 
-      waitlistCounter.increment();
-      setSubmitted(true);
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error((body as { error?: string }).error || `Request failed (${res.status})`);
+      }
     } catch {
-      setError("Something went wrong. Please try again.");
+      setError(c.errorGeneric);
+      return;
     } finally {
       setLoading(false);
     }
+
+    // Past this point the signup HAS been persisted server-side, so nothing here
+    // may surface an error to the user. Bumping a local cache counter must never
+    // be able to report a successful signup as a failure.
+    setSubmitted(true);
+
+    // Optimistic +1 only. Don't refresh() here: the count endpoint is cached
+    // ~60s server-side and would clobber this bump with the pre-signup value.
+    waitlistCounter.increment();
   };
 
   return (
@@ -64,20 +74,20 @@ export function CTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#f07b22]/5 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-2xl mx-auto px-6 text-center">
-        <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{c.badge}</span>
+        <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{c.badge}</span>
         <h2
           className="text-4xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
           style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
         >
           {c.heading1}
           <br />
-          <span className="text-[#f07b22]">{c.heading2}</span>
+          <span className="text-[var(--nw-accent-text)]">{c.heading2}</span>
         </h2>
         <p className="text-[var(--nw-muted)] text-lg leading-relaxed mb-10">{c.sub}</p>
 
         {submitted ? (
           <div className="flex items-center justify-center gap-3 bg-[var(--nw-bg-card)] border border-[#f07b22]/30 rounded-2xl px-8 py-6">
-            <CheckCircle size={22} className="text-[#f07b22]" />
+            <CheckCircle size={22} className="text-[var(--nw-accent-text)]" />
             <p className="text-[var(--nw-text)]">{c.success}</p>
           </div>
         ) : (
@@ -109,7 +119,7 @@ export function CTA() {
               ) : (
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               )}
-              {loading ? "Joining..." : c.button}
+              {loading ? c.loading : c.button}
             </button>
           </form>
         )}

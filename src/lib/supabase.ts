@@ -1,8 +1,19 @@
-import { createClient } from "@supabase/supabase-js";
+/**
+ * Backend endpoint config.
+ *
+ * The browser deliberately does NOT use @supabase/supabase-js. Every read and
+ * write goes through the Hono edge function (which holds the service_role key
+ * server-side), so the SDK's only job here was to be constructed — while adding
+ * ~214 kB (~55 kB gzipped) to the bundle, roughly a quarter of the JS payload.
+ * A plain fetch() to EDGE_URL does the same work for free.
+ *
+ * The edge function does not require an Authorization header from the client,
+ * so no anon key needs to ship to the browser either.
+ */
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "https://lnfgtcgnacmubnovzexi.supabase.co";
-const supabaseAnonKey =
-  import.meta.env.VITE_SUPABASE_ANON_KEY ||
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxuZmd0Y2duYWNtdWJub3Z6ZXhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNTc3MzYsImV4cCI6MjA5NzkzMzczNn0.TYkgSzozC8sDsc8mlyA8MZaQMIm10exla-q3rh87sY8";
+const supabaseUrl =
+  (import.meta.env.VITE_SUPABASE_URL as string | undefined) ||
+  "https://nsjbwadklqmresyqcfuk.supabase.co";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+/** Edge function base URL — all /api/* calls go through this. */
+export const EDGE_URL = `${supabaseUrl}/functions/v1/server`;

@@ -1,10 +1,13 @@
 import { SEO } from "../components/SEO";
 import { LegalSection } from "../components/LegalSection";
+import { LegalFallbackNotice, LEGAL_FALLBACK_LANGS } from "../components/LegalFallbackNotice";
 import { useLanguage } from "../i18n/LanguageContext";
+import { pageTranslations } from "../i18n/pageTranslations";
 
 export function TermsPage() {
-  const { pt } = useLanguage();
-  const p = pt.termsPage;
+  const { pt, language } = useLanguage();
+  // zh/no legal content isn't fully translated — fall back to English + notice.
+  const p = LEGAL_FALLBACK_LANGS.includes(language) ? pageTranslations.en.termsPage : pt.termsPage;
 
   return (
     <div className="pt-24 pb-20 bg-[var(--nw-bg)] min-h-screen">
@@ -18,7 +21,7 @@ export function TermsPage() {
       />
       <article className="max-w-3xl mx-auto px-6" aria-labelledby="terms-title">
         <div className="py-16 border-b border-[var(--nw-border)] mb-12">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.badge}</span>
           <h1 id="terms-title" className="text-4xl md:text-5xl text-[var(--nw-text)] mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             {p.title}
           </h1>
@@ -26,6 +29,7 @@ export function TermsPage() {
         </div>
 
         <div className="prose-nw">
+          <LegalFallbackNotice language={language} />
           {p.sections.map((section, i) => (
             <LegalSection key={i} title={section.title}>
               <div dangerouslySetInnerHTML={{ __html: section.content }} />

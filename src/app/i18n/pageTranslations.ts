@@ -23,8 +23,16 @@ export const pageTranslations = {
           { year: "2026", title: "Public launch", description: "NativeWay opens to the world — a premium, principled travel ecosystem ready to elevate how people explore." },
        ],
       },
-      team: { badge: "The Team", heading: "Built by travelers, for travelers" },
-      cta: { heading: "Ready to travel the native way?", sub: "Join the waitlist and be first to experience it.", button: "Get Early Access" },
+      team: {
+        badge: "The Team",
+        heading: "Built by travelers, for travelers",
+        members: [
+          { role: "Co-founder & CEO", bio: "Serial entrepreneur with a passion for travel technology. Founded NativeWay so travelers could reach experiences that are actually real." },
+          { role: "Co-founder & CTO", bio: "Software architect and full-stack engineer. Building NativeWay's technical foundation from the ground up." },
+          { role: "Head of Product", bio: "Product strategist and UX designer. Makes sure every feature delivers genuine value to travelers." },
+        ],
+      },
+      cta: { heading: "Ready to travel the native way?", sub: "Leave your email and be first to download when we launch.", button: "Get Notified" },
     },
     featuresPage: {
       hero: { badge: "Features", heading: "Everything built around your journey", sub: "Seven features. One platform. AI planning, local discovery, group coordination, destination guides, passport stamps, community, and messaging — all connected." },
@@ -102,7 +110,7 @@ export const pageTranslations = {
         },
      ],
       comingSoon: { badge: "Coming Soon", heading: "On the roadmap", items: [{ title: "Local Alerts", description: "Get notified about temporary closures, new openings, and time-sensitive local tips." }, { title: "Scam Warnings", description: "Residents flag tourist scams and overpriced areas in real time." }, { title: "Cultural Notes", description: "Etiquette tips and local customs written by residents who've seen tourists get it wrong." }, { title: "Trip Export", description: "Export your saved places and routes as a printable PDF or share with travel companions." }] },
-      cta: { heading: "Want to be first to use these features?", sub: "Early access members get everything free for a full year.", button: "Join the Waitlist" },
+      cta: { heading: "Want to be first to use these features?", sub: "Get notified the day these features go live.", button: "Get Notified" },
     },
     howItWorksPage: {
       hero: { badge: "How It Works", heading: "From idea to experience — every step covered", sub: "NativeWay supports the full travel journey: planning before you go, discovering while you're there, collaborating with your group, and connecting with the community after." },
@@ -124,7 +132,7 @@ export const pageTranslations = {
        ],
         note: "Locals earn reputation, recognition, and (coming soon) tips from grateful travellers.",
       },
-      cta: { heading: "Ready to try it yourself?", sub: "Sign up for early access and be among the first to explore.", button: "Get Early Access" },
+      cta: { heading: "Ready to try it yourself?", sub: "Leave your email and be among the first to explore at launch.", button: "Get Notified" },
     },
     valuesPage: {
       hero: { badge: "Our Values", heading: "What we actually stand for", sub: "Values aren't a marketing page — they're the decisions we make when it costs us something. Here's what we've committed to, and why." },
@@ -138,7 +146,7 @@ export const pageTranslations = {
 
      ],
       commitment: { heading: "These aren't aspirations — they're commitments", p1: "Values only matter when they guide real decisions. We build NativeWay with the traveler's trust at the center — every recommendation is rooted in authenticity, every feature is designed with integrity, and your data is treated with the respect it deserves.", p2: "That's the difference between talking about values and living them. We choose to live them — every day." },
-      cta: { heading: "Share our values? Come join us.", sub: "Early access is open — and free for the first year.", button: "Get Early Access" },
+      cta: { heading: "Share our values? Come join us.", sub: "Leave your email — we'll tell you the day we launch.", button: "Get Notified" },
     },
     privacyPage: {
       badge: "Legal", title: "Privacy Policy", lastUpdated: "Last updated: 1 June 2026",
@@ -165,7 +173,7 @@ export const pageTranslations = {
         { title: "4. Local Contributor Verification", content: "<p>To contribute reviews, pins, and routes as a local, you must verify your residency in the relevant city. By submitting verification documents, you confirm:</p><ul><li>The document is genuine and belongs to you.</li><li>You currently reside in the city you are verifying for.</li><li>You understand the document is reviewed and then permanently deleted.</li></ul><p>Submitting fraudulent verification is grounds for immediate account termination and may result in legal action.</p>" },
         { title: "5. User Content", content: "<p>You retain ownership of content you submit to NativeWay (reviews, pins, routes, messages). By submitting content, you grant NativeWay a worldwide, non-exclusive, royalty-free licence to use, display, distribute, and adapt your content for the purpose of operating and improving the Service.</p><p>You are solely responsible for the content you submit. You agree not to submit content that:</p><ul><li>Is false, misleading, or fraudulent.</li><li>Infringes any intellectual property, privacy, or other rights of any person.</li><li>Is defamatory, harassing, abusive, obscene, or discriminatory.</li><li>Contains spam, advertisements, or unsolicited promotions.</li><li>Violates any applicable law or regulation.</li></ul><p>We reserve the right to remove any content that violates these Terms, without notice.</p>" },
         { title: "6. Prohibited Uses", content: "<p>You agree not to:</p><ul><li>Scrape, crawl, or systematically extract data from the Service without written permission.</li><li>Reverse-engineer, decompile, or attempt to extract source code from any part of the Service.</li><li>Use the Service to distribute malware, conduct phishing, or perform any form of cyberattack.</li><li>Manipulate ratings or reviews, including incentivising others to write fake reviews.</li><li>Impersonate any person, business, or entity.</li><li>Use the Service to harass, threaten, or harm any other user.</li><li>Circumvent any access controls, rate limits, or security features.</li></ul>" },
-        { title: "7. Subscription and Payments", content: "<p>NativeWay operates on a subscription model. Pricing is displayed clearly before purchase. By subscribing, you authorise us to charge your payment method on a recurring basis until you cancel.</p><p>Early access members receive free premium access for the first year as stated at the time of sign-up. After this period, standard subscription rates apply.</p><p>Refunds are available within 14 days of any charge if you have not made substantial use of premium features during that period. Contact <a href=\"mailto:support@nativeway.com\">support@nativeway.com</a> to request a refund.</p>" },
+        { title: "7. Subscription and Payments", content: "<p>NativeWay operates on a subscription model. Pricing is displayed clearly before purchase. By subscribing, you authorise us to charge your payment method on a recurring basis until you cancel.</p><p>Refunds are available within 14 days of any charge if you have not made substantial use of premium features during that period. Contact <a href=\"mailto:support@nativeway.com\">support@nativeway.com</a> to request a refund.</p>" },
         { title: "8. Intellectual Property", content: "<p>All NativeWay branding, design, software, and proprietary content (excluding user-submitted content) is owned by NativeWay Ltd and protected by copyright and other intellectual property laws. You may not reproduce, redistribute, or create derivative works from our proprietary content without written permission.</p>" },
         { title: "9. Third-Party Services", content: "<p>The Service may contain links to or integrations with third-party services. We are not responsible for the content, privacy practices, or terms of those services. Use them at your own risk.</p>" },
         { title: "10. Disclaimers", content: "<p>NativeWay is provided \"as is\" and \"as available\". We do not warrant that the Service will be uninterrupted, error-free, or that any content — including local recommendations — is accurate, safe, or suitable for your specific circumstances.</p><p>Travel involves inherent risks. Nothing on NativeWay constitutes safety advice. Always use your own judgement and verify critical information independently.</p>" },
@@ -212,8 +220,16 @@ export const pageTranslations = {
           { year: "2026", title: "公开发布", description: "NativeWay 向世界开放——一个优质、有原则的旅行生态系统，准备提升人们的探索方式。" },
        ],
       },
-      team: { badge: "团队", heading: "由旅行者创立，为旅行者服务" },
-      cta: { heading: "准备好以本地方式旅行了吗？", sub: "加入候补名单，第一个体验它。", button: "提前获取" },
+      team: {
+        badge: "团队",
+        heading: "由旅行者创立，为旅行者服务",
+        members: [
+          { role: "联合创始人兼首席执行官", bio: "连续创业者，热衷于旅行科技。创立 NativeWay，让旅行者能够触及真实的体验。" },
+          { role: "联合创始人兼首席技术官", bio: "软件架构师、全栈工程师。从零开始构建 NativeWay 的技术基础。" },
+          { role: "产品负责人", bio: "产品策略师、用户体验设计师。确保每一项功能都为旅行者带来真正的价值。" },
+        ],
+      },
+      cta: { heading: "准备好以本地方式旅行了吗？", sub: "留下您的邮箱，上线时第一个下载体验。", button: "获取通知" },
     },
     featuresPage: {
       hero: { badge: "功能介绍", heading: "一切围绕您的旅程而构建", sub: "七大功能，一个平台。AI 规划、本地探索、团队协作、目的地指南、护照印章、社区与消息——全部互联互通。" },
@@ -228,7 +244,7 @@ export const pageTranslations = {
         { category: "消息", tagline: "所有对话集于一处", description: "NativeWay 的消息功能意味着您无需离开应用进行协调。向帮助您规划的当地人发送私信，与旅行伙伴开始群聊，并使用与共享行程直接绑定的行程聊天——一切尽在一处，无需切换应用。", items: [{ title: "私信", description: "与当地人、同行旅行者或 NativeWay 社区任何人私下聊天。" }, { title: "群组对话", description: "为旅行伙伴创建群聊，共同规划、协调并保持联系。" }, { title: "行程聊天", description: "每个共享旅行都有专属会话线程——让规划沟通有迹可循。" }] },
      ],
       comingSoon: { badge: "即将推出", heading: "路线图上的功能", items: [{ title: "本地提醒", description: "获取目的地临时关闭、新开业及限时本地贴士的通知。" }, { title: "诈骗预警", description: "居民实时标记旅游诈骗和高价区域。" }, { title: "文化注意事项", description: "由见过游客犯错的居民撰写的礼仪贴士和本地习俗。" }, { title: "行程导出", description: "将已保存的地点和路线导出为可打印的 PDF 或直接与旅行伙伴分享。" }] },
-      cta: { heading: "想第一个使用这些功能？", sub: "早期访问成员第一年免费获得所有内容。", button: "加入候补名单" },
+      cta: { heading: "想第一个使用这些功能？", sub: "这些功能上线时第一时间通知你。", button: "获取通知" },
     },
     howItWorksPage: {
       hero: { badge: "使用方式", heading: "从灵感到体验——每一步都有覆盖", sub: "NativeWay 支持完整的旅行旅程：出发前规划、到达后探索、与团队协作，以及归来后与社区连接。" },
@@ -241,7 +257,7 @@ export const pageTranslations = {
         { phase: "旅行结束后", title: "收集印章，分享故事", description: "您到访的每个国家都会在 NativeWay 护照中留下数字印章。随着旅行历史增长，您将晋升橙色、深蓝色和金色等级。撰写旅行博客、收集成就徽章，与社区分享您的体验。", features: [{ label: "NativeWay 护照", note: "每个到访国家的数字印章" }, { label: "旅行博客", note: "您的报告帮助未来旅行者更好地规划" }, { label: "社区", note: "徽章、档案和旅行故事的世界" }], tip: "最受欢迎的旅行博客会提到其他评价中没有提到的一件令人惊喜的事。" },
      ],
       locals: { heading: "对当地人而言", steps: [{ number: "01", title: "验证您的居住地", description: "快速且隐私——无需存储敏感文件即可确认您住在该城市。水电账单或本地身份证即可。" }, { number: "02", title: "标注您喜爱的地方", description: "添加您真正热爱的地方——您的街区咖啡馆、视野最佳的公园、祖父母那一代就在那里的市场摊位。" }, { number: "03", title: "写下真实评价", description: "如实说：最佳菜品、最差访问时间、游客照片中看不到的东西。当地人是 NativeWay 上的真相讲述者。" }, { number: "04", title: "创建本地路线", description: "将您最爱的地点串联成一日行程。添加背景、历史和各站之间的旅途。打造一份您愿意送给朋友的指南。" }] },
-      cta: { heading: "准备好亲自体验了吗？", sub: "注册早期访问，成为最先探索的人之一。", button: "提前获取" },
+      cta: { heading: "准备好亲自体验了吗？", sub: "留下您的邮箱，上线时成为最先探索的人之一。", button: "获取通知" },
     },
     valuesPage: {
       hero: { badge: "我们的价值观", heading: "我们真正坚守的立场", sub: "价值观不是营销页面——它们是我们在付出代价时所做的决定。以下是我们的承诺，以及背后的原因。" },
@@ -255,7 +271,7 @@ export const pageTranslations = {
 
      ],
       commitment: { heading: "这些不是愿望——而是承诺", p1: "价值观只有在指导真正决策时才有意义。我们将旅行者的信任置于 NativeWay 的核心——每一条推荐都根植于真实，每一个功能都以诚信设计，您的数据得到应有的尊重。", p2: "这就是谈论价值观与践行价值观的区别。我们选择践行——每一天。" },
-      cta: { heading: "认同我们的价值观？来加入我们吧。", sub: "早期访问已开放——第一年免费。", button: "提前获取" },
+      cta: { heading: "认同我们的价值观？来加入我们吧。", sub: "留下您的邮箱——上线当天我们通知你。", button: "获取通知" },
     },
     // Legal pages — awaiting Chinese translation; displaying English
     privacyPage: {
@@ -303,11 +319,18 @@ export const pageTranslations = {
           { year: "2024", title: "Temeller atılıyor", description: "Çekirdek platform mimarisi inşa ediliyor. Tasarım ve mühendislik kararları hızdan önce dürüstlükle yönlendiriliyor." },
           { year: "2025", title: "Rafine ve test", description: "Seçkin bir toplulukla kapalı beta. Her özellik, gerçek geri bildirimlere dayanarak yayından önce parlatılıyor." },
           { year: "2026", title: "Halka açılış", description: "NativeWay dünyaya açılıyor — premium, ilkeli bir seyahat ekosistemi, insanların keşfetme biçimini yükseltmeye hazır." },
-          { year: "2026", title: "Lansman yılı", description: "NativeWay halka açık lansmanına hazırlanıyor. Misyon basit: her gezginin kendini yerel gibi hissettirmek." },
        ],
       },
-      team: { badge: "Ekip", heading: "Gezginler tarafından, gezginler için kuruldu" },
-      cta: { heading: "Yerli gibi seyahat etmeye hazır mısınız?", sub: "Bekleme listesine katılın ve ilk deneyimleyenlerden olun.", button: "Erken Erişim Alın" },
+      team: {
+        badge: "Ekip",
+        heading: "Gezginler tarafından, gezginler için kuruldu",
+        members: [
+          { role: "Kurucu Ortak & CEO", bio: "Deneyimli girişimci, seyahat teknolojileri tutkunu. NativeWay'i gezginlerin gerçek deneyimlere ulaşması için kurdu." },
+          { role: "Kurucu Ortak & CTO", bio: "Yazılım mimarı, full-stack geliştirici. NativeWay'in teknik altyapısını sıfırdan inşa ediyor." },
+          { role: "Ürün Direktörü", bio: "Ürün stratejisti, kullanıcı deneyimi tasarımcısı. Her özelliğin gezginlere gerçek değer katmasını sağlıyor." },
+        ],
+      },
+      cta: { heading: "Yerli gibi seyahat etmeye hazır mısınız?", sub: "E-postanı bırak, yayına çıktığımız gün ilk sen indir.", button: "Haber Ver" },
     },
     featuresPage: {
       hero: { badge: "Özellikler", heading: "Her şey yolculuğunuz etrafında inşa edildi", sub: "Yedi özellik. Bir platform. AI planlama, yerel keşif, grup koordinasyonu, destinasyon rehberleri, pasaport damgaları, topluluk ve mesajlaşma — hepsi bağlantılı." },
@@ -322,7 +345,7 @@ export const pageTranslations = {
         { category: "Mesajlaşma", tagline: "Her konuşma tek yerde", description: "NativeWay'in mesajlaşma katmanı, koordinasyon için uygulamadan çıkmanıza gerek kalmadığı anlamına gelir. Planlamanıza yardımcı olan yerlilere doğrudan mesaj gönderin, seyahat arkadaşlarınızla grup sohbetleri başlatın ve paylaşılan programınıza doğrudan bağlı gezi bazlı sohbetler kullanın.", items: [{ title: "Doğrudan Mesajlar", description: "Yerlilerle, diğer gezginlerle veya NativeWay topluluğundan herhangi biriyle özel sohbet edin." }, { title: "Grup Konuşmaları", description: "Seyahat arkadaşlarınız için planlama, koordinasyon ve bağlantıda kalmak için grup sohbetleri oluşturun." }, { title: "Gezi Bazlı Sohbetler", description: "Her paylaşılan gezinin kendi konuşma dizisi var — planlama iletişimini bağlam içinde tutun." }] },
      ],
       comingSoon: { badge: "Yakında", heading: "Yol haritasında", items: [{ title: "Yerel Uyarılar", description: "Destinasyonunuzdaki geçici kapanışlar ve yeni açılışlar hakkında bildirim alın." }, { title: "Dolandırıcılık Uyarıları", description: "Sakinler turist tuzaklarını ve aşırı fiyatlı alanları gerçek zamanlı işaretler." }, { title: "Kültürel Notlar", description: "Turistlerin hata yaptığını gören sakinlerin yazdığı görgü kuralları ve yerel gelenekler." }, { title: "Gezi Dışa Aktarma", description: "Kayıtlı yerlerinizi yazdırılabilir PDF olarak dışa aktarın veya seyahat arkadaşlarınızla paylaşın." }] },
-      cta: { heading: "Bu özellikleri ilk kullananlardan olmak ister misiniz?", sub: "Erken erişim üyeleri bir yıl boyunca her şeyi ücretsiz alır.", button: "Bekleme Listesine Katıl" },
+      cta: { heading: "Bu özellikleri ilk kullananlardan olmak ister misiniz?", sub: "Bu özellikler yayına girdiği an sana haber verelim.", button: "Haber Ver" },
     },
     howItWorksPage: {
       hero: { badge: "Nasıl Çalışır", heading: "Fikirden deneyime — her adım kapsanıyor", sub: "NativeWay tam seyahat yolculuğunu destekler: gitmeden önce planlama, oradayken keşfetme, grubunuzla işbirliği ve sonrasında toplulukla bağlantı." },
@@ -335,7 +358,7 @@ export const pageTranslations = {
         { phase: "Seyahatten Sonra", title: "Damga topla, hikayeni paylaş", description: "Ziyaret ettiğiniz her ülke NativeWay Pasaportunuzda dijital bir damga kazandırır. Seyahat geçmişiniz büyüdükçe Turuncu, Lacivert ve Altın katmanlarında ilerlersiniz. Bir seyahat blogu yazın, başarı rozetleri toplayın ve deneyiminizi toplulukla paylaşın.", features: [{ label: "NativeWay Pasaportu", note: "Her ziyaret edilen ülke için dijital damgalar" }, { label: "Seyahat Blogları", note: "Raporunuz gelecekteki gezginlerin planlamasına yardımcı olur" }, { label: "Topluluk", note: "Rozetler, profiller ve seyahat hikayeleri dünyası" }], tip: "En çok okunan seyahat blogları başka hiçbir yorumun bahsetmediği bir şeyi söyler — o şaşırtıcı ayrıntı." },
      ],
       locals: { heading: "Yerliler İçin", steps: [{ number: "01", title: "İkametinizi doğrulayın", description: "Hızlı ve gizli — hassas belgeleri saklamadan şehirde yaşadığınızı doğruluyoruz." }, { number: "02", title: "Sevdiğiniz yerleri işaretleyin", description: "Gerçekten sevdiğiniz yerleri ekleyin — mahalledeki kafen, en iyi manzaralı park, büyükbaba zamanından beri orada olan pazar tezgahı." }, { number: "03", title: "Dürüst yorumlar yazın", description: "Olduğu gibi söyleyin: en iyi yemek, en kötü ziyaret saati, turist fotoğraflarının göstermediği şeyler." }, { number: "04", title: "Yerel Rota oluşturun", description: "Favori yerlerinizi bir günlük programa dönüştürün. Bağlam, tarih ve duraklar arasındaki yolculuğu ekleyin." }] },
-      cta: { heading: "Kendiniz denemek ister misiniz?", sub: "Erken erişime kaydolun ve ilk keşfedenlerden biri olun.", button: "Erken Erişim Alın" },
+      cta: { heading: "Kendiniz denemek ister misiniz?", sub: "E-postanı bırak, lansmanda ilk keşfedenlerden biri ol.", button: "Haber Ver" },
     },
     valuesPage: {
       hero: { badge: "Değerlerimiz", heading: "Gerçekten neyin yanında durduğumuz", sub: "Değerler bir pazarlama sayfası değil — bir maliyeti olduğunda verdiğimiz kararlardır. İşte taahhüt ettiğimiz şeyler ve nedenleri." },
@@ -349,7 +372,7 @@ export const pageTranslations = {
 
      ],
       commitment: { heading: "Bunlar birer özlem değil — taahhüttür", p1: "Değerler yalnızca gerçek kararları yönlendirdiklerinde anlam kazanır. NativeWay'i gezginin güvenini merkeze koyarak inşa ediyoruz — her öneri otantikliğe dayanır, her özellik dürüstlükle tasarlanır ve verileriniz hak ettiği saygıyla işlenir.", p2: "Değerler hakkında konuşmakla onları yaşamak arasındaki fark budur. Biz yaşamayı seçiyoruz — her gün." },
-      cta: { heading: "Değerlerimizi paylaşıyor musunuz? Gelin katılın.", sub: "Erken erişim açık — ve ilk yıl ücretsiz.", button: "Erken Erişim Alın" },
+      cta: { heading: "Değerlerimizi paylaşıyor musunuz? Gelin katılın.", sub: "E-postanı bırak — yayına çıktığımız gün sana haber veririz.", button: "Haber Ver" },
     },
     privacyPage: {
       badge: "Yasal", title: "Gizlilik Politikası", lastUpdated: "Son güncelleme: 1 Haziran 2026",
@@ -423,8 +446,16 @@ export const pageTranslations = {
           { year: "2026", title: "Offentlig lansering", description: "NativeWay åpner for verden — et premium, prinsipielt reiseøkosystem klart til å heve måten folk utforsker på." },
        ],
       },
-      team: { badge: "Teamet", heading: "Bygget av reisende, for reisende" },
-      cta: { heading: "Klar til å reise på den lokale måten?", sub: "Bli med på ventelisten og vær den første til å oppleve det.", button: "Få tidlig tilgang" },
+      team: {
+        badge: "Teamet",
+        heading: "Bygget av reisende, for reisende",
+        members: [
+          { role: "Medgründer og CEO", bio: "Seriegründer med lidenskap for reiseteknologi. Grunnla NativeWay slik at reisende kan finne opplevelser som faktisk er ekte." },
+          { role: "Medgründer og CTO", bio: "Programvarearkitekt og full-stack-utvikler. Bygger NativeWays tekniske fundament fra bunnen av." },
+          { role: "Produktsjef", bio: "Produktstrateg og UX-designer. Sørger for at hver funksjon gir reisende reell verdi." },
+        ],
+      },
+      cta: { heading: "Klar til å reise på den lokale måten?", sub: "Legg igjen e-posten din og bli den første til å laste ned ved lansering.", button: "Bli varslet" },
     },
     featuresPage: {
       hero: { badge: "Funksjoner", heading: "Alt bygget rundt din reise", sub: "Syv funksjoner. Én plattform. AI-planlegging, lokal oppdagelse, gruppekoordinering, destinasjonsguider, passorstempel, fellesskap og meldinger — alt koblet sammen." },
@@ -439,7 +470,7 @@ export const pageTranslations = {
         { category: "Meldinger", tagline: "Alle samtaler på ett sted", description: "NativeWays meldingslag betyr at du aldri trenger å forlate appen for å koordinere. Send direktemeldinger til lokale som hjalp deg med å planlegge, start gruppesamtaler med reisefølget ditt, og bruk turbaserte chatter knyttet direkte til din delte reiseplan.", items: [{ title: "Direktemeldinger", description: "Chat privat med lokale, medreisende eller hvem som helst i NativeWay-fellesskapet." }, { title: "Gruppesamtaler", description: "Opprett gruppechatter for reisefølget ditt for å planlegge, koordinere og holde kontakten." }, { title: "Turbaserte chatter", description: "Hver delt tur har sin egen samtalethread — hold all planleggingskommunikasjon i kontekst." }] },
      ],
       comingSoon: { badge: "Kommer snart", heading: "På veikartet", items: [{ title: "Lokale varsler", description: "Få varsler om midlertidige stenginger, nyåpninger og tidssensitive lokale tips." }, { title: "Svindeladvarsler", description: "Beboere merker turistsvindel og overprisede områder i sanntid." }, { title: "Kulturelle notater", description: "Etikette-tips og lokale skikker skrevet av beboere som har sett turister gjøre feil." }, { title: "Tureksport", description: "Eksporter lagrede steder og ruter som en utskrivbar PDF eller del med reisefølget ditt." }] },
-      cta: { heading: "Vil du være blant de første til å bruke disse funksjonene?", sub: "Tidlig tilgang-medlemmer får alt gratis i et helt år.", button: "Bli med på ventelisten" },
+      cta: { heading: "Vil du være blant de første til å bruke disse funksjonene?", sub: "Vi gir deg beskjed idet disse funksjonene lanseres.", button: "Bli varslet" },
     },
     howItWorksPage: {
       hero: { badge: "Slik fungerer det", heading: "Fra idé til opplevelse — hvert steg dekket", sub: "NativeWay støtter hele reisereisen: planlegging før du drar, oppdagelse mens du er der, samarbeid med gruppen, og kontakt med fellesskapet etterpå." },
@@ -452,7 +483,7 @@ export const pageTranslations = {
         { phase: "Etter turen", title: "Samle stempler og del historien din", description: "Hvert land du besøker gir et digitalt stempel i NativeWay-passet ditt. Gjennom Oransje, Marineblå og Gull-nivåer etter hvert som reisehistorien din vokser. Skriv en reiseblogg, samle prestasjonsmerker og del opplevelsen din med fellesskapet.", features: [{ label: "NativeWay Pass", note: "Digitale stempler for hvert besøkt land" }, { label: "Reiseblogger", note: "Rapporten din hjelper fremtidige reisende å planlegge bedre" }, { label: "Fellesskap", note: "Merker, profiler og en verden av reisehistorier" }], tip: "De mest leste reisebloggene nevner én ting ingen annen omtale nevner — den overraskende detaljen." },
      ],
       locals: { heading: "For lokale", steps: [{ number: "01", title: "Verifiser bostedet ditt", description: "Raskt og privat — vi bekrefter at du bor i byen uten å lagre sensitive dokumenter." }, { number: "02", title: "Fest favorittstedene dine", description: "Legg til steder du virkelig elsker — nabolagskafeen din, parken med best utsikt, markedsstanden som har vært der siden besteforeldres tid." }, { number: "03", title: "Skriv ærlige anmeldelser", description: "Si det som det er: beste rett, verste tidspunkt å besøke, hva turistbildene ikke viser." }, { number: "04", title: "Bygg en Native Route", description: "Koble favorittstedene dine til en dagstinerary. Legg til kontekst, historie og reisen mellom stopp." }] },
-      cta: { heading: "Klar til å prøve det selv?", sub: "Registrer deg for tidlig tilgang og vær blant de første til å utforske.", button: "Få tidlig tilgang" },
+      cta: { heading: "Klar til å prøve det selv?", sub: "Legg igjen e-posten din og vær blant de første til å utforske ved lansering.", button: "Bli varslet" },
     },
     valuesPage: {
       hero: { badge: "Våre verdier", heading: "Hva vi faktisk står for", sub: "Verdier er ikke en markedsføringsside — de er beslutningene vi tar når det koster oss noe. Her er det vi har forpliktet oss til, og hvorfor." },
@@ -466,7 +497,7 @@ export const pageTranslations = {
 
      ],
       commitment: { heading: "Dette er ikke ambisjoner — det er forpliktelser", p1: "Verdier betyr bare noe når de styrer ekte beslutninger. Vi bygger NativeWay med den reisendes tillit i sentrum — hver anbefaling er forankret i autentisitet, hver funksjon er designet med integritet, og dataene dine behandles med den respekten de fortjener.", p2: "Det er forskjellen mellom å snakke om verdier og å leve dem. Vi velger å leve dem — hver dag." },
-      cta: { heading: "Deler du våre verdier? Bli med oss.", sub: "Tidlig tilgang er åpen — og gratis det første året.", button: "Få tidlig tilgang" },
+      cta: { heading: "Deler du våre verdier? Bli med oss.", sub: "Legg igjen e-posten din — vi sier fra den dagen vi lanserer.", button: "Bli varslet" },
     },
     // Legal pages — awaiting Norwegian translation; displaying English
     privacyPage: {

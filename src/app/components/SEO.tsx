@@ -62,7 +62,9 @@ export function SEO({
   modifiedAt,
 }: SEOProps) {
   const { language } = useLanguage();
-  const fullTitle = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
+  // Pages may pass either a bare page name ("About") or a full title that
+  // already carries the brand — only append the brand when it is missing.
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} — ${SITE_NAME}`;
   const url = `${BASE_URL}${path}`;
   const currentLocale = LANG_META[language]?.locale ?? "en_US";
 

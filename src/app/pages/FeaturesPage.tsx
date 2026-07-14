@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle,
+  Sparkles, MapPin, Users, BookOpen, Award, Heart, MessageCircle,
   CalendarDays, Route, Star, Coffee, Vote, Globe, Shield,
   Pen, Bookmark, Bell, Download
 } from "lucide-react";
@@ -36,7 +36,7 @@ export function FeaturesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--nw-bg-alt)] to-[var(--nw-bg)]" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-64 bg-[#f07b22]/4 blur-3xl rounded-full" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
+          <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.hero.badge}</span>
           <h1
             className="text-5xl md:text-6xl text-[var(--nw-text)] leading-tight mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
@@ -171,7 +171,7 @@ export function FeaturesPage() {
       <section className="py-20 bg-[var(--nw-bg-surface)]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#f07b22] text-xs tracking-[0.2em] uppercase block mb-4">{p.comingSoon.badge}</span>
+            <span className="text-[var(--nw-accent-text)] text-xs tracking-[0.2em] uppercase block mb-4">{p.comingSoon.badge}</span>
             <h2 className="text-4xl text-[var(--nw-text)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
               {p.comingSoon.heading}
             </h2>
@@ -182,7 +182,7 @@ export function FeaturesPage() {
               return (
                 <div key={f.title} className="bg-[var(--nw-bg-card)] border border-[var(--nw-border)] border-dashed rounded-2xl p-7 opacity-75 hover:opacity-100 transition-opacity">
                   <div className="w-10 h-10 rounded-xl bg-[#f07b22]/10 flex items-center justify-center mb-5">
-                    <Icon size={18} className="text-[#f07b22]" />
+                    <Icon size={18} className="text-[var(--nw-accent-text)]" />
                   </div>
                   <h3 className="text-[var(--nw-text)] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.95rem" }}>
                     {f.title}

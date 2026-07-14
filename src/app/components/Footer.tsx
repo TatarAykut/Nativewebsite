@@ -25,7 +25,7 @@ export function Footer() {
                 <a
                   key={label}
                   href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[#f07b22] hover:border-[#f07b22]/30 transition-all duration-200"
+                  className="w-9 h-9 rounded-full border border-[var(--nw-border)] flex items-center justify-center text-[var(--nw-muted)] hover:text-[var(--nw-accent-text)] hover:border-[#f07b22]/30 transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>

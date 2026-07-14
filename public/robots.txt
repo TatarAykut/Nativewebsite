@@ -72,10 +72,12 @@ Crawl-delay: 2
 
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
 Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
 Crawl-delay: 1
 
 User-agent: DuckDuckBot
@@ -98,9 +100,10 @@ Crawl-delay: 2
 
 User-agent: *
 Allow: /
+Disallow: /admin
 Crawl-delay: 5
 
-# Disallow nothing — this is a public landing site, every page should be indexed
+# Only /admin is disallowed (private waitlist dashboard); every public page is indexable
 
 # ── Sitemap ────────────────────────────────────────────────────────
 
